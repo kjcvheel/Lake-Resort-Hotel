@@ -8,16 +8,20 @@ public class Room {
     private int number;
     private RoomType type;
     private List<Bed> beds;
+    private List<Facilities> facilities;
     private int adult;
     private int children;
     private boolean disabled;
     private boolean smoking;
+    private RoomStatus status;
 
     public Room(String id, int price, int number, RoomType type) {
         this.id = id;
         this.price = price;
         this.number = number;
         this.type = type;
+        this.status = RoomStatus.Available;
+
     }
 
     public String getId() {
@@ -33,6 +37,8 @@ public class Room {
     }
 
     public void setPrice(int price) {
+        if (price < 0)
+            return;
         this.price = price;
     }
 
@@ -41,7 +47,8 @@ public class Room {
     }
 
     public void setNumber(int number) {
-        this.number = number;
+        if (number > 0)
+            this.number = number;
     }
 
     public RoomType getType() {
@@ -60,12 +67,21 @@ public class Room {
         this.beds = beds;
     }
 
+    public List<Facilities> getFacilities() {
+        return facilities;
+    }
+
+    public void setFacilities(List<Facilities> facilities) {
+        this.facilities = facilities;
+    }
+
     public int getAdult() {
         return adult;
     }
 
     public void setAdult(int adult) {
-        this.adult = adult;
+        if (adult > 0)
+            this.adult = adult;
     }
 
     public int getChildren() {
@@ -73,6 +89,8 @@ public class Room {
     }
 
     public void setChildren(int children) {
+        if (children < 0)
+            return;
         this.children = children;
     }
 
@@ -90,5 +108,13 @@ public class Room {
 
     public void setSmoking(boolean smoking) {
         this.smoking = smoking;
+    }
+
+    public RoomStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(RoomStatus status) {
+        this.status = status;
     }
 }
