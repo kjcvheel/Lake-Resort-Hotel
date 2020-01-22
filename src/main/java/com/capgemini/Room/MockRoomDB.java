@@ -38,4 +38,32 @@ public class MockRoomDB {
     public void deleteRoom(int index) {
         rooms.remove(index);
     }
+
+    public List<Room> getRoomsUnder600(){
+        List<Room> cheapRooms = new ArrayList<>();
+        for (Room room : rooms){
+            if(room.getPrice()<=600)
+                cheapRooms.add(room);
+        }
+        return cheapRooms;
+    }
+
+    public List<Room> getSingleRoomsUnder600(){
+        List<Room> cheapSingleRooms = new ArrayList<>();
+        for (Room room : rooms){
+            if(room.getPrice()<=600)
+                if(room.getType()==RoomType.Single)
+                    cheapSingleRooms.add(room);
+        }
+        return cheapSingleRooms;
+    }
+
+    //findByStatusAndPriceLessThanEqual(RoomStatus status, int maxPrice)
+    //findByStatusAndPriceBetween(RoomStatus status, int minPrice, int maxPrice)
+    //findByStatusAndType(RoomStatus status, RoomType type)
+    //FindByStatusAndAdultAndChildren(RoomStatus status, int adult, int children)
+    //findByStatusAndDisabledTrue(RoomStatus status)
+    //findByStatusAndSmokingTrue(RoomStatus status)
+    //findByStatusAndSmokingFalse(RoomStatus status)
+
 }

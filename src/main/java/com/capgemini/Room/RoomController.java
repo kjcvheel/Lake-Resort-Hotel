@@ -23,4 +23,14 @@ public class RoomController {
     void addRoom(@PathVariable String id) {
         MockRoomDB.getInstance().addRoom(id);
     }
+
+    @RequestMapping("/under600")
+    List<Room> roomsUnder600() {
+        return MockRoomDB.getInstance().getRoomsUnder600();
+    }
+
+    @RequestMapping("/under600/Single")
+    List<Room> singleRoomsUnder600() {
+        return MockRoomDB.getInstance().getSingleRoomsUnder600();
+    }
 }
