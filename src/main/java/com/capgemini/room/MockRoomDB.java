@@ -50,7 +50,7 @@ public class MockRoomDB {
     public List<Room> getSingleRoomsUnder(int price){
         List<Room> cheapSingleRooms = new ArrayList<>();
         for (Room room : rooms){
-            if(room.getPrice()<=price && room.getType()==RoomType.Single)
+            if(room.getPrice()<=price && room.getType()==RoomType.SINGLE)
                 cheapSingleRooms.add(room);
         }
         return cheapSingleRooms;
