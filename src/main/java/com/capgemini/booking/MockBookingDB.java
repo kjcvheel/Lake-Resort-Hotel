@@ -37,8 +37,8 @@ public class MockBookingDB {
         return null;
     }
 
-    public void addBooking(int id){
-        bookings.add(new Booking(id, 356, LocalDate.now(), LocalDate.of(2020, 1, 28)));
+    public void addBooking(Booking booking){
+        bookings.add(booking);
     }
 
     public void deleteBooking(int index){bookings.remove(index);}

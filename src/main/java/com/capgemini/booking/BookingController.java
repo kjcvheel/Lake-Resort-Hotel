@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -12,6 +14,7 @@ import java.util.List;
 public class BookingController {
 
     public BookingController() {
+        //Initialize the booking controller
     }
 
     @GetMapping
@@ -26,7 +29,20 @@ public class BookingController {
 
     @GetMapping("/add/{id}")
     public void addBooking(@PathVariable int id) {
-        MockBookingDB.getInstance().addBooking(id);
+        Booking newBooking = createBooking(id);
+        addRoomsToBooking(newBooking);
+        MockBookingDB.getInstance().addBooking(newBooking);
+    }
+
+    private Booking createBooking(int id) {
+        return new Booking(id, 356, LocalDate.now(), LocalDate.of(2020, 1, 28));
+    }
+
+    private void addRoomsToBooking(Booking booking){
+        List<Integer> rooms = new ArrayList<>();
+        rooms.add(45);
+        rooms.add(200);
+        booking.setRoomNumbers(rooms);
     }
 
 
