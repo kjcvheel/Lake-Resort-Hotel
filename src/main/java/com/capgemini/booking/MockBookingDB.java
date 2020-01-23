@@ -37,6 +37,15 @@ public class MockBookingDB {
         return null;
     }
 
+    public Booking getBookingByGuestID(int id){
+        for(Booking booking: bookings){
+            if(booking.getGuestID() == id)
+                return booking;
+        }
+
+        return null;
+    }
+
     public void addBooking(Booking booking){
         bookings.add(booking);
     }

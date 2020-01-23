@@ -1,5 +1,7 @@
 package com.capgemini.booking;
 
+import com.capgemini.room.MockRoomDB;
+import com.capgemini.room.Room;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,9 +24,14 @@ public class BookingController {
         return MockBookingDB.getInstance().getBookings();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/booking{id}")
     public Booking getBookingByID(@PathVariable int id) {
         return MockBookingDB.getInstance().getBookingByID(id);
+    }
+
+    @GetMapping("/guest{id}")
+    public Booking getBookingByGuestID(@PathVariable int id) {
+        return MockBookingDB.getInstance().getBookingByGuestID(id);
     }
 
     @GetMapping("/add/{id}")
@@ -40,9 +47,20 @@ public class BookingController {
 
     private void addRoomsToBooking(Booking booking){
         List<Integer> rooms = new ArrayList<>();
-        rooms.add(45);
-        rooms.add(200);
+        if(doesRoomExist(102))
+            rooms.add(102);
+        if(doesRoomExist(200))
+            rooms.add(200);
         booking.setRoomNumbers(rooms);
+    }
+
+    private boolean doesRoomExist(int roomNumber){
+        for (Room room: MockRoomDB.getInstance().getRooms()) {
+            if (room.getNumber() == roomNumber)
+                return true;
+        }
+        return false;
+
     }
 
 
