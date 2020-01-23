@@ -1,4 +1,4 @@
-package com.capgemini.Room;
+package com.capgemini.room;
 
 import org.junit.Before;
 import org.junit.Test;

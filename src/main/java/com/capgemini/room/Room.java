@@ -1,4 +1,4 @@
-package com.capgemini.Room;
+package com.capgemini.room;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class Room {
         this.price = price;
         this.number = number;
         this.type = type;
-        this.status = RoomStatus.Available;
+        this.status = RoomStatus.AVAILABLE;
 
     }
 
