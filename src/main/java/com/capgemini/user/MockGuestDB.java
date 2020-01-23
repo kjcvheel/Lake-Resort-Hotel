@@ -30,6 +30,16 @@ public class MockGuestDB {
 		return guests;
 	}
 
+	public Guest getGuestById(String id) {
+		for (Guest guest:guests) {
+			if (guest.getGuestId().equals(id)) {
+				return guest;
+			}
+		}
+
+		return null;
+	}
+
 	public void addGuest(String id, String password) {
 		guests.add(new Guest(id, password));
 	}
