@@ -18,7 +18,6 @@ public class RoomControllerTest {
     @Test
     public void getRoomsTest() {
         List<Room> rooms = roomController.showRooms();
-        rooms.forEach(room -> System.out.println(room.getId()));
         assertEquals(numberOfRooms, rooms.size());
         assertEquals( "Suite 02", rooms.get(0).getId());
     }
@@ -30,7 +29,5 @@ public class RoomControllerTest {
         assertEquals("Klaas", rooms.get(4).getId());
         assertEquals(numberOfRooms+1, rooms.size());
 
-        // Remove the newly added room
-        // MockRoomDB.getInstance().deleteRoom(4);
     }
 }
