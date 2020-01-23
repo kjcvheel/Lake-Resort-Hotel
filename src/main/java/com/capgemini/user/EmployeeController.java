@@ -16,6 +16,11 @@ public class EmployeeController {
 		return MockEmployeeDB.getInstance().getEmployees();
 	}
 
+	@GetMapping("/{id}")
+	public Employee getEmployeeById(@PathVariable String id) {
+		return MockEmployeeDB.getInstance().getEmployeeById(id);
+	}
+
 	@GetMapping("/add/{id}/{password}")
 	public void addEmployee(@PathVariable String id, @PathVariable String password) {
 		MockEmployeeDB.getInstance().addEmployee(id, password);
