@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f2195b1b-2cbc-4aec-97d1-d852bff35b09" name="Default Changelist" comment="Refactored the package names to be all lower-case and refactored the enums: facilities, employee roles, and beds to contain all upper-case">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/capgemini/user/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/capgemini/user/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/capgemini/user/GuestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/capgemini/user/GuestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/capgemini/user/MockEmployeeDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/capgemini/user/MockEmployeeDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/capgemini/user/MockGuestDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/capgemini/user/MockGuestDB.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="97" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Arquillian JUnit Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1Wf7Scm4RW7tPuHJcosyXAJp5Xa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.capgemini.User" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.capgemini" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Application">
+    <configuration name="Application" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.capgemini.Application" />
+      <module name="HotelProject" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeTest.EmployeeRoleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HotelProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.capgemini.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.capgemini.user" />
+      <option name="MAIN_CLASS_NAME" value="com.capgemini.user.EmployeeTest" />
+      <option name="METHOD_NAME" value="EmployeeRoleTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserTest.cityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HotelProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.capgemini.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.capgemini.user" />
+      <option name="MAIN_CLASS_NAME" value="com.capgemini.user.UserTest" />
+      <option name="METHOD_NAME" value="cityTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserTest.zipcodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HotelProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.capgemini.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.capgemini.user" />
+      <option name="MAIN_CLASS_NAME" value="com.capgemini.user.UserTest" />
+      <option name="METHOD_NAME" value="zipcodeTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.capgemini in HotelProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HotelProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.capgemini.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.capgemini" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.capgemini.user in HotelProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HotelProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.capgemini.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.capgemini.user" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Application" />
+      <item itemvalue="JUnit.UserTest.cityTest" />
+      <item itemvalue="JUnit.UserTest.zipcodeTest" />
+      <item itemvalue="JUnit.com.capgemini in HotelProject" />
+      <item itemvalue="JUnit.EmployeeTest.EmployeeRoleTest" />
+      <item itemvalue="JUnit.com.capgemini.user in HotelProject" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.com.capgemini.user in HotelProject" />
+        <item itemvalue="JUnit.EmployeeTest.EmployeeRoleTest" />
+        <item itemvalue="JUnit.com.capgemini in HotelProject" />
+        <item itemvalue="JUnit.UserTest.zipcodeTest" />
+        <item itemvalue="JUnit.UserTest.cityTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f2195b1b-2cbc-4aec-97d1-d852bff35b09" name="Default Changelist" comment="" />
+      <created>1579528795951</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1579528795951</updated>
+      <workItem from="1579680736607" duration="630000" />
+      <workItem from="1579681375572" duration="8454000" />
+      <workItem from="1579701043504" duration="4934000" />
+      <workItem from="1579767111667" duration="2458000" />
+      <workItem from="1579772983252" duration="3589000" />
+    </task>
+    <task id="LOCAL-00001" summary="Created Rooms and the test folder to create Unit tests">
+      <created>1579688865129</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1579688865129</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added Models for User, Guest, and Employee. Created Unit tests for User">
+      <created>1579767614490</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1579767614490</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Created unit tests for Guest and Employee">
+      <created>1579768836131</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1579768836131</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Refactored the package names to be all lower-case and refactored the enums: facilities, employee roles, and beds to contain all upper-case">
+      <created>1579773682018</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1579773682018</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added controllers for guest and employee. And added mock databases for both.">
+      <created>1579775297502</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1579775297502</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Created Rooms and the test folder to create Unit tests" />
+    <MESSAGE value="Refactored Beds from a list of bed objects to a list of enums and added list of facilities to Room" />
+    <MESSAGE value="Added Models for User, Guest, and Employee. Created Unit tests for User" />
+    <MESSAGE value="Created unit tests for Guest and Employee" />
+    <MESSAGE value="Refactored the package names to be all lower-case and refactored the enums: facilities, employee roles, and beds to contain all upper-case" />
+    <MESSAGE value="Added controllers for guest and employee. And added mock databases for both." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added controllers for guest and employee. And added mock databases for both." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="233" y="0" key="#Inspections" timestamp="1579688539944">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="0" key="#Inspections/0.0.1280.680@0.0.1280.680" timestamp="1579688539944" />
+    <state x="233" y="0" key="#Project_Structure" timestamp="1579528805791">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="0" key="#Project_Structure/0.0.1280.680@0.0.1280.680" timestamp="1579528805791" />
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579774621366">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1579774621366" />
+    <state x="93" y="93" width="1095" height="495" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1579681243818">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="93" y="93" width="1095" height="495" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1280.680@0.0.1280.680" timestamp="1579681243818" />
+    <state x="446" y="26" key="#com.intellij.ide.util.MemberChooser" timestamp="1579701801262">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="446" y="26" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1579701801262" />
+    <state x="371" y="122" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1579688724764">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="371" y="122" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1579688724764" />
+    <state x="371" y="125" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1579617658092">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="371" y="125" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1579617658092" />
+    <state x="438" y="201" width="404" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1579688726083">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="438" y="201" width="404" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.680@0.0.1280.680" timestamp="1579688726083" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1579768164727">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.680@0.0.1280.680" timestamp="1579768164727" />
+    <state x="371" y="89" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579697949052">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="371" y="89" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1579697949052" />
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1579776717860">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1579776717860" />
+    <state width="618" height="124" key="GridCell.Tab.0.bottom" timestamp="1579776717914">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="618" height="124" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579776717914" />
+    <state width="618" height="124" key="GridCell.Tab.0.center" timestamp="1579776717914">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="618" height="124" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1579776717914" />
+    <state width="618" height="124" key="GridCell.Tab.0.left" timestamp="1579776717914">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="618" height="124" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1579776717914" />
+    <state width="618" height="124" key="GridCell.Tab.0.right" timestamp="1579776717914">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="618" height="124" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1579776717914" />
+    <state width="618" height="204" key="GridCell.Tab.1.bottom" timestamp="1579706776743">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="618" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1579706776743" />
+    <state width="618" height="204" key="GridCell.Tab.1.center" timestamp="1579706776743">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="618" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1579706776743" />
+    <state width="618" height="204" key="GridCell.Tab.1.left" timestamp="1579706776743">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="618" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1579706776743" />
+    <state width="618" height="204" key="GridCell.Tab.1.right" timestamp="1579706776743">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="618" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1579706776743" />
+    <state x="419" y="53" key="RollbackChangesDialog" timestamp="1579773931731">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="419" y="53" key="RollbackChangesDialog/0.0.1280.680@0.0.1280.680" timestamp="1579773931731" />
+    <state x="121" y="0" key="SettingsEditor" timestamp="1579772937383">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1579772937383" />
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2" timestamp="1579775325860">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="75" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1579775325860" />
+    <state x="412" y="45" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1579701911554">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="412" y="45" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1280.680@0.0.1280.680" timestamp="1579701911554" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1579774400045">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1579774400045" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/HotelProject$RoomTest.ic" NAME="RoomTest Coverage Results" MODIFIED="1579681440665" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.capgemini.Room.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/HotelProject$com_capgemini_User_in_HotelProject.ic" NAME="com.capgemini.User in HotelProject Coverage Results" MODIFIED="1579768784846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.capgemini.User.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/HotelProject$RoomControllerTest.ic" NAME="RoomControllerTest Coverage Results" MODIFIED="1579620429234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.capgemini.Room.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/HotelProject$com_capgemini_Room_in_HotelProject.ic" NAME="com.capgemini.Room in HotelProject Coverage Results" MODIFIED="1579691444052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.capgemini.Room.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/HotelProject$All_in_HotelProject.ic" NAME="All in HotelProject Coverage Results" MODIFIED="1579698179886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/HotelProject$RoomControllerTest_getRoomsTest.ic" NAME="RoomControllerTest.getRoomsTest Coverage Results" MODIFIED="1579619691638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.capgemini.Room.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/HotelProject$BedTest.ic" NAME="BedTest Coverage Results" MODIFIED="1579680956191" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.capgemini.Room.*</FILTER>
+    </SUITE>
+  </component>
+</project>
