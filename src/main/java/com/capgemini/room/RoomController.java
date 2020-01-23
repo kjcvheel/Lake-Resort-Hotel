@@ -1,9 +1,7 @@
 package com.capgemini.room;
 
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -12,25 +10,26 @@ import java.util.List;
 public class RoomController {
 
     public RoomController() {
+        // Initialize RoomController
     }
 
-    @RequestMapping
-    List<Room> showRooms() {
+    @GetMapping
+    public List<Room> showRooms() {
         return MockRoomDB.getInstance().getRooms();
     }
 
-    @RequestMapping("/add/{id}")
-    void addRoom(@PathVariable String id) {
+    @GetMapping("/add/{id}")
+    public void addRoom(@PathVariable String id) {
         MockRoomDB.getInstance().addRoom(id);
     }
 
-    @RequestMapping("/under{id}")
-    List<Room> roomsUnder(@PathVariable int id) {
+    @GetMapping("/under{id}")
+    public List<Room> roomsUnder(@PathVariable int id) {
         return MockRoomDB.getInstance().getRoomsUnder(id);
     }
 
-    @RequestMapping("/under{id}/Single")
-    List<Room> singleRoomsUnder(@PathVariable int id) {
+    @GetMapping("/under{id}/Single")
+    public List<Room> singleRoomsUnder(@PathVariable int id) {
         return MockRoomDB.getInstance().getSingleRoomsUnder(id);
     }
 }

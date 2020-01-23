@@ -12,17 +12,18 @@ import static org.junit.Assert.assertEquals;
 
 public class EmployeeTest {
 	Employee employee;
+	String testPW = "hashcode";
 
 	@Rule
 	public final ExpectedException exception = 	ExpectedException.none();
 
 	@Before
-	public void CreateEmployee() {
-		employee = new Employee("E004", "hashcode", EmployeeRole.RECEPTIONIST, "Jeff", "Bouwmeester",  new GregorianCalendar(1980, Calendar.JULY, 12).getTime(), "Netherlands", "Zeewolde", "Villawal 1", "1234 ab", "030-123-5498", "+316-14325768", "");
+	public void createEmployee() {
+		employee = new Employee("E004", testPW, EmployeeRole.RECEPTIONIST, "Jeff", "Bouwmeester",  new GregorianCalendar(1980, Calendar.JULY, 12).getTime(), "Netherlands", "Zeewolde", "Villawal 1", "1234 ab", "030-123-5498", "+316-14325768", "");
 	}
 
 	@Test
-	public void PhotoTest() {
+	public void photoTest() {
 		assertEquals("", employee.getPhoto());
 
 		employee.setPhoto("test");
@@ -33,7 +34,7 @@ public class EmployeeTest {
 	}
 
 	@Test
-	public void EmployeeIdTest() {
+	public void employeeIdTest() {
 		assertEquals("E004", employee.getEmployeeId());
 
 		employee.setEmployeeId("E008");
@@ -44,7 +45,7 @@ public class EmployeeTest {
 	}
 
 	@Test
-	public void EmployeeRoleTest() {
+	public void employeeRoleTest() {
 		assertEquals(EmployeeRole.RECEPTIONIST, employee.getRole());
 
 		employee.setRole(EmployeeRole.CHEF);
@@ -58,10 +59,10 @@ public class EmployeeTest {
 
 	@Test
 	public void smallConstructorTest() {
-		Employee employee2 = new Employee("E005", "hashcode", EmployeeRole.GENERAL_MANAGER);
+		Employee employee2 = new Employee("E005", testPW, EmployeeRole.GENERAL_MANAGER);
 
 		assertEquals("E005", employee2.getEmployeeId());
-		assertEquals("hashcode", employee2.getPassword());
+		assertEquals(testPW, employee2.getPassword());
 		assertEquals(EmployeeRole.GENERAL_MANAGER, employee2.getRole());
 	}
 }

@@ -12,12 +12,12 @@ public class RoomTest {
 	Room room;
 
 	@Before
-	public void Before() {
+	public void before() {
 		room = new Room("Suite 02", 400, 101, RoomType.SINGLE);
 	}
 
 	@Test
-	public void CreateRoomTest() {
+	public void createRoomTest() {
 		// Happy Path
 		room = new Room("Suite 01", 400, 101, RoomType.SINGLE);
 		assertEquals("Suite 01", room.getId());
@@ -29,7 +29,7 @@ public class RoomTest {
 	}
 
 	@Test
-	public void RoomTypesTest() {
+	public void roomTypesTest() {
 		// Single
 		assertEquals(RoomType.SINGLE, room.getType());
 
@@ -47,7 +47,7 @@ public class RoomTest {
 	}
 
 	@Test
-	public void RoomStatusTest() {
+	public void roomStatusTest() {
 		// Available
 		assertEquals(RoomStatus.AVAILABLE, room.getStatus());
 
@@ -61,7 +61,7 @@ public class RoomTest {
 	}
 
 	@Test
-	public void RoomIdTest() {
+	public void roomIdTest() {
 		room.setId("Suite 99");
 		assertEquals("Suite 99", room.getId());
 
@@ -73,7 +73,7 @@ public class RoomTest {
 	}
 
 	@Test
-	public void RoomBedsTest() {
+	public void roomBedsTest() {
 		List<Bed> beds = new ArrayList<>();
 		beds.add(Bed.SINGLE);
 
@@ -98,7 +98,7 @@ public class RoomTest {
 	}
 
 	@Test
-	public void RoomGettersAndSettersTest(){
+	public void roomGettersAndSettersTest(){
 		// Price
 		room.setPrice(5000);
 		assertEquals(5000, room.getPrice());
@@ -153,5 +153,12 @@ public class RoomTest {
 
 		room.setSmoking(false);
 		assertFalse(room.isSmoking());
+
+		// Facilities
+		List<Facilities> facilities = new ArrayList<>();
+		facilities.add(Facilities.AIRCO);
+		facilities.add(Facilities.MINIBAR);
+		room.setFacilities(facilities);
+		assertEquals(facilities, room.getFacilities());
 	}
 }
