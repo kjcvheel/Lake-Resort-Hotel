@@ -18,7 +18,7 @@ public class UserTest {
 	public final ExpectedException exception = 	ExpectedException.none();
 
 	@Before
-	public void CreateUser() {
+	public void createUser() {
 		user = new Employee("E004", "hashcode", EmployeeRole.RECEPTIONIST, "Jeff", "Bouwmeester",  new GregorianCalendar(1980, Calendar.JULY, 12).getTime(), "Netherlands", "Zeewolde", "Villawal 1", "1234 ab", "030-123-5498", "+316-14325768", "");
 	}
 
@@ -72,8 +72,8 @@ public class UserTest {
 		user.setCity("Utrecht");
 		assertEquals("Utrecht", user.getCity());
 
-		user.setCity("@55433532");
-		assertEquals("@55433532", user.getCity());
+		user.setCity("@55433512");
+		assertEquals("@55433512", user.getCity());
 	}
 
 	@Test
@@ -83,8 +83,8 @@ public class UserTest {
 		user.setAddress("Mookpad 1");
 		assertEquals("Mookpad 1", user.getAddress());
 
-		user.setAddress("@55433532");
-		assertEquals("@55433532", user.getAddress());
+		user.setAddress("@55433533");
+		assertEquals("@55433533", user.getAddress());
 	}
 
 	@Test
@@ -94,8 +94,8 @@ public class UserTest {
 		user.setZipcode("4567 bv");
 		assertEquals("4567 bv", user.getZipcode());
 
-		user.setZipcode("@55433532");
-		assertEquals("@55433532", user.getZipcode());
+		user.setZipcode("@55433542");
+		assertEquals("@55433542", user.getZipcode());
 	}
 
 	@Test
