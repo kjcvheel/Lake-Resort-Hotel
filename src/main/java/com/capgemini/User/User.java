@@ -16,7 +16,7 @@ public  abstract class User {
 	private String password;
 
 	public User(String password) {
-
+		this.password = password;
 	}
 
 	public User(String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, String password) {

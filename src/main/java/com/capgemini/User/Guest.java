@@ -3,7 +3,7 @@ package com.capgemini.User;
 import java.util.Date;
 
 public class Guest extends User {
-	private int creditCard;
+	private int creditcard;
 	private String guestId; // Could also be an int.
 
 	public Guest(String guestId, String password) {
@@ -11,18 +11,18 @@ public class Guest extends User {
 		this.guestId = guestId;
 	}
 
-	public Guest(String guestId,  String password, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, int creditCard) {
+	public Guest(String guestId,  String password, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, int creditcard) {
 		super(firstName, lastName, birthday, country, city, address, zipcode, phoneNumber, mobileNumber, password);
-		this.creditCard = creditCard;
+		this.creditcard = creditcard;
 		this.guestId = guestId;
 	}
 
-	public int getCreditCard() {
-		return creditCard;
+	public int getCreditcard() {
+		return creditcard;
 	}
 
-	public void setCreditCard(int creditCard) {
-		this.creditCard = creditCard;
+	public void setCreditcard(int creditcard) {
+		this.creditcard = creditcard;
 	}
 
 	public String getGuestId() {
