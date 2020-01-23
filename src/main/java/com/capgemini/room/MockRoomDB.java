@@ -22,6 +22,7 @@ public class MockRoomDB {
     private void fillRoomTable() {
         rooms.add(new Room("Suite 02", 400, 102, RoomType.DOUBLE));
         rooms.add(new Room("Suite 34", 600, 134, RoomType.SINGLE));
+        rooms.add(new Room("Suite 87", 700, 222, RoomType.SINGLE));
         rooms.add(new Room("Suite 127", 550, 227, RoomType.DOUBLEX_2));
         rooms.add(new Room("Penthouse 1", 6000, 358, RoomType.PENTHOUSE));
     }
@@ -31,7 +32,7 @@ public class MockRoomDB {
     }
 
     public void addRoom(String id) {
-        rooms.add(new Room(id, 500, 102, RoomType.SINGLE));
+        rooms.add(new Room(id, 9999999, 102, RoomType.SINGLE));
     }
 
     public void deleteRoom(int index) {
