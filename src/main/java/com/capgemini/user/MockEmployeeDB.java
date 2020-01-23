@@ -30,6 +30,15 @@ public class MockEmployeeDB {
 		return employees;
 	}
 
+	public Employee getEmployeeById(String id) {
+		for (Employee e:employees) {
+			if (e.getEmployeeId().equals(id)){
+				return e;
+			}
+		}
+		return null;
+	}
+
 	public void addEmployee(String id, String password) {
 		employees.add(new Employee(id, password, EmployeeRole.RECEPTIONIST));
 	}

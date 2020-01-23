@@ -15,8 +15,13 @@ public class GuestController {
 		return MockGuestDB.getInstance().getGuests();
 	}
 
-	@GetMapping("/guests/add/{id}")
+	@GetMapping("/add/{id}")
 	public void addGuest(@PathVariable String id) {
 		MockGuestDB.getInstance().addGuest(id, "qwertyy");
+	}
+
+	@GetMapping("/{id}")
+	public Guest getGuestById(@PathVariable String id) {
+		return MockGuestDB.getInstance().getGuestById(id);
 	}
 }
