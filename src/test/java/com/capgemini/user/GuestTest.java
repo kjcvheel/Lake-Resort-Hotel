@@ -1,4 +1,4 @@
-package com.capgemini.User;
+package com.capgemini.user;
 
 import org.junit.Before;
 import org.junit.Rule;

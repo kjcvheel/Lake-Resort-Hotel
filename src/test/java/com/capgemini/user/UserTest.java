@@ -1,4 +1,4 @@
-package com.capgemini.User;
+package com.capgemini.user;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -19,7 +19,7 @@ public class UserTest {
 
 	@Before
 	public void CreateUser() {
-		user = new Employee("E004", "hashcode", EmployeeRole.Receptionist, "Jeff", "Bouwmeester",  new GregorianCalendar(1980, Calendar.JULY, 12).getTime(), "Netherlands", "Zeewolde", "Villawal 1", "1234 ab", "030-123-5498", "+316-14325768", "");
+		user = new Employee("E004", "hashcode", EmployeeRole.RECEPTIONIST, "Jeff", "Bouwmeester",  new GregorianCalendar(1980, Calendar.JULY, 12).getTime(), "Netherlands", "Zeewolde", "Villawal 1", "1234 ab", "030-123-5498", "+316-14325768", "");
 	}
 
 	@Test

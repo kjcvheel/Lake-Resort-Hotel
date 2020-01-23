@@ -1,4 +1,4 @@
-package com.capgemini.Room;
+package com.capgemini.room;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,17 +13,17 @@ public class RoomTest {
 
 	@Before
 	public void Before() {
-		room = new Room("Suite 02", 400, 101, RoomType.Single);
+		room = new Room("Suite 02", 400, 101, RoomType.SINGLE);
 	}
 
 	@Test
 	public void CreateRoomTest() {
 		// Happy Path
-		room = new Room("Suite 01", 400, 101, RoomType.Single);
+		room = new Room("Suite 01", 400, 101, RoomType.SINGLE);
 		assertEquals("Suite 01", room.getId());
 		assertEquals(400, room.getPrice());
 		assertEquals(101, room.getNumber());
-		assertEquals(RoomType.Single, room.getType());
+		assertEquals(RoomType.SINGLE, room.getType());
 
 		// TODO: Unhappy Path
 	}
@@ -31,33 +31,33 @@ public class RoomTest {
 	@Test
 	public void RoomTypesTest() {
 		// Single
-		assertEquals(RoomType.Single, room.getType());
+		assertEquals(RoomType.SINGLE, room.getType());
 
 		// Double
-		room.setType(RoomType.Double);
-		assertEquals(RoomType.Double, room.getType());
+		room.setType(RoomType.DOUBLE);
+		assertEquals(RoomType.DOUBLE, room.getType());
 
 		// Doublex2
-		room.setType(RoomType.Doublex2);
-		assertEquals(RoomType.Doublex2, room.getType());
+		room.setType(RoomType.DOUBLEX_2);
+		assertEquals(RoomType.DOUBLEX_2, room.getType());
 
 		// Penthouse
-		room.setType(RoomType.Penthouse);
-		assertEquals(RoomType.Penthouse, room.getType());
+		room.setType(RoomType.PENTHOUSE);
+		assertEquals(RoomType.PENTHOUSE, room.getType());
 	}
 
 	@Test
 	public void RoomStatusTest() {
 		// Available
-		assertEquals(RoomStatus.Available, room.getStatus());
+		assertEquals(RoomStatus.AVAILABLE, room.getStatus());
 
 		// Unavailable
-		room.setStatus(RoomStatus.Unavailable);
-		assertEquals(RoomStatus.Unavailable, room.getStatus());
+		room.setStatus(RoomStatus.UNAVAILABLE);
+		assertEquals(RoomStatus.UNAVAILABLE, room.getStatus());
 
 		// InCleaning
-		room.setStatus(RoomStatus.InCleaning);
-		assertEquals(RoomStatus.InCleaning, room.getStatus());
+		room.setStatus(RoomStatus.IN_CLEANING);
+		assertEquals(RoomStatus.IN_CLEANING, room.getStatus());
 	}
 
 	@Test
@@ -75,18 +75,18 @@ public class RoomTest {
 	@Test
 	public void RoomBedsTest() {
 		List<Bed> beds = new ArrayList<>();
-		beds.add(Bed.Single);
+		beds.add(Bed.SINGLE);
 
 		room.setBeds(beds);
 		assertEquals(beds, room.getBeds());
 		assertEquals(1, room.getBeds().size());
 
-		beds.add(Bed.Single);
+		beds.add(Bed.SINGLE);
 		room.setBeds(beds);
 		assertEquals(beds, room.getBeds());
 		assertEquals(2, room.getBeds().size());
 
-		beds.add(Bed.Double);
+		beds.add(Bed.DOUBLE);
 		room.setBeds(beds);
 		assertEquals(beds, room.getBeds());
 		assertEquals(3, room.getBeds().size());

@@ -1,7 +1,6 @@
-package com.capgemini.User;
+package com.capgemini.user;
 
 import java.util.Date;
-import java.util.IllegalFormatException;
 
 public  abstract class User {
 	private String firstName;

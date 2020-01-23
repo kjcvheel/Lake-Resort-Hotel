@@ -1,4 +1,4 @@
-package com.capgemini.Room;
+package com.capgemini.room;
 
 
 import org.springframework.web.bind.annotation.PathVariable;

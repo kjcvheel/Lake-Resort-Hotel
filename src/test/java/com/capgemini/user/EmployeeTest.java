@@ -1,4 +1,4 @@
-package com.capgemini.User;
+package com.capgemini.user;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -18,7 +18,7 @@ public class EmployeeTest {
 
 	@Before
 	public void CreateEmployee() {
-		employee = new Employee("E004", "hashcode", EmployeeRole.Receptionist, "Jeff", "Bouwmeester",  new GregorianCalendar(1980, Calendar.JULY, 12).getTime(), "Netherlands", "Zeewolde", "Villawal 1", "1234 ab", "030-123-5498", "+316-14325768", "");
+		employee = new Employee("E004", "hashcode", EmployeeRole.RECEPTIONIST, "Jeff", "Bouwmeester",  new GregorianCalendar(1980, Calendar.JULY, 12).getTime(), "Netherlands", "Zeewolde", "Villawal 1", "1234 ab", "030-123-5498", "+316-14325768", "");
 	}
 
 	@Test
@@ -45,23 +45,23 @@ public class EmployeeTest {
 
 	@Test
 	public void EmployeeRoleTest() {
-		assertEquals(EmployeeRole.Receptionist, employee.getRole());
+		assertEquals(EmployeeRole.RECEPTIONIST, employee.getRole());
 
-		employee.setRole(EmployeeRole.Chef);
-		assertEquals(EmployeeRole.Chef, employee.getRole());
+		employee.setRole(EmployeeRole.CHEF);
+		assertEquals(EmployeeRole.CHEF, employee.getRole());
 
-		employee.setRole(EmployeeRole.GeneralManager);
-		assertEquals(EmployeeRole.GeneralManager, employee.getRole());
+		employee.setRole(EmployeeRole.GENERAL_MANAGER);
+		assertEquals(EmployeeRole.GENERAL_MANAGER, employee.getRole());
 
 		assertEquals(3, EmployeeRole.values().length);
 	}
 
 	@Test
 	public void smallConstructorTest() {
-		Employee employee2 = new Employee("E005", "hashcode", EmployeeRole.GeneralManager);
+		Employee employee2 = new Employee("E005", "hashcode", EmployeeRole.GENERAL_MANAGER);
 
 		assertEquals("E005", employee2.getEmployeeId());
 		assertEquals("hashcode", employee2.getPassword());
-		assertEquals(EmployeeRole.GeneralManager, employee2.getRole());
+		assertEquals(EmployeeRole.GENERAL_MANAGER, employee2.getRole());
 	}
 }
