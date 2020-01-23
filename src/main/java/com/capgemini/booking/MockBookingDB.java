@@ -50,7 +50,7 @@ public class MockBookingDB {
         bookings.add(booking);
     }
 
-    public void deleteBooking(int index){bookings.remove(index);}
+    public void deleteBooking(Booking booking){bookings.remove(booking);}
 
 
 

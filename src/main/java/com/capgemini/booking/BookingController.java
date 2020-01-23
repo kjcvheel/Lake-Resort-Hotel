@@ -41,6 +41,12 @@ public class BookingController {
         MockBookingDB.getInstance().addBooking(newBooking);
     }
 
+    @GetMapping("/delete/{id}")
+    public void deleteBooking(@PathVariable int id) {
+        Booking booking = getBookingByID(id);
+        MockBookingDB.getInstance().deleteBooking(booking);
+    }
+
     private Booking createBooking(int id) {
         return new Booking(id, 356, LocalDate.now(), LocalDate.of(2020, 1, 28));
     }
