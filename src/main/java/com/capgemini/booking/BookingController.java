@@ -37,8 +37,13 @@ public class BookingController {
     @GetMapping("/add/{id}")
     public void addBooking(@PathVariable int id) {
         Booking newBooking = createBooking(id);
-        addRoomsToBooking(newBooking);
-        MockBookingDB.getInstance().addBooking(newBooking);
+        if(newBooking != null) {
+            addRoomsToBooking(newBooking);
+            MockBookingDB.getInstance().addBooking(newBooking);
+        }
+        else{
+            throw new NullPointerException();
+        }
     }
 
     @GetMapping("/delete/{id}")
@@ -48,7 +53,18 @@ public class BookingController {
     }
 
     private Booking createBooking(int id) {
-        return new Booking(id, 356, LocalDate.now(), LocalDate.of(2020, 1, 28));
+        if(!doesBookingExist(id))
+            return new Booking(id, 356, LocalDate.now(), LocalDate.of(2020, 1, 28));
+
+        return null;
+    }
+
+    private boolean doesBookingExist(int id){
+        for (Booking booking: MockBookingDB.getInstance().getBookings()) {
+            if (booking.getId() == id)
+                return true;
+        }
+        return false;
     }
 
     private void addRoomsToBooking(Booking booking){
