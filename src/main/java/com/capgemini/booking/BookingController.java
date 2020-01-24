@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Bookings")
+@RequestMapping(value = {"/bookings", "/Bookings"})
 public class BookingController {
 
     public BookingController() {
@@ -35,21 +35,30 @@ public class BookingController {
     }
 
     @GetMapping("/add/{id}")
-    public void addBooking(@PathVariable int id) {
+    public String addBooking(@PathVariable int id) {
         Booking newBooking = createBooking(id);
         if(newBooking != null) {
             addRoomsToBooking(newBooking);
             MockBookingDB.getInstance().addBooking(newBooking);
+            return ("Booking has been added, your booking ID is " + id);
         }
         else{
-            throw new NullPointerException();
+            return "Booking already exists, nothing was added";
+            //throw new NullPointerException();
+
         }
     }
 
     @GetMapping("/delete/{id}")
-    public void deleteBooking(@PathVariable int id) {
+    public String deleteBooking(@PathVariable int id) {
         Booking booking = getBookingByID(id);
-        MockBookingDB.getInstance().deleteBooking(booking);
+        if(booking != null) {
+            MockBookingDB.getInstance().deleteBooking(booking);
+            return "Booking with ID " + id + " has been deleted";
+        }
+        else {
+            return "Booking does not exist, nothing was deleted";
+        }
     }
 
     private Booking createBooking(int id) {
