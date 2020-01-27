@@ -7,6 +7,8 @@ public class Employee extends User {
 	private String employeeId; // or int
 	private EmployeeRole role;
 
+	public Employee(){}
+
 	public Employee(String employeeId, String password, EmployeeRole role) {
 		super(password);
 		this.employeeId = employeeId;

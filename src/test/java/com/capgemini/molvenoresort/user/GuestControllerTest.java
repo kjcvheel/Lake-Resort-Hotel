@@ -29,17 +29,18 @@ public class GuestControllerTest {
 
 	@Test
 	public void getGuestsByIdTest() {
-		Guest guest = guestController.getGuestById("G001");
+		Guest guest = guestController.getGuestById("G001").getBody();
 		assertEquals("G001", guest.getGuestId());
 
-		guest = guestController.getGuestById("fsdgs");
+		guest = guestController.getGuestById("fsdgs").getBody();
 		assertNull(guest);
 	}
 
 	@Test
-	public void addEmployeeTest() {
+	public void addGuestTest() {
 		int beforeSize = guestController.getGuests().size();
-		guestController.addGuest("G071");
+		Guest guest = new Guest("G071","Test234");
+		guestController.addGuest(guest);
 		List<Guest> guests = guestController.getGuests();
 		assertEquals(beforeSize+1, guests.size());
 		assertEquals("G071", guests.get(beforeSize).getGuestId());

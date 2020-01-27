@@ -1,5 +1,7 @@
 package com.capgemini.molvenoresort.user;
 
+import org.springframework.http.ResponseEntity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,17 +32,17 @@ public class MockGuestDB {
 		return guests;
 	}
 
-	public Guest getGuestById(String id) {
+	public ResponseEntity<Guest> getGuestById(String id) {
 		for (Guest guest:guests) {
 			if (guest.getGuestId().equals(id)) {
-				return guest;
+				return ResponseEntity.ok(guest);
 			}
 		}
 
-		return null;
+		return ResponseEntity.notFound().build();
 	}
 
-	public void addGuest(String id, String password) {
-		guests.add(new Guest(id, password));
+	public void addGuest(Guest guest) {
+		guests.add(guest);
 	}
 }

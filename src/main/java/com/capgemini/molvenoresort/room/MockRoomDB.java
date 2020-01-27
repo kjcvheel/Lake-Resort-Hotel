@@ -31,8 +31,8 @@ public class MockRoomDB {
         return rooms;
     }
 
-    public void addRoom(String id) {
-        rooms.add(new Room(id, 9999999, 102, RoomType.SINGLE));
+    public void addRoom(Room room) {
+        rooms.add(room);
     }
 
     public void deleteRoom(int index) {

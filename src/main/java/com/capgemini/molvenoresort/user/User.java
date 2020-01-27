@@ -14,6 +14,7 @@ public  abstract class User {
 	private String mobileNumber;
 	private String password;
 
+	public User(){}
 	public User(String password) {
 		this.password = password;
 	}

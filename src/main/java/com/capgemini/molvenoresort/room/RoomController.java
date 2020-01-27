@@ -18,9 +18,10 @@ public class RoomController {
         return MockRoomDB.getInstance().getRooms();
     }
 
-    @GetMapping("/add/{id}")
-    public void addRoom(@PathVariable String id) {
-        MockRoomDB.getInstance().addRoom(id);
+    @PostMapping("/add")
+    public String addRoom(@RequestBody Room room) {
+       MockRoomDB.getInstance().addRoom(room);
+       return ("Room has been added, your room ID is " + room.getId());
     }
 
     @GetMapping("/under{id}")

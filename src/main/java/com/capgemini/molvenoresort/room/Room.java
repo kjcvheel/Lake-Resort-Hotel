@@ -15,6 +15,8 @@ public class Room {
     private boolean smoking;
     private RoomStatus status;
 
+    public Room(){}
+
     public Room(String id, int price, int number, RoomType type) {
         this.id = id;
         this.price = price;

@@ -29,17 +29,18 @@ public class EmployeeControllerTest {
 
 	@Test
 	public void getEmployeeByIdTest() {
-		Employee employee = employeeController.getEmployeeById("E001");
+		Employee employee = employeeController.getEmployeeById("E001").getBody();
 		assertEquals("E001", employee.getEmployeeId());
 
-		employee = employeeController.getEmployeeById("dfas");
+		employee = employeeController.getEmployeeById("dfas").getBody();
 		assertNull(employee);
 	}
 
 	@Test
 	public void addEmployeeTest() {
 		int beforeSize = employeeController.getEmployees().size();
-		employeeController.addEmployee("E005", "hijo");
+		Employee employee = new Employee("E005", "hijo", EmployeeRole.GENERAL_MANAGER);
+		employeeController.addEmployee(employee);
 		List<Employee> employees = employeeController.getEmployees();
 		assertEquals((int)(beforeSize+1), employees.size());
 		assertEquals("E005", employees.get(beforeSize).getEmployeeId());

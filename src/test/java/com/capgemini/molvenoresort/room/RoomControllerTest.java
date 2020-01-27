@@ -1,15 +1,12 @@
 package com.capgemini.molvenoresort.room;
 
-import com.capgemini.molvenoresort.room.MockRoomDB;
-import com.capgemini.molvenoresort.room.Room;
-import com.capgemini.molvenoresort.room.RoomController;
-import com.capgemini.molvenoresort.room.RoomType;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class RoomControllerTest {
     RoomController roomController;
@@ -30,7 +27,8 @@ public class RoomControllerTest {
 
     @Test
     public void addRoomTest() {
-        roomController.addRoom("Klaas");
+        Room room = new Room("Klaas", 500, 501, RoomType.SINGLE);
+        roomController.addRoom(room);
         List<Room> rooms = roomController.showRooms();
         assertEquals("Klaas", rooms.get(numberOfRooms).getId());
         assertEquals(numberOfRooms+1, rooms.size());

@@ -1,5 +1,7 @@
 package com.capgemini.molvenoresort.user;
 
+import org.springframework.http.ResponseEntity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,16 +32,16 @@ public class MockEmployeeDB {
 		return employees;
 	}
 
-	public Employee getEmployeeById(String id) {
+	public ResponseEntity<Employee> getEmployeeById(String id) {
 		for (Employee e:employees) {
 			if (e.getEmployeeId().equals(id)){
-				return e;
+				return ResponseEntity.ok(e);
 			}
 		}
-		return null;
+		return ResponseEntity.notFound().build();
 	}
 
-	public void addEmployee(String id, String password) {
-		employees.add(new Employee(id, password, EmployeeRole.RECEPTIONIST));
+	public void addEmployee(Employee employee) {
+		employees.add(employee);
 	}
 }

@@ -1,9 +1,7 @@
 package com.capgemini.molvenoresort.user;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,13 +13,16 @@ public class GuestController {
 		return MockGuestDB.getInstance().getGuests();
 	}
 
-	@GetMapping("/add/{id}")
-	public void addGuest(@PathVariable String id) {
-		MockGuestDB.getInstance().addGuest(id, "qwertyy");
+	@PostMapping("/add")
+	public String addGuest(@RequestBody Guest guest) {
+		MockGuestDB.getInstance().addGuest(guest);
+		return ("Guest has been added");
+
 	}
 
 	@GetMapping("/{id}")
-	public Guest getGuestById(@PathVariable String id) {
+	public ResponseEntity<Guest> getGuestById(@PathVariable String id) {
 		return MockGuestDB.getInstance().getGuestById(id);
 	}
+
 }

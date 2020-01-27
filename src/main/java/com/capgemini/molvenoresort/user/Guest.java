@@ -6,6 +6,8 @@ public class Guest extends User {
 	private int creditcard;
 	private String guestId; // Could also be an int.
 
+	public Guest(){}
+
 	public Guest(String guestId, String password) {
 		super(password);
 		this.guestId = guestId;
