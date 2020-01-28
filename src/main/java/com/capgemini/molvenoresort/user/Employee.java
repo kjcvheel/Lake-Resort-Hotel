@@ -1,6 +1,7 @@
 package com.capgemini.molvenoresort.user;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Employee extends User {
 	private String photo;
@@ -44,5 +45,18 @@ public class Employee extends User {
 
 	public void setRole(EmployeeRole role) {
 		this.role = role;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Employee employee = (Employee) o;
+		return employeeId.equals(employee.employeeId);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(employeeId);
 	}
 }

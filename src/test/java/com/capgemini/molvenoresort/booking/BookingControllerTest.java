@@ -70,11 +70,4 @@ public class BookingControllerTest {
         bookingController.addBooking(booking);
     }
 
-/*
-
-    @Test
-    public void deleteBooking() {
-        bookingController.deleteBooking(45);
-        assertNull(bookingController.getBookingByID(45));
-    }*/
 }

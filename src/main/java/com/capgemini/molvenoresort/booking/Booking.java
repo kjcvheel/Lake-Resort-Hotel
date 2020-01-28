@@ -2,6 +2,7 @@ package com.capgemini.molvenoresort.booking;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 public class Booking {
     private int id;
@@ -100,4 +101,17 @@ public class Booking {
     public BookingStatus getStatus() {return status;}
 
     public void setStatus(BookingStatus status) {this.status = status;}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Booking booking = (Booking) o;
+        return id == booking.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

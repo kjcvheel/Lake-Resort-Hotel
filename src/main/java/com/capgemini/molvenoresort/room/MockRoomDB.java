@@ -35,8 +35,8 @@ public class MockRoomDB {
         rooms.add(room);
     }
 
-    public void deleteRoom(int index) {
-        rooms.remove(index);
+    public void deleteRoom(Room room) {
+        rooms.remove(room);
     }
 
     public List<Room> getRoomsUnder(int price){

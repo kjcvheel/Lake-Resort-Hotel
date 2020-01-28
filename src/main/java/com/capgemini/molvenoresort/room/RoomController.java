@@ -1,6 +1,7 @@
 package com.capgemini.molvenoresort.room;
 
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,5 +33,17 @@ public class RoomController {
     @GetMapping("/under{id}/Single")
     public List<Room> singleRoomsUnder(@PathVariable int id) {
         return MockRoomDB.getInstance().getSingleRoomsUnder(id);
+    }
+
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<Room> deleteById(@PathVariable String id) {
+        for(Room room : MockRoomDB.getInstance().getRooms()) {
+            if(id.equals(room.getId())) {
+                // NB: You have to override equals and hashCode in Printer to do this correctly!!!
+                MockRoomDB.getInstance().deleteRoom(room);
+                return ResponseEntity.noContent().build();
+            }
+        }
+        return ResponseEntity.notFound().build();
     }
 }
