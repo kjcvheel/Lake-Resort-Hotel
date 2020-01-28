@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="The page where a guest fils in his or her information when creating a booking.">
+    <meta name="author" content="Joey de Groot">
+
+    <title>Booking - Guest information</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .bg {
+            background-image: url("https://www.lestroisrois.com/media/81804/1.jpg");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body class="bg">
+    <!-- Page Content -->
+    <div class="container m-5">
+        <div class=" row ">
+            <div class="col-md-0 col-lg-3 "></div>
+            <div class="col-md-12 col-lg-6 text-center ">
+                <form action="/guests" method="POST" class="border border-dark rounded bg-light p-3 text-center" id="guest-information-form">
+                    <h3 class="mt-5 ">Your information</h3>
+                    <p class="lead ">Please fill in your personal information to complete your booking.</p>
+                    <div class="row ">
+                        <div class="col-5 text-left ">
+                            <div class="form-group ">
+                                <label for="fname ">First name:</label>
+                                <input type="text " class="form-control " id="fname " name="firstName ">
+                            </div>
+                        </div>
+                        <div class="col-7 text-left ">
+                            <div class="form-group ">
+                                <label for="lname ">Last name:</label>
+                                <input type="text " class="form-control " id="lname " name="lastName ">
+                            </div>
+                        </div>
+                        <div class="col-12 text-left ">
+                            <div class="form-group ">
+                                <label for="bdate ">Date of birth:</label>
+                                <input type="text " class="form-control " id="bdate " name="birthday ">
+                            </div>
+                            <div class="form-group ">
+                                <label for="email ">Email address:</label>
+                                <input type="email " class="form-control " id="email " name="email ">
+                            </div>
+                            <div class="form-group ">
+                                <label for="country ">Country:</label>
+                                <input type="text " class="form-control " id="country " name="country ">
+                            </div>
+                            <div class="form-group ">
+                                <label for="city ">City:</label>
+                                <input type="text " class="form-control " id="city " name="city ">
+                            </div>
+                            <div class="form-group ">
+                                <label for="address ">Address:</label>
+                                <input type="text " class="form-control " id="address " name="address ">
+                            </div>
+                            <div class="form-group ">
+                                <label for="zipcode ">Zipcode::</label>
+                                <input type="text " class="form-control " id="zipcode " name="zipcode ">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                </form>
+                </div>
+                <div class="col-md-0 col-lg-2 "></div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.slim.min.js "></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
