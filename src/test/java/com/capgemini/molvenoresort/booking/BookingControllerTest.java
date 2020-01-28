@@ -66,8 +66,8 @@ public class BookingControllerTest {
         assertEquals(90, bookingController.getBookingByID(90).getBody().getId());
 
         //Add already existing booking number
-        exception.expect(NullPointerException.class);
-        bookingController.addBooking(booking);
+        //exception.expect(NullPointerException.class);
+        assertEquals("Booking already exists, nothing was added", bookingController.addBooking(booking));
     }
 
 /*
