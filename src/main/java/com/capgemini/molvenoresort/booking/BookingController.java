@@ -45,21 +45,18 @@ public class BookingController {
 
         }
     }
-/*
-    @GetMapping("/delete/{id}")
-    public String deleteBooking(@PathVariable int id) {
 
-        Booking booking = getBookingByID(id).getBody();
-        if(booking != null) {
-            MockBookingDB.getInstance().deleteBooking(booking);
-            return "Booking with ID " + id + " has been deleted";
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<Booking> deleteById(@PathVariable int id) {
+        for(Booking booking : MockBookingDB.getInstance().getBookings()) {
+            if(id == booking.getId()) {
+                // NB: You have to override equals and hashCode in Printer to do this correctly!!!
+                MockBookingDB.getInstance().deleteBooking(booking);
+                return ResponseEntity.noContent().build();
+            }
         }
-        else {
-            return "Booking does not exist, nothing was deleted";
-        }
-    }*/
-
-
+        return ResponseEntity.notFound().build();
+    }
 
     private boolean doesBookingExist(int id){
         for (Booking booking: MockBookingDB.getInstance().getBookings()) {
