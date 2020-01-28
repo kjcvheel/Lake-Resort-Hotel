@@ -53,7 +53,7 @@ public class RoomControllerTest {
     public void singleRoomsUnderTest() {
         List<Room> rooms;
         int[] amountsToTest = new int[] {710, 690, 300, -500};
-        int[] roomsPerAmount = new int[] {2, 1, 0, 0};
+        int[] roomsPerAmount = new int[] {3, 2, 0, 0};
         for (int i = 0; i < amountsToTest.length; i++) {
             rooms = roomController.singleRoomsUnder(amountsToTest[i]);
             assertEquals(roomsPerAmount[i], rooms.size());
