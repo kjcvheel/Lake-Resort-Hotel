@@ -16,8 +16,8 @@ public class Employee extends User {
 		this.role = role;
 	}
 
-	public Employee(String employeeId, String password, EmployeeRole role, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, String photo) {
-		super(firstName, lastName, birthday, country, city, address, zipcode, phoneNumber, mobileNumber, password);
+	public Employee(String employeeId, String password, EmployeeRole role, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, String photo, String email) {
+		super(firstName, lastName, birthday, country, city, address, zipcode, phoneNumber, mobileNumber, password, email);
 		this.photo = photo;
 		this.employeeId = employeeId;
 		this.role = role;

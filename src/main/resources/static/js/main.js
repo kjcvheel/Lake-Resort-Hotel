@@ -1,29 +1,41 @@
 var api = "http://localhost:8080/guests";
 
+$(document).ready(function() {
+    console.log("Fill drowndown options.");
+    fillBirthdayDropdowns();
+    getData();
+});
+
+$("#submitButton").click(function() {
+    postData();
+});
+
 function getData() {
     console.log("getting data...");
 
-    $.ajax({
-        url: "http://localhost:8080/api/guests/test",
-        type: "get",
-        success: function(result) {
-            console.log("This is the data2: " + result);
-        }
-    });
+    let rooms = ["Suite 02", "Suite 34"];
+    rooms.forEach(function(item, index) {
+        $.ajax({
+            url: "http://localhost:8080/api/rooms/" + item,
+            type: "get",
+            success: function(result) {
+                setRoomsInfo(result);
+            }
+        });
+    })
+
+
 }
 
 function postData() {
     console.log("sending data...")
 
-    let guestObj = {
-        firstName: $("#fname").val(),
-        lastName: $("#lname").val()
-    };
-
+    let guestObj = getFormData();
+    console.log(guestObj);
     let jsonObj = JSON.stringify(guestObj);
 
     $.ajax({
-        url: "http://localhost:8080/api/guests/test",
+        url: "http://localhost:8080/api/guests/add",
         type: "post",
         data: jsonObj,
         contentType: "application/json",
@@ -34,18 +46,9 @@ function postData() {
 
 }
 
-$(document).ready(function() {
-    console.log("Fill drowndown options.");
-    fillBirthdayDropdowns();
-});
-
-$("#getButton").click(function() {
-    getData();
-});
-
-$("#postButton").click(function() {
-    postData();
-});
+function setRoomsInfo(Room) {
+    $("#rooms-container").append("<p>" + Room.id + ": " + Room.number + "</p>");
+}
 
 function fillBirthdayDropdowns() {
     let i;
@@ -61,4 +64,31 @@ function fillBirthdayDropdowns() {
         let option = "<option value='" + i + "'>" + i + "</option>";
         $(".yearSelect").append($(option));
     }
+}
+
+function getFormData() {
+    let dayString = $("#bDay").val();
+    if (dayString.length < 2) {
+        dayString = '0' + dayString;
+    }
+
+    let monthString = $("#bMonth").val();
+    if (monthString.length < 2) {
+        monthString = '0' + monthString;
+    }
+
+    let guestObj = {
+        firstName: $("#fname").val(),
+        lastName: $("#lname").val(),
+        birthday: $("#bYear").val() + "-" + monthString + "-" + dayString,
+        country: $("#country").val(),
+        address: $("#streetname").val() + " " + $("#streetnumber").val(),
+        city: $("#city").val(),
+        zipcode: $("#zipcode").val(),
+        phoneNumber: $("#phonenumber").val(),
+        mobileNumber: $("#mobilenumber").val(),
+        email: $("#email").val(),
+        creditcard: $("#creditcard").val(),
+    };
+    return guestObj;
 }

@@ -27,7 +27,7 @@
     <!-- Page Content -->
     <div class="container m-3">
         <div class="row">
-            <div class="col-md-0 col-lg-3 "></div>
+            <div class="col-md-0 col-lg-1"></div>
             <div class="col-md-12 col-lg-6 text-left">
                 <div class="border border-dark rounded bg-light pl-3 pr-3" id="guest-information-form">
                     <h4 class="mt-1 text-center">Your information</h4>
@@ -47,22 +47,32 @@
                             <label for="bdate ">Date of birth:</label>
                         </div>
                         <div class="col-4">
-                            <label for="bdate">Day: </label>
-                            <select id="bdate" class="daySelect w-50"></select>
+                            <label for="bDay">Day: </label>
+                            <select id="bDay" class="daySelect w-50"></select>
                         </div>
                         <div class="col-4">
                             <label>Month:</label>
-                            <select class="monthSelect w-50"></select>
+                            <select id="bMonth" class="monthSelect w-50"></select>
                         </div>
                         <div class="col-4">
                             <label>Year:</label>
-                            <select class="yearSelect w-50"></select>
+                            <select id="bYear" class="yearSelect w-50"></select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <label for="email ">Email address:</label>
-                            <input type="email " class="form-control form-control-sm" id="email " name="email ">
+                            <label for="email">Email address:</label>
+                            <input type="email" class="form-control form-control-sm" id="email" name="email">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="phonenumber">Phone number:</label>
+                            <input type="phonenumbber" class="form-control form-control-sm" id="phonenumber" name="phonenumber">
+                        </div>
+                        <div class="col-6">
+                            <label for="mobilenumber">Mobile number:</label>
+                            <input type="mobilenumber" class="form-control form-control-sm" id="mobilenumber" name="mobilenumber">
                         </div>
                     </div>
                     <div class="row">
@@ -71,8 +81,8 @@
                             <input type="text " class="form-control form-control-sm" id="streetname" name="streetname">
                         </div>
                         <div class="col-3">
-                            <label for="number">Number:</label>
-                            <input type="text " class="form-control form-control-sm" id="number " name="number">
+                            <label for="streetnumber">Number:</label>
+                            <input type="text " class="form-control form-control-sm" id="streetnumber" name="streetnumber">
                         </div>
                     </div>
                     <div class="row">
@@ -91,13 +101,28 @@
                             <input type="text" class="form-control form-control-sm" id="country" name="country">
                         </div>
                     </div>
-                    <button id="submitButton" class="btn btn-primary mt-1 mb-1">Submit</button>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="creditcard ">Creditcard:</label>
+                            <input type="text" class="form-control form-control-sm" id="creditcard" name="creditcard">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <button id="submitButton" class="btn btn-primary mt-1 mb-1">Finish booking</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <button id="getButton" class="btn btn-primary">GET</button>
-            <button id="postButton" class="btn btn-primary">POST</button>
+            <div class="col-md-12 col-lg-5">
+                <div class="row m-0">
+                    <div class="col-12 bg-light border border-dark">
+                        <p>Booking date <br> From: <br> To:</p>
+                        <div id="rooms-container"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-0 col-lg-2 "></div>
     </div>
 
     <!-- Bootstrap core JavaScript -->
