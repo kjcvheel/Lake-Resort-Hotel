@@ -50,7 +50,7 @@ function getRoomsUnder() {
             $.each(result, function (index, value) {
                 console.log(value.type + " " + value.price + " " + value.disabled);
 
-            });
+
 
             if (!"SINGLE".localeCompare(value.type)) {
                 $("div.roomlist").append(`<div class="single_room"><img src="roomImages/SINGLE.jpg" alt="Example room 1"><p class="description">Price per night: ${value.price}<br />Room type: ${value.type}<br />Suitable with disabilities: ${value.disabled}</p></div>`);
@@ -61,6 +61,7 @@ function getRoomsUnder() {
             } else {
                 $("div.roomlist").append(`<div class="single_room"><img src="roomImages/PENTHOUSE.jpg" alt="Example room 1"><p class="description">Price per night: ${value.price}<br />Room type: ${value.type}<br />Suitable with disabilities: ${value.disabled}</p></div>`);
             }
+            });
         }});
 }
 
