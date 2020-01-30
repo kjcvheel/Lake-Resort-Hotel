@@ -1,0 +1,9 @@
+* {
+    color:blue;
+}
+
+.btn {
+    margin-top:5vh;
+    max-height: 50px;
+    min-width:100px;
+}
