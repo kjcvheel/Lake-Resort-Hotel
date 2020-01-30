@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/guests")
+@RequestMapping("api/guests")
 public class GuestController {
 	@GetMapping
 	public List<Guest> getGuests() {
@@ -14,15 +14,13 @@ public class GuestController {
 	}
 
 	@PostMapping("/add")
-	public String addGuest(@RequestBody Guest guest) {
+	public ResponseEntity<Guest> addGuest(@RequestBody Guest guest) {
 		MockGuestDB.getInstance().addGuest(guest);
-		return ("Guest has been added");
-
+		return ResponseEntity.ok(guest);
 	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Guest> getGuestById(@PathVariable String id) {
 		return MockGuestDB.getInstance().getGuestById(id);
 	}
-
 }

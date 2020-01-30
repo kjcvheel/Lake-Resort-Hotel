@@ -12,7 +12,7 @@ function getRooms() {
     console.log("getting data.. ");
 
     $.ajax({
-        url: "http://localhost:8080/rooms",
+        url: "http://localhost:8080/api/rooms",
         type: "get",
         success: function (result) {
             console.log("This is the data: " + result);
@@ -41,7 +41,7 @@ function getRoomsUnder() {
     let price = $("input[type=number][name=max]").val();
 
     $.ajax({
-        url: "http://localhost:8080/rooms/under" + price,
+        url: "http://localhost:8080/api/rooms/under" + price,
         type: "get",
         success: function (result) {
             console.log("This is the data: " + result);

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = {"/rooms", "/Rooms"})
+@RequestMapping(value = {"api/rooms", "api/Rooms"})
 public class RoomController {
 
     public RoomController() {
@@ -17,6 +17,15 @@ public class RoomController {
     @GetMapping
     public List<Room> showRooms() {
         return MockRoomDB.getInstance().getRooms();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Room> getRoomById(@PathVariable String id){
+        Room room = MockRoomDB.getInstance().getRoomBId(id);
+        if (room == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(room);
     }
 
     @PostMapping("/add")
