@@ -1,15 +1,18 @@
 var api = "http://localhost:8080/guests";
+var regexName = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
 
 $(document).ready(function() {
     console.log("Fill drowndown options.");
     fillBirthdayDropdowns();
     $("#fname").val(sessionStorage.getItem("fname"));
     getData();
-    console.log("Find 404 01");
 });
 
 $("#submitButton").click(function() {
-    postData();
+    //if (checkIfFieldsValid()) {
+    //} else {
+    //alert("Please fill in all required fields.");
+    //}
 });
 
 $(document).on("click", '.collapse-trigger', function() {
@@ -20,19 +23,27 @@ $(document).on("click", '.collapse-trigger', function() {
 function getData() {
     console.log("getting data...");
 
-    let rooms = ["Suite 02", "Suite 34"];
+    //let rooms = ["Suite 02", "Suite 34"];
+    let rooms = [sessionStorage.getItem("bookedRoom")];
+    console.log(rooms);
     rooms.forEach(function(item, index) {
         $.ajax({
             url: "http://localhost:8080/api/rooms/" + item,
             type: "get",
             success: function(result) {
                 setRoomsInfo(result, index);
-                console.log("Find 404 04");
             }
         });
     })
-    console.log("Find 404 02");
 
+}
+
+function checkIfFieldsValid() {
+    if (regexName.test($("#fname").val()) && regexName.test($("#lname").val())) {
+        return true
+    }
+
+    return false;
 }
 
 function postData() {
@@ -49,6 +60,7 @@ function postData() {
         contentType: "application/json",
         success: function(result) {
             console.log("This was posted " + result.firstName + " " + result.lastName);
+
         }
     });
 
@@ -62,6 +74,7 @@ function setRoomsInfo(room, index) {
         card.find("#price").html("Price: " + room.price);
         card.find("#size").html("Adults: " + room.adult + ", Children: " + room.children);
         card.find(".card-title").html(room.id);
+        card.find("#room-image").attr('src', room.image);
     });
     //$(".roomname").html("hello" + index);
     //$("#room" + index).find(".roomname")[0].html("hello");
@@ -113,7 +126,26 @@ function getFormData() {
 }
 
 $("#fname").change(function() {
-    console.log($("#fname").val());
-    sessionStorage.setItem("fname", $("#fname").val())
-    console.log("written to storage: " + sessionStorage.getItem("fname"));
+    sessionStorage.setItem("fname", $("#fname").val());
 });
+
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    event.preventDefault();
+                    postData();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();

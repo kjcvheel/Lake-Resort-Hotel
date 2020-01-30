@@ -15,6 +15,7 @@ public class Room {
     private boolean disabled;
     private boolean smoking;
     private RoomStatus status;
+    private String image;
 
     public Room(){}
 
@@ -24,7 +25,7 @@ public class Room {
         this.number = number;
         this.type = type;
         this.status = RoomStatus.AVAILABLE;
-
+        this.image = "roomImages/SINGLE.jpg";
     }
 
     public String getId() {
@@ -120,6 +121,16 @@ public class Room {
     public void setStatus(RoomStatus status) {
         this.status = status;
     }
+
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
 
     @Override
     public boolean equals(Object o) {

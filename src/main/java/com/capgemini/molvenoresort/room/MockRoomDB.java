@@ -21,10 +21,15 @@ public class MockRoomDB {
 
     private void fillRoomTable() {
         rooms.add(new Room("Suite 02", 400, 102, RoomType.DOUBLE));
+        rooms.get(0).setImage("roomImages/DOUBLE.jpg");
         rooms.add(new Room("Suite 34", 600, 134, RoomType.SINGLE));
+        rooms.get(1).setImage("roomImages/SINGLE.jpg");
         rooms.add(new Room("Suite 87", 700, 222, RoomType.SINGLE));
+        rooms.get(2).setImage("roomImages/SINGLE.jpg");
         rooms.add(new Room("Suite 127", 550, 227, RoomType.DOUBLEX_2));
+        rooms.get(3).setImage("roomImages/DOUBLEX_2.jpg");
         rooms.add(new Room("Penthouse 1", 6000, 358, RoomType.PENTHOUSE));
+        rooms.get(4).setImage("roomImages/PENTHOUSE.jpg");
     }
 
     public List<Room> getRooms() {
