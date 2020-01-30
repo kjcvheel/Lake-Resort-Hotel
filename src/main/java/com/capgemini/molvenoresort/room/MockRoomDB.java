@@ -31,7 +31,7 @@ public class MockRoomDB {
         return rooms;
     }
 
-    public Room getRoomBId(String id) {
+    public Room getRoomById(String id) {
         for (Room room : rooms){
             if (room.getId().equals(id)) {
                 return room;
