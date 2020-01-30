@@ -8,6 +8,11 @@ $(document).on('click', 'div[class^="single_room"]', function () {
     alert($(this).html());
 });
 
+$("single_room").click(function(){
+   alert($(this).html());
+
+});
+
 function getRooms() {
     console.log("getting data.. ");
 
@@ -52,8 +57,8 @@ function makeCard(index, value){
         let card = $("#room" + index);
         console.log("Filling in details of room: " + value.id);
         card.find("#price").html("Price per night: " + value.price + "<br/>");
-        card.find("#type").html("Room type: " + value.type + "<br/>");
-        card.find("#disable").html("Suitable with disabilities: " + value.disabled);
+        card.find("#type").html("Room type: " + value.type.toLowerCase() + "<br/>");
+        card.find("#disabled").html("Suitable with disabilities: " + value.disabled);
         if (!"SINGLE".localeCompare(value.type)) {
             card.find("#image").attr("src", "roomImages/SINGLE.jpg");
         } else if (!"DOUBLE".localeCompare(value.type)) {
