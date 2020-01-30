@@ -21,7 +21,7 @@ public class RoomController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Room> getRoomById(@PathVariable String id){
-        Room room = MockRoomDB.getInstance().getRoomBId(id);
+        Room room = MockRoomDB.getInstance().getRoomById(id);
         if (room == null) {
             return ResponseEntity.notFound().build();
         }
