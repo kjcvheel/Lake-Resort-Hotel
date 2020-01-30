@@ -3,11 +3,18 @@ var api = "http://localhost:8080/guests";
 $(document).ready(function() {
     console.log("Fill drowndown options.");
     fillBirthdayDropdowns();
+    $("#fname").val(sessionStorage.getItem("fname"));
     getData();
+    console.log("Find 404 01");
 });
 
 $("#submitButton").click(function() {
     postData();
+});
+
+$(document).on("click", '.collapse-trigger', function() {
+    console.log("Trigger collapse");
+    $(this).next().collapse('toggle');
 });
 
 function getData() {
@@ -19,11 +26,12 @@ function getData() {
             url: "http://localhost:8080/api/rooms/" + item,
             type: "get",
             success: function(result) {
-                setRoomsInfo(result);
+                setRoomsInfo(result, index);
+                console.log("Find 404 04");
             }
         });
     })
-
+    console.log("Find 404 02");
 
 }
 
@@ -46,8 +54,19 @@ function postData() {
 
 }
 
-function setRoomsInfo(Room) {
-    $("#rooms-container").append("<p>" + Room.id + ": " + Room.number + "</p>");
+function setRoomsInfo(room, index) {
+    $("#rooms-container").append("<div id='room" + index + "'></div>");
+    $("#room" + index).load("cards/smallRoomCard.html", function() {
+        let card = $("#room" + index);
+        console.log("Filling in details of room: " + room.id);
+        card.find("#price").html("Price: " + room.price);
+        card.find("#size").html("Adults: " + room.adult + ", Children: " + room.children);
+        card.find(".card-title").html(room.id);
+    });
+    //$(".roomname").html("hello" + index);
+    //$("#room" + index).find(".roomname")[0].html("hello");
+    //$("#rooms-container").find(".roomname").html("<p>Hello<p>");
+    //$("#rooms-container").append("<p>" + Room.id + ": " + Room.number + "</p>");
 }
 
 function fillBirthdayDropdowns() {
@@ -92,3 +111,9 @@ function getFormData() {
     };
     return guestObj;
 }
+
+$("#fname").change(function() {
+    console.log($("#fname").val());
+    sessionStorage.setItem("fname", $("#fname").val())
+    console.log("written to storage: " + sessionStorage.getItem("fname"));
+});
