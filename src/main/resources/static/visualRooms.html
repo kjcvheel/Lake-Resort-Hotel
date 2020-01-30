@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Available Rooms</title>
+    <link rel="stylesheet"
+          href="rooms.css"/>
+</head>
+<body>
+<h1 style="text-align: center">Find an available room</h1>
+<div class="rooms">
+    <p> Here come the filters for the rooms
+        <form>
+           Maximum price: <input type="number" name="max"><br />
+        </form>
+    <button onclick="getRoomsUnder()">Filter</button>
+
+    </p>
+
+</div>
+
+<div class="rooms">
+    <h2> Available rooms</h2>
+
+
+    <div class="roomlist">
+
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="rooms.js"></script>
+</body>
+</html>
