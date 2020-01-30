@@ -5,6 +5,7 @@ import java.util.Date;
 public  abstract class User {
 	private String firstName;
 	private String lastName;
+	private String email;
 	private Date birthday;
 	private String country;
 	private String city;
@@ -19,7 +20,7 @@ public  abstract class User {
 		this.password = password;
 	}
 
-	public User(String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, String password) {
+	public User(String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, String password, String email) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.birthday = birthday;
@@ -30,6 +31,7 @@ public  abstract class User {
 		this.phoneNumber = phoneNumber;
 		this.mobileNumber = mobileNumber;
 		this.password = password;
+		this.email = email;
 	}
 
 	public String getFirstName() {
@@ -56,6 +58,14 @@ public  abstract class User {
 		else {
 			throw new IllegalArgumentException();
 		}
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public Date getBirthday() {

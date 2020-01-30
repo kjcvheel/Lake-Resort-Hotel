@@ -13,8 +13,8 @@ public class Guest extends User {
 		this.guestId = guestId;
 	}
 
-	public Guest(String guestId,  String password, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, int creditcard) {
-		super(firstName, lastName, birthday, country, city, address, zipcode, phoneNumber, mobileNumber, password);
+	public Guest(String guestId,  String password, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, int creditcard, String email) {
+		super(firstName, lastName, birthday, country, city, address, zipcode, phoneNumber, mobileNumber, password, email);
 		this.creditcard = creditcard;
 		this.guestId = guestId;
 	}
