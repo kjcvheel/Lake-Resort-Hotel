@@ -19,17 +19,8 @@ function getRooms() {
 
             $.each(result, function (index, value) {
                 console.log(value.type + " " + value.price + " " + value.disabled);
+                makeCard(index, value);
 
-                // $("#roomTable").append(`<tr><td>${value.type}</td><td>${value.price}</td><td>${value.disabled}</td></tr>`);
-                if (!"SINGLE".localeCompare(value.type)) {
-                    $("div.roomlist").append(`<div class="single_room"><img src="roomImages/SINGLE.jpg" alt="Single room"><p class="description">Price per night: ${value.price}<br />Room type: ${value.type}<br />Suitable with disabilities: ${value.disabled}</p></div>`);
-                } else if (!"DOUBLE".localeCompare(value.type)) {
-                    $("div.roomlist").append(`<div class="single_room"><img src="roomImages/DOUBLE.jpg" alt="Double room"><p class="description">Price per night: ${value.price}<br />Room type: ${value.type}<br />Suitable with disabilities: ${value.disabled}</p></div>`);
-                } else if (!"DOUBLEX_2".localeCompare(value.type)) {
-                    $("div.roomlist").append(`<div class="single_room"><img src="roomImages/DOUBLEX2.jpg" alt="2x double room"><p class="description">Price per night: ${value.price}<br />Room type: ${value.type}<br />Suitable with disabilities: ${value.disabled}</p></div>`);
-                } else {
-                    $("div.roomlist").append(`<div class="single_room"><img src="roomImages/PENTHOUSE.jpg" alt="Penthouse"><p class="description">Price per night: ${value.price}<br />Room type: ${value.type}<br />Suitable with disabilities: ${value.disabled}</p></div>`);
-                }
             });
         }
     });
@@ -45,26 +36,39 @@ function getRoomsUnder() {
         type: "get",
         success: function (result) {
             console.log("This is the data: " + result);
-            $("div.roomlist").html("");
+            $("#roomlist").html("");
 
             $.each(result, function (index, value) {
                 console.log(value.type + " " + value.price + " " + value.disabled);
+                makeCard(index, value);
 
-
-
-            if (!"SINGLE".localeCompare(value.type)) {
-                $("div.roomlist").append(`<div class="single_room"><img src="roomImages/SINGLE.jpg" alt="Example room 1"><p class="description">Price per night: ${value.price}<br />Room type: ${value.type}<br />Suitable with disabilities: ${value.disabled}</p></div>`);
-            } else if (!"DOUBLE".localeCompare(value.type)) {
-                $("div.roomlist").append(`<div class="single_room"><img src="roomImages/DOUBLE.jpg" alt="Example room 1"><p class="description">Price per night: ${value.price}<br />Room type: ${value.type}<br />Suitable with disabilities: ${value.disabled}</p></div>`);
-            } else if (!"DOUBLEX_2".localeCompare(value.type)) {
-                $("div.roomlist").append(`<div class="single_room"><img src="roomImages/DOUBLEX2.jpg" alt="Example room 1"><p class="description">Price per night: ${value.price}<br />Room type: ${value.type}<br />Suitable with disabilities: ${value.disabled}</p></div>`);
-            } else {
-                $("div.roomlist").append(`<div class="single_room"><img src="roomImages/PENTHOUSE.jpg" alt="Example room 1"><p class="description">Price per night: ${value.price}<br />Room type: ${value.type}<br />Suitable with disabilities: ${value.disabled}</p></div>`);
-            }
             });
         }});
 }
 
+function makeCard(index, value){
+    $("#roomlist").append("<div id='room" + index + "'></div>");
+    $("#room" + index).load("cards/roomViewRoomCard.html", function() {
+        let card = $("#room" + index);
+        console.log("Filling in details of room: " + value.id);
+        card.find("#price").html("Price per night: " + value.price + "<br/>");
+        card.find("#type").html("Room type: " + value.type + "<br/>");
+        card.find("#disable").html("Suitable with disabilities: " + value.disabled);
+        if (!"SINGLE".localeCompare(value.type)) {
+            card.find("#image").attr("src", "roomImages/SINGLE.jpg");
+        } else if (!"DOUBLE".localeCompare(value.type)) {
+            card.find("#image").attr("src", "roomImages/DOUBLE.jpg");
+        } else if (!"DOUBLEX_2".localeCompare(value.type)) {
+            card.find("#image").attr("src", "roomImages/DOUBLEX2.jpg");
+        } else {
+            card.find("#image").attr("src", "roomImages/PENTHOUSE.jpg");
+        }
+        card.find(".card-title").html(value.id);
+    });
+
+
+
+}
 
 
 
