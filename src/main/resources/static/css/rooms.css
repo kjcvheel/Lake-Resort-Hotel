@@ -32,7 +32,9 @@ img{
 }
 
 
-
+p{
+    font-size: small;
+}
 h1, h2, p {
     font-family: Verdana, serif;
 }
