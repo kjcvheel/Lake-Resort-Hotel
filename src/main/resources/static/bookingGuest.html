@@ -11,6 +11,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bookingGuest.css" rel="stylesheet">
 
     <style>
         .bg {
@@ -32,86 +33,91 @@
                 <div class="border border-dark rounded bg-light px-2" id="guest-information-form">
                     <h4 class="text-center">Your information</h4>
                     <p class="text-center">Please fill in your personal information to complete your booking.</p>
-                    <div class="row ">
-                        <div class="col-5">
-                            <label for="fname ">First name:</label>
-                            <input type="text " class="form-control form-control-sm " id="fname" name="firstName">
+                    <form class="needs-validation" id="guest-information-form" novalidate>
+                        <div class="form-row">
+                            <div class="col-5">
+                                <label for="fname">First name:</label>
+                                <input type="text" class="form-control form-control-sm " id="fname" name="firstName" required>
+                            </div>
+                            <div class="col-7">
+                                <label for="lname">Last name:</label>
+                                <input type="text" class="form-control form-control-sm" id="lname" name="lastName" required>
+                            </div>
                         </div>
-                        <div class="col-7">
-                            <label for="lname ">Last name:</label>
-                            <input type="text " class="form-control form-control-sm" id="lname" name="lastName">
+                        <div class="form-row">
+                            <div class="col-12">
+                                <label for="bdate">Date of birth:</label>
+                            </div>
+                            <div class="col-4" id="bdate">
+                                <label for="bDay">Day: </label>
+                                <select id="bDay" class="daySelect w-50"></select>
+                            </div>
+                            <div class="col-4">
+                                <label>Month:</label>
+                                <select id="bMonth" class="monthSelect w-50"></select>
+                            </div>
+                            <div class="col-4">
+                                <label>Year:</label>
+                                <select id="bYear" class="yearSelect w-50"></select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="bdate ">Date of birth:</label>
+                        <div class="form-row">
+                            <div class="col-12">
+                                <label for="email">Email address:</label>
+                                <input type="email" class="form-control form-control-sm" id="email" name="email" required>
+                            </div>
                         </div>
-                        <div class="col-4">
-                            <label for="bDay">Day: </label>
-                            <select id="bDay" class="daySelect w-50"></select>
+                        <div class="form-row">
+                            <div class="col-6">
+                                <label for="phonenumber">Phone number:</label>
+                                <input type="number" class="form-control form-control-sm" id="phonenumber" name="phonenumber" required>
+                                <div class="invalid-feedback">
+                                    Please fill in a valid phone number.
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label for="mobilenumber">Mobile number:</label>
+                                <input type="text" class="form-control form-control-sm" id="mobilenumber" name="mobilenumber" required>
+                            </div>
                         </div>
-                        <div class="col-4">
-                            <label>Month:</label>
-                            <select id="bMonth" class="monthSelect w-50"></select>
+                        <div class="form-row">
+                            <div class="col-9">
+                                <label for="streetname">Street name:</label>
+                                <input type="text" class="form-control form-control-sm" id="streetname" name="streetname" required>
+                            </div>
+                            <div class="col-3">
+                                <label for="streetnumber">Number:</label>
+                                <input type="text" class="form-control form-control-sm" id="streetnumber" name="streetnumber" required>
+                            </div>
                         </div>
-                        <div class="col-4">
-                            <label>Year:</label>
-                            <select id="bYear" class="yearSelect w-50"></select>
+                        <div class="form-row">
+                            <div class="col-9">
+                                <label for="city">City:</label>
+                                <input type="text" class="form-control form-control-sm" id="city" name="city" required>
+                            </div>
+                            <div class="col-3">
+                                <label for="zipcode">Zipcode:</label>
+                                <input type="text" class="form-control form-control-sm" id="zipcode" name="zipcode" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="email">Email address:</label>
-                            <input type="email" class="form-control form-control-sm" id="email" name="email">
+                        <div class="form-row">
+                            <div class="col-12">
+                                <label for="country">Country:</label>
+                                <input type="text" class="form-control form-control-sm" id="country" name="country" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="phonenumber">Phone number:</label>
-                            <input type="phonenumbber" class="form-control form-control-sm" id="phonenumber" name="phonenumber">
+                        <div class="form-row">
+                            <div class="col-12">
+                                <label for="creditcard">Creditcard:</label>
+                                <input type="text" class="form-control form-control-sm" id="creditcard" name="creditcard" required>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <label for="mobilenumber">Mobile number:</label>
-                            <input type="mobilenumber" class="form-control form-control-sm" id="mobilenumber" name="mobilenumber">
+                        <div class="form-row">
+                            <div class="col-12 text-right">
+                                <button id="submitButton" type="submit" class="btn btn-primary mt-1 mb-1">Finish booking</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-9">
-                            <label for="streetname">Street name:</label>
-                            <input type="text " class="form-control form-control-sm" id="streetname" name="streetname">
-                        </div>
-                        <div class="col-3">
-                            <label for="streetnumber">Number:</label>
-                            <input type="text " class="form-control form-control-sm" id="streetnumber" name="streetnumber">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-9">
-                            <label for="city">City:</label>
-                            <input type="text" class="form-control form-control-sm" id="city" name="city">
-                        </div>
-                        <div class="col-3">
-                            <label for="zipcode ">Zipcode:</label>
-                            <input type="text" class="form-control form-control-sm" id="zipcode" name="zipcode">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="country ">Country:</label>
-                            <input type="text" class="form-control form-control-sm" id="country" name="country">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="creditcard ">Creditcard:</label>
-                            <input type="text" class="form-control form-control-sm" id="creditcard" name="creditcard">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 text-right">
-                            <button id="submitButton" class="btn btn-primary mt-1 mb-1">Finish booking</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
             <div class="col-lg-5">
@@ -131,7 +137,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
-    <script src="js/main.js"></script>
+    <script src="js/bookingGuest.js"></script>
 
 </body>
 

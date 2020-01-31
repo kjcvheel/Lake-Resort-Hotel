@@ -12,8 +12,8 @@
 
 }
 
-div.single_room:hover{
-    cursor:pointer;
+.buttonColor{
+    background-color: #2f5597;
 }
 
 div.single_room {
@@ -22,31 +22,19 @@ div.single_room {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
-    overflow: auto;
 
-    width: 75%;
     border: 15px solid #dae3f3;
-    padding: 20px;
+
 
 }
-
-img {
-    float: left;
-    object-fit: cover;
-    width: 150px;
-    height: 150px;
+img{
+    width: 100%
 }
 
-p.description {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px;
-    color: black;
-    background-color: white;
-    text-align: left;
-}
 
+p{
+    font-size: small;
+}
 h1, h2, p {
     font-family: Verdana, serif;
 }

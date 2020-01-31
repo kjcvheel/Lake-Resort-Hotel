@@ -39,7 +39,7 @@ public  abstract class User {
 	}
 
 	public void setFirstName(String firstName) {
-		if (firstName.matches("[a-zA-Z]+")) {
+		if (firstName.matches("[a-zA-Z' ]+")) {
 			this.firstName = firstName;
 		}
 		else {
