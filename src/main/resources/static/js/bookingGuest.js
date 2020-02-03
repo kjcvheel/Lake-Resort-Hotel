@@ -1,5 +1,6 @@
 var api = "http://localhost:8080/guests";
 var regexName = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
+var roomNumbers = [];
 
 $(document).ready(function() {
     console.log("Fill drowndown options.");
@@ -22,8 +23,19 @@ $(document).on("click", '.collapse-trigger', function() {
 
 function getData() {
     console.log("getting data...");
+    var dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+    // Get Start and To date
+    sessionStorage.setItem("dateFrom", new Date('March 2 2020'));
+    sessionStorage.setItem("dateTo", new Date('March 7 2020'));
 
-    //let rooms = ["Suite 02", "Suite 34"];
+    let dateFrom = new Date(sessionStorage.getItem("dateFrom")).toLocaleDateString("en-US", dateOptions);
+    let dateTo = new Date(sessionStorage.getItem("dateTo")).toLocaleDateString("en-US", dateOptions);
+    $("#dateFrom").append(dateFrom);
+    $("#dateTo").append(dateTo);
+    console.log(dateFrom);
+    console.log(dateTo);
+
+    // Get Selected Rooms
     let rooms = [sessionStorage.getItem("bookedRoom")];
     console.log(rooms);
     rooms.forEach(function(item, index) {
@@ -59,13 +71,41 @@ function postData() {
         data: jsonObj,
         contentType: "application/json",
         success: function(result) {
-            console.log("This was posted " + result.firstName + " " + result.lastName);
-
+            console.log("This was posted " + result.firstName + " " + result.guestId);
+            postBooking(result.guestId)
         }
     });
 }
 
+function postBooking(guestId) {
+    console.log("Creating booking...");
+    // Get data for booking
+    let dateFrom = formatDate(sessionStorage.getItem("dateFrom"));
+    let dateTo = formatDate(sessionStorage.getItem("dateTo"))
+    let bookingObj = {
+        guestID: guestId,
+        startDate: dateFrom,
+        endDate: dateTo,
+        adults: $("#adults").val(),
+        children: $("#children").val(),
+        roomNumbers: roomNumbers
+    };
+    console.log(bookingObj);
+    let jsonObj = JSON.stringify(bookingObj);
+    $.ajax({
+        url: "http://localhost:8080/bookings/add",
+        type: "post",
+        data: jsonObj,
+        contentType: "application/json",
+        success: function(result) {
+            console.log("This was posted " + result.id);
+        }
+    });
+
+}
+
 function setRoomsInfo(room, index) {
+    roomNumbers.push(room.number);
     $("#rooms-container").append("<div id='room" + index + "'></div>");
     $("#room" + index).load("cards/smallRoomCard.html", function() {
         let card = $("#room" + index);
@@ -119,7 +159,7 @@ function getFormData() {
         phoneNumber: $("#phonenumber").val(),
         mobileNumber: $("#mobilenumber").val(),
         email: $("#email").val(),
-        creditcard: $("#creditcard").val(),
+        creditcard: $("#creditcard").val()
     };
     return guestObj;
 }
@@ -148,3 +188,17 @@ $("#fname").change(function() {
         });
     }, false);
 })();
+
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2)
+        month = '0' + month;
+    if (day.length < 2)
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}

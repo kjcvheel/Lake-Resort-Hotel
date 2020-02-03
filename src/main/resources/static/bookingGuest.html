@@ -35,6 +35,16 @@
                     <p class="text-center">Please fill in your personal information to complete your booking.</p>
                     <form class="needs-validation" id="guest-information-form" novalidate>
                         <div class="form-row">
+                            <div class="col-7">
+                                <label for="adults">Adults (including you):</label>
+                                <input type="number" class="form-control form-control-sm" id="adults" name="adults" min="1" pattern="^[1-9]/d*$" value="1" required>
+                            </div>
+                            <div class="col-5">
+                                <label for="children">Children:</label>
+                                <input type="number" class="form-control form-control-sm" id="children" name="children" min="0" pattern="^\d*$" value="0" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
                             <div class="col-5">
                                 <label for="fname">First name:</label>
                                 <input type="text" class="form-control form-control-sm " id="fname" name="firstName" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
@@ -123,7 +133,9 @@
             <div class="col-lg-5">
                 <div class="row m-0 my-1">
                     <div class="col-12 bg-light border border-dark">
-                        <p>Booking date <br> From: <br> To:</p>
+                        <h5>Your booking summary: </h5>
+                        <p id="dateFrom"><b>From:</b> </p>
+                        <p id="dateTo"><b>To:</b> </p>
                         <div id="rooms-container" class="my-1"></div>
                     </div>
                 </div>
