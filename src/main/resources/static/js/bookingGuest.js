@@ -2,6 +2,7 @@ var api = "http://localhost:8080/guests";
 var regexName = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
 
 $(document).ready(function() {
+    $("#TOP").load("header.html");
     console.log("Fill drowndown options.");
     fillBirthdayDropdowns();
     $("#fname").val(sessionStorage.getItem("fname"));
