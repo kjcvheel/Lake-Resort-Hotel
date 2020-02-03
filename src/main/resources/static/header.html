@@ -1,31 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./css/header.css">
-    <script type="text/javascript" src="http://livejs.com/live.js"></script>
-
-</head>
-<body>
-    <!-- Navigation -->
-    <div class="container-fluid header">
-        <div class="row">
-            <div class="col-4">
-                <img src="./images/logo-small.png" alt="Cant find image">
-            </div>
-            <div class="col-4 d-flex justify-content-center">
-                <h5 class = "d-flex justify-content-around mt-3">Molveno Lake Resort</h5>
-            </div>
-            <div class="col-2 d-flex justify-content-around mt-3">
-                <button type="button" class="btn btn-outline-primary">Book now</button>
-            </div>
-            <div class="col-2 d-flex justify-content-around mt-3 ">
-                <button type="button" class="btn btn-outline-primary">Login</button>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color:#99d9ea">
+    <div class="container">
+        <a class="navbar-brand" href="http://localhost:8080/index.html"><img src="images/logo-small.png" style="max-width:100px"> Molveno Lake Resort</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://localhost:8080/visualRooms.html">Book now
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/restaurant.html">Restaurant</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><img src="images/UK.jpg" style="max-width:40px; padding:10px"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><img src="images/CH.png" style="max-width:40px; padding:10px"></a>
+                </li>
+            </ul>
         </div>
-
     </div>
-</body>
-</html>
+</nav>
