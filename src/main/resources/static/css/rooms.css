@@ -38,3 +38,21 @@ p{
 h1, h2, p {
     font-family: Verdana, serif;
 }
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  background-color: #99d9ea;
+  text-align: center;
+}
