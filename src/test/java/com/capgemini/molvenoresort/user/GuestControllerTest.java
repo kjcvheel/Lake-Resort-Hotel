@@ -29,20 +29,20 @@ public class GuestControllerTest {
 
 	@Test
 	public void getGuestsByIdTest() {
-		Guest guest = guestController.getGuestById("G001").getBody();
-		assertEquals("G001", guest.getGuestId());
+		Guest guest = guestController.getGuestById(1L).getBody();
+		assertEquals(1, guest.getGuestId());
 
-		guest = guestController.getGuestById("fsdgs").getBody();
+		guest = guestController.getGuestById(999999L).getBody();
 		assertNull(guest);
 	}
 
 	@Test
 	public void addGuestTest() {
 		int beforeSize = guestController.getGuests().size();
-		Guest guest = new Guest("G071","Test234");
+		Guest guest = new Guest(71,"Test234");
 		guestController.addGuest(guest);
 		List<Guest> guests = guestController.getGuests();
 		assertEquals(beforeSize+1, guests.size());
-		assertEquals("G071", guests.get(beforeSize).getGuestId());
+		assertEquals(71, guests.get(beforeSize).getGuestId());
 	}
 }

@@ -20,7 +20,7 @@ public class GuestController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Guest> getGuestById(@PathVariable String id) {
+	public ResponseEntity<Guest> getGuestById(@PathVariable Long id) {
 		return MockGuestDB.getInstance().getGuestById(id);
 	}
 }
