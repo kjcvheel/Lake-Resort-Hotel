@@ -63,7 +63,6 @@ function postData() {
 
         }
     });
-
 }
 
 function setRoomsInfo(room, index) {
@@ -92,7 +91,7 @@ function fillBirthdayDropdowns() {
         let option = "<option value='" + i + "'>" + i + "</option>";
         $(".monthSelect").append($(option));
     }
-    for (i = new Date().getFullYear(); i >= 1900; i--) {
+    for (i = new Date().getFullYear() - 16; i >= 1900; i--) {
         let option = "<option value='" + i + "'>" + i + "</option>";
         $(".yearSelect").append($(option));
     }
