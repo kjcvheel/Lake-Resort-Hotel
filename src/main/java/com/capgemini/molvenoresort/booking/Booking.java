@@ -62,9 +62,9 @@ public class Booking {
             this.invoiceID = invoiceID;
     }
 
-    public List<Integer> getRoomNumbers() {return roomNumbers;}
+    public List<Room> getRoomNumbers() {return roomNumbers;}
 
-    public void setRoomNumbers(List<Integer> roomNumbers) {this.roomNumbers = roomNumbers;}
+    public void setRoomNumbers(List<Room> roomNumbers) {this.roomNumbers = roomNumbers;}
 
     public LocalDate getStartDate() {return startDate;}
 
