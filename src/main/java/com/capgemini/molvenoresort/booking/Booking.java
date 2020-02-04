@@ -19,14 +19,13 @@ public class Booking {
     private long invoiceID;
     @ManyToMany
     private List<Room> roomNumbers;
-    @OneToOne
+
     private LocalDate startDate;
-    @OneToOne
+
     private LocalDate endDate;
     private int adults;
     private int children;
     private boolean paymentStatus;
-    @OneToMany
     private BookingStatus status;
 
     public Booking(){

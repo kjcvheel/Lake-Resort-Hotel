@@ -28,7 +28,7 @@ public class Room {
     private List<Bed> beds;
 
 
-    private List<Facilities> facilities;
+    //private List<Facilities> facilities;
 
     @ManyToMany
     private List<Booking> bookings;
@@ -86,13 +86,13 @@ public class Room {
         this.beds = beds;
     }
 
-    public List<Facilities> getFacilities() {
-        return facilities;
-    }
+ //   public List<Facilities> getFacilities() {
+ //       return facilities;
+ //   }
 
-    public void setFacilities(List<Facilities> facilities) {
-        this.facilities = facilities;
-    }
+  //  public void setFacilities(List<Facilities> facilities) {
+  //      this.facilities = facilities;
+   // }
 
     public int getAdult() {
         return adult;
