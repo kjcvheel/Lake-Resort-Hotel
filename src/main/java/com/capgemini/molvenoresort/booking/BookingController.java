@@ -75,9 +75,9 @@ public class BookingController {
         booking.setRoomNumbers(rooms);
     }
 
-    private boolean doesRoomExist(int roomNumber){
+    private boolean doesRoomExist(long roomId){
         for (Room room: MockRoomDB.getInstance().getRooms()) {
-            if (room.getNumber() == roomNumber)
+            if (room.getId() == roomId )
                 return true;
         }
         return false;

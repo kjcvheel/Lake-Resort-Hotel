@@ -1,6 +1,5 @@
 package com.capgemini.molvenoresort.room;
 
-import com.capgemini.molvenoresort.room.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,7 +22,7 @@ public class RoomTest {
 		room = new Room("Suite 01", 400, 101, RoomType.SINGLE);
 		assertEquals("Suite 01", room.getId());
 		assertEquals(400, room.getPrice());
-		assertEquals(101, room.getNumber());
+		assertEquals(101, room.getName());
 		assertEquals(RoomType.SINGLE, room.getType());
 
 		// TODO: Unhappy Path
@@ -75,27 +74,27 @@ public class RoomTest {
 
 	@Test
 	public void roomBedsTest() {
-		List<Bed> beds = new ArrayList<>();
-		beds.add(Bed.SINGLE);
+		List<BedType> bedTypes = new ArrayList<>();
+		bedTypes.add(BedType.SINGLE);
 
-		room.setBeds(beds);
-		assertEquals(beds, room.getBeds());
-		assertEquals(1, room.getBeds().size());
+		room.setBedTypes(bedTypes);
+		assertEquals(bedTypes, room.getBedTypes());
+		assertEquals(1, room.getBedTypes().size());
 
-		beds.add(Bed.SINGLE);
-		room.setBeds(beds);
-		assertEquals(beds, room.getBeds());
-		assertEquals(2, room.getBeds().size());
+		bedTypes.add(BedType.SINGLE);
+		room.setBedTypes(bedTypes);
+		assertEquals(bedTypes, room.getBedTypes());
+		assertEquals(2, room.getBedTypes().size());
 
-		beds.add(Bed.DOUBLE);
-		room.setBeds(beds);
-		assertEquals(beds, room.getBeds());
-		assertEquals(3, room.getBeds().size());
+		bedTypes.add(BedType.DOUBLE);
+		room.setBedTypes(bedTypes);
+		assertEquals(bedTypes, room.getBedTypes());
+		assertEquals(3, room.getBedTypes().size());
 
-		beds.remove(2);
-		room.setBeds(beds);
-		assertEquals(beds, room.getBeds());
-		assertEquals(2, room.getBeds().size());
+		bedTypes.remove(2);
+		room.setBedTypes(bedTypes);
+		assertEquals(bedTypes, room.getBedTypes());
+		assertEquals(2, room.getBedTypes().size());
 	}
 
 	@Test
@@ -111,14 +110,14 @@ public class RoomTest {
 		assertEquals(0, room.getPrice());
 
 		// Number
-		room.setNumber(304);
-		assertEquals(304, room.getNumber());
+		room.setName(304);
+		assertEquals(304, room.getName());
 
-		room.setNumber(0);
-		assertEquals(304, room.getNumber());
+		room.setName(0);
+		assertEquals(304, room.getName());
 
-		room.setNumber(-304);
-		assertEquals(304, room.getNumber());
+		room.setName(-304);
+		assertEquals(304, room.getName());
 
 		// Adult
 		room.setAdult(1);

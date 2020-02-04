@@ -20,7 +20,7 @@ public class RoomControllerTest {
 
     @Test
     public void getRoomsTest() {
-        List<Room> rooms = roomController.showRooms();
+        Iterable<Room> rooms = roomController.showRooms();
         assertEquals(numberOfRooms, rooms.size());
         assertEquals( "Suite 02", rooms.get(0).getId());
     }
@@ -29,7 +29,7 @@ public class RoomControllerTest {
     public void addRoomTest() {
         Room room = new Room("Klaas", 500, 501, RoomType.SINGLE);
         roomController.addRoom(room);
-        List<Room> rooms = roomController.showRooms();
+        Iterable<Room> rooms = roomController.showRooms();
         assertEquals("Klaas", rooms.get(numberOfRooms).getId());
         assertEquals(numberOfRooms+1, rooms.size());
 

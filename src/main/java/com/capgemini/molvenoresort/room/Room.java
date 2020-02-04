@@ -1,15 +1,20 @@
 package com.capgemini.molvenoresort.room;
 
+import com.capgemini.molvenoresort.booking.Booking;
+
+import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Room {
-    private String id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private int price;
-    private int number;
+    private String name;
     private RoomType type;
-    private List<Bed> beds;
-    private List<Facilities> facilities;
     private int adult;
     private int children;
     private boolean disabled;
@@ -17,22 +22,31 @@ public class Room {
     private RoomStatus status;
     private String image;
 
+    @ManyToMany
+    private List<Bed> beds;
+
+    @ManyToMany
+    private List<Facilities> facilities;
+
+    @ManyToMany
+    private List<Booking> bookings;
+
     public Room(){}
 
-    public Room(String id, int price, int number, RoomType type) {
+    public Room(String name, int price, long id, RoomType type) {
         this.id = id;
         this.price = price;
-        this.number = number;
+        this.name = name;
         this.type = type;
         this.status = RoomStatus.AVAILABLE;
         this.image = "roomImages/SINGLE.jpg";
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -46,14 +60,11 @@ public class Room {
         this.price = price;
     }
 
-    public int getNumber() {
-        return number;
+    public String getName() {
+        return name;
     }
 
-    public void setNumber(int number) {
-        if (number > 0)
-            this.number = number;
-    }
+    public void setName(String name) {this.name = name;}
 
     public RoomType getType() {
         return type;
@@ -67,7 +78,7 @@ public class Room {
         return beds;
     }
 
-    public void setBeds(List<Bed> beds) {
+    public void setBedTypes(List<Bed> beds) {
         this.beds = beds;
     }
 
@@ -137,7 +148,7 @@ public class Room {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Room room = (Room) o;
-        return id.equals(room.id);
+        return id == room.id;
     }
 
     @Override
