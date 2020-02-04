@@ -1,19 +1,31 @@
 package com.capgemini.molvenoresort.booking;
 
+import com.sun.istack.NotNull;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Booking {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @NotNull
     private int guestID;
+    @NotNull
     private int invoiceID;
+    @OneToMany
     private List<Integer> roomNumbers;
+    @OneToOne
     private LocalDate startDate;
+    @OneToOne
     private LocalDate endDate;
     private int adults;
     private int children;
     private boolean paymentStatus;
+    @OneToMany
     private BookingStatus status;
 
     public Booking(){
