@@ -1,0 +1,36 @@
+{{>header}}
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/rooms.css"/>
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Available Rooms</title>
+
+</head>
+<body>
+    <!-- Navigation -->
+    {{>navbar}}
+    <div class="container">
+        <h1 class="mt-5" style="text-align: center">Find an available room</h1>
+        <div class="rooms">
+            <p> Here come the filters for the rooms
+                <form>
+                Maximum price: <input type="number" name="max"><br />
+                </form>
+                <button onclick="getRoomsUnder()">Filter</button>
+            </p>
+        </div>
+
+        <div class="rooms">
+            <h2> Available rooms</h2>
+            <div class="container d-flex flex-column " id="roomlist">
+            </div>
+        </div>
+    </div>
+    {{>footer}}
+
+    <!-- ADD CUSTOM JS FILES HERE -->
+    <script src="js/rooms.js"></script>
+</body>
+</html>

@@ -1,19 +1,19 @@
 @font-face {
     font-family: 'MyWebFont';
-    src: url('../fonts/Awesome Season Personal Use.ttf'); /* IE9 Compat Modes */
-
+    src: url('../fonts/Awesome Season Personal Use.ttf');
+    /* IE9 Compat Modes */
 }
 
-body {
+
+/*body {
     background: url('../images/Background2.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-}
+}*/
 
 #pageTitle {
     color: darkblue;
     font-family: 'MyWebFont', Fallback, sans-serif;
-
 }

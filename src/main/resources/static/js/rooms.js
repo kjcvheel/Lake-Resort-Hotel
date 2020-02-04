@@ -10,7 +10,7 @@ $(document).on('click', ".single_room", function() {
 
     sessionStorage.setItem('bookedRoom', $(this).attr('name'));
     console.log(sessionStorage.getItem("bookedRoom"));
-    window.location.href = "http://localhost:8080/bookingGuest.html";
+    window.location.href = "http://localhost:8080/BookingGuestForm";
 
 });
 
