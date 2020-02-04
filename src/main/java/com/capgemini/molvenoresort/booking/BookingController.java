@@ -2,72 +2,65 @@ package com.capgemini.molvenoresort.booking;
 
 import com.capgemini.molvenoresort.room.MockRoomDB;
 import com.capgemini.molvenoresort.room.Room;
+import org.apache.coyote.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collector;
 
 @RestController
 @RequestMapping(value = {"/bookings", "/Bookings"})
 public class BookingController {
 
-    public BookingController() {
-        //Initialize the booking controller
-    }
+    @Autowired
+    private bookingRepository repository;
+
 
     @GetMapping
-    public List<Booking> getBookings() {
-        return MockBookingDB.getInstance().getBookings();
+    public Iterable<Booking>getAllBookings() {
+        return this.repository.findAll();
     }
 
     @GetMapping("/booking{id}")
-    public ResponseEntity<Booking> getBookingByID(@PathVariable int id) {
-        return MockBookingDB.getInstance().getBookingByID(id);
+    public ResponseEntity<Booking> findById(@PathVariable long id) {
+        Optional<Booking>temp = repository.findById(id);
+
+        return temp.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+
     @GetMapping("/guest{id}")
-    public ResponseEntity<Booking> getBookingByGuestID(@PathVariable int id) {
-        return MockBookingDB.getInstance().getBookingByGuestID(id);
+    public ResponseEntity<Iterable<Booking>> getBookingByGuestID(@PathVariable long id) {
+        Iterable<Booking>temp = repository.findByBookingByGuestId(id);
+        return ResponseEntity.ok(temp);
     }
 
 
     @PostMapping("/add")
     public ResponseEntity<Booking> addBooking(@RequestBody Booking booking) {
-        if(!doesBookingExist(booking.getId())) {
-            //addRoomsToBooking(booking);
-            MockBookingDB.getInstance().addBooking(booking);
-            return ResponseEntity.ok(booking);
-        }
-        else{
-            return ResponseEntity.unprocessableEntity().build();
-            //return "Booking already exists, nothing was added";
-            //throw new NullPointerException();
 
-        }
+        return ResponseEntity.ok(repository.save(booking));
+
     }
 
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<Booking> deleteById(@PathVariable int id) {
-        for(Booking booking : MockBookingDB.getInstance().getBookings()) {
-            if(id == booking.getId()) {
-                // NB: You have to override equals and hashCode in Printer to do this correctly!!!
-                MockBookingDB.getInstance().deleteBooking(booking);
-                return ResponseEntity.noContent().build();
-            }
-        }
-        return ResponseEntity.notFound().build();
+    public ResponseEntity deleteById(@PathVariable long id) {
+        repository.deleteById(id);
+        return ResponseEntity.noContent().build();
+
     }
 
-    private boolean doesBookingExist(int id){
-        for (Booking booking: MockBookingDB.getInstance().getBookings()) {
-            if (booking.getId() == id)
-                return true;
-        }
-        return false;
+    private ResponseEntity doesBookingExist(long id){
+        return ResponseEntity.ok(repository.findById(id).isPresent());
     }
 
-    private void addRoomsToBooking(Booking booking){
+/*    private void addRoomsToBooking(Booking booking){
+
         List<Integer> rooms = new ArrayList<>();
         if(doesRoomExist(102))
             rooms.add(102);
@@ -84,7 +77,7 @@ public class BookingController {
         return false;
 
     }
-
+*/
 
 }
 

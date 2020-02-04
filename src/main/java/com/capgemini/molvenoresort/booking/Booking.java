@@ -1,26 +1,39 @@
 package com.capgemini.molvenoresort.booking;
 
+import com.capgemini.molvenoresort.room.Room;
+import com.sun.istack.NotNull;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Booking {
-    private int id;
-    private int guestID;
-    private int invoiceID;
-    private List<Integer> roomNumbers;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    @NotNull
+    private long guestID;
+    @NotNull
+    private long invoiceID;
+    @ManyToMany
+    private List<Room> roomNumbers;
+    @OneToOne
     private LocalDate startDate;
+    @OneToOne
     private LocalDate endDate;
     private int adults;
     private int children;
     private boolean paymentStatus;
+    @OneToMany
     private BookingStatus status;
 
     public Booking(){
         this.status = BookingStatus.RESERVED;
     }
 
-    public Booking(int id, int guestID, LocalDate startDate, LocalDate endDate){
+    public Booking(long id, long guestID, LocalDate startDate, LocalDate endDate){
         this.id = id;
         this.guestID = guestID;
         this.startDate = startDate;
@@ -28,30 +41,30 @@ public class Booking {
         this.status = BookingStatus.RESERVED;
     }
 
-    public int getId() { return id; }
+    public long getId() { return id; }
 
-    public void setId(int id) {
+    public void setId(long id) {
         if(id > 0)
             this.id = id;
     }
 
-    public int getGuestID() {return guestID;}
+    public long getGuestID() {return guestID;}
 
     public void setGuestID(int guestID) {
         if(guestID >0)
             this.guestID = guestID;
     }
 
-    public int getInvoiceID() {return invoiceID;}
+    public long getInvoiceID() {return invoiceID;}
 
     public void setInvoiceID(int invoiceID) {
         if(invoiceID > 0)
             this.invoiceID = invoiceID;
     }
 
-    public List<Integer> getRoomNumbers() {return roomNumbers;}
+    public List<Room> getRoomNumbers() {return roomNumbers;}
 
-    public void setRoomNumbers(List<Integer> roomNumbers) {this.roomNumbers = roomNumbers;}
+    public void setRoomNumbers(List<Room> roomNumbers) {this.roomNumbers = roomNumbers;}
 
     public LocalDate getStartDate() {return startDate;}
 
