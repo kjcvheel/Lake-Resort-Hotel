@@ -15,6 +15,9 @@ public  abstract class User {
 	private String email;
 
 	@NotNull
+	private String password;
+
+	@NotNull
 	private Date birthday;
 	private String country;
 	private String city;
@@ -22,7 +25,7 @@ public  abstract class User {
 	private String zipcode;
 	private String phoneNumber;
 	private String mobileNumber;
-	private String password;
+
 
 	public User(){}
 	public User(String password) {
