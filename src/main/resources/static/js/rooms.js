@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $("#TOP").load("header.html");
     getRooms();
 
 
@@ -6,7 +7,7 @@ $(document).ready(function() {
 
 $(document).on('click', ".single_room", function() {
     console.log($(this).attr('name'));
-    alert($(this).html());
+
     sessionStorage.setItem('bookedRoom', $(this).attr('name'));
     console.log(sessionStorage.getItem("bookedRoom"));
     window.location.href = "http://localhost:8080/bookingGuest.html";
