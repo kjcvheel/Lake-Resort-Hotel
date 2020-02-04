@@ -12,17 +12,29 @@ public class Room {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column
     private int price;
+    @Column
     private String name;
-    private RoomType type;
+    @Column
     private int adult;
+    @Column
     private int children;
+    @Column
     private boolean disabled;
+    @Column
     private boolean smoking;
-    private RoomStatus status;
+
+    @Column
     private String image;
+
+
+    @Enumerated(EnumType.STRING)
+    private RoomStatus status;
+    @Enumerated(EnumType.STRING)
+    private RoomType type;
 
     @ManyToMany
     private List<Bed> beds;
