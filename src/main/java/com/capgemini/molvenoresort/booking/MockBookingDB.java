@@ -9,6 +9,7 @@ import java.util.List;
 public class MockBookingDB {
     private static MockBookingDB bookingDB = null;
     private static List<Booking> bookings = new ArrayList<>();
+    private static int counter = 0;
 
     private MockBookingDB(){
         fillBookingTable();
@@ -49,6 +50,7 @@ public class MockBookingDB {
     }
 
     public void addBooking(Booking booking){
+        booking.setId(++counter);
         bookings.add(booking);
     }
 
