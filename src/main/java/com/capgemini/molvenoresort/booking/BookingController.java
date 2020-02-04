@@ -33,14 +33,15 @@ public class BookingController {
 
 
     @PostMapping("/add")
-    public String addBooking(@RequestBody Booking booking) {
+    public ResponseEntity<Booking> addBooking(@RequestBody Booking booking) {
         if(!doesBookingExist(booking.getId())) {
-            addRoomsToBooking(booking);
+            //addRoomsToBooking(booking);
             MockBookingDB.getInstance().addBooking(booking);
-            return ("Booking has been added, your booking ID is " + booking.getId());
+            return ResponseEntity.ok(booking);
         }
         else{
-            return "Booking already exists, nothing was added";
+            return ResponseEntity.unprocessableEntity().build();
+            //return "Booking already exists, nothing was added";
             //throw new NullPointerException();
 
         }
