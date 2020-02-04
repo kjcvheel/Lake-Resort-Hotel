@@ -1,5 +1,6 @@
 package com.capgemini.molvenoresort.booking;
 
+import com.capgemini.molvenoresort.room.Room;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -16,8 +17,8 @@ public class Booking {
     private long guestID;
     @NotNull
     private long invoiceID;
-    @OneToMany
-    private List<Integer> roomNumbers;
+    @ManyToMany
+    private List<Room> roomNumbers;
     @OneToOne
     private LocalDate startDate;
     @OneToOne
