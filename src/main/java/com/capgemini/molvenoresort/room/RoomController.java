@@ -1,58 +1,63 @@
 package com.capgemini.molvenoresort.room;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = {"api/rooms", "api/Rooms"})
 public class RoomController {
+
+    @Autowired
+    RoomRepository roomRepository;
 
     public RoomController() {
         // Initialize RoomController
     }
 
     @GetMapping
-    public List<Room> showRooms() {
-        return MockRoomDB.getInstance().getRooms();
+    public Iterable<Room> getRooms() {
+        return this.roomRepository.getRooms();
     }
 
+
     @GetMapping("/{id}")
-    public ResponseEntity<Room> getRoomById(@PathVariable String id){
-        Room room = MockRoomDB.getInstance().getRoomById(id);
-        if (room == null) {
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<Room> getRoomById(@PathVariable long id){
+        Optional<Room> room = this.roomRepository.getRoomById(id);
+        if (room.isPresent()) {
+            return ResponseEntity.ok(room.get());
         }
-        return ResponseEntity.ok(room);
+        return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/under{id}")
+    public Iterable<Room> roomsUnder(@PathVariable int id) {
+        return this.roomRepository.getRoomsUnder(id);
+    }
+
+    @GetMapping("/under{id}/Single")
+    public Iterable<Room> singleRoomsUnder(@PathVariable int id) {
+        return this.roomRepository.getSingleRoomsUnder(id);
     }
 
     @PostMapping("/add")
     public String addRoom(@RequestBody Room room) {
-       MockRoomDB.getInstance().addRoom(room);
-       return ("Room has been added, your room ID is " + room.getId());
+       this.roomRepository.addRoom(room);
+       return ("Room has been added, your room ID is " + room.getName());
     }
 
-    @GetMapping("/under{id}")
-    public List<Room> roomsUnder(@PathVariable int id) {
-        return MockRoomDB.getInstance().getRoomsUnder(id);
-    }
-
-    @GetMapping("/under{id}/Single")
-    public List<Room> singleRoomsUnder(@PathVariable int id) {
-        return MockRoomDB.getInstance().getSingleRoomsUnder(id);
-    }
 
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<Room> deleteById(@PathVariable String id) {
-        for(Room room : MockRoomDB.getInstance().getRooms()) {
-            if(id.equals(room.getId())) {
-                // NB: You have to override equals and hashCode in Printer to do this correctly!!!
-                MockRoomDB.getInstance().deleteRoom(room);
+    public ResponseEntity<Room> deleteById(@PathVariable long id) {
+        Optional<Long> deletedID = this.roomRepository.deleteRoom(id);
+        if(deletedID.isPresent()){
                 return ResponseEntity.noContent().build();
-            }
         }
         return ResponseEntity.notFound().build();
     }
+
 }
+

@@ -8,6 +8,7 @@ import java.util.List;
 public class MockGuestDB {
 	private static MockGuestDB guestDB = null;
 	private static List<Guest> guests = new ArrayList<>();
+	private static int counter = 0;
 
 	private MockGuestDB() {
 		fillRoomTable();
@@ -22,19 +23,19 @@ public class MockGuestDB {
 	}
 
 	private void fillRoomTable() {
-		guests.add(new Guest("G001", "pw2"));
-		guests.add(new Guest("G002", "aser12"));
-		guests.add(new Guest("G003", "qwerty"));
-		guests.add(new Guest("G004", "12345678"));
+		addGuest(new Guest("pw2"));
+		addGuest(new Guest("aser12"));
+		addGuest(new Guest( "qwerty"));
+		addGuest(new Guest("12345678"));
 	}
 
 	public List<Guest> getGuests() {
 		return guests;
 	}
 
-	public ResponseEntity<Guest> getGuestById(String id) {
+	public ResponseEntity<Guest> getGuestById(long id) {
 		for (Guest guest:guests) {
-			if (guest.getGuestId().equals(id)) {
+			if (guest.getGuestId() == id) {
 				return ResponseEntity.ok(guest);
 			}
 		}
@@ -43,6 +44,7 @@ public class MockGuestDB {
 	}
 
 	public void addGuest(Guest guest) {
+		guest.setGuestId(++counter);
 		guests.add(guest);
 	}
 }
