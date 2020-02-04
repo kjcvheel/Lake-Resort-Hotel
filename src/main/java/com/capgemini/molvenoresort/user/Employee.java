@@ -18,7 +18,7 @@ public class Employee extends User {
 	@NotNull
 	private EmployeeRole role;
 
-	//private String photo;
+	private String photo;
 
 
 	public Employee(){}
@@ -31,18 +31,18 @@ public class Employee extends User {
 
 	public Employee(long employeeId, String password, EmployeeRole role, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, String photo, String email) {
 		super(firstName, lastName, birthday, country, city, address, zipcode, phoneNumber, mobileNumber, password, email);
-		//this.photo = photo;
+		this.photo = photo;
 		this.employeeId = employeeId;
 		this.role = role;
 	}
 
-/*	public String getPhoto() {
+	public String getPhoto() {
 		return photo;
 	}
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
-	}*/
+	}
 
 	public long getEmployeeId() {
 		return employeeId;

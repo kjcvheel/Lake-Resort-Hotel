@@ -24,16 +24,16 @@ public class EmployeeTest {
 		employee = new Employee(4, testPW, EmployeeRole.RECEPTIONIST, "Jeff", "Bouwmeester",  new GregorianCalendar(1980, Calendar.JULY, 12).getTime(), "Netherlands", "Zeewolde", "Villawal 1", "1234 ab", "030-123-5498", "+316-14325768", "", "");
 	}
 
-//	@Test
-//	public void photoTest() {
-//		assertEquals("", employee.getPhoto());
-//
-//		employee.setPhoto("test");
-//		assertEquals("test", employee.getPhoto());
-//
-//		employee.setPhoto("231m1lnn");
-//		assertEquals("231m1lnn", employee.getPhoto());
-//	}
+	@Test
+	public void photoTest() {
+		assertEquals("", employee.getPhoto());
+
+		employee.setPhoto("test");
+		assertEquals("test", employee.getPhoto());
+
+		employee.setPhoto("231m1lnn");
+		assertEquals("231m1lnn", employee.getPhoto());
+	}
 
 	@Test
 	public void employeeIdTest() {
