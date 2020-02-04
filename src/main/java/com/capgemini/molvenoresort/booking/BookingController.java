@@ -34,11 +34,11 @@ public class BookingController {
     }
 
 
-    @GetMapping("/guest{id}")
+/*    @GetMapping("/guest{id}")
     public ResponseEntity<Iterable<Booking>> getBookingByGuestID(@PathVariable long id) {
         Iterable<Booking>temp = repository.findByBookingByGuestId(id);
         return ResponseEntity.ok(temp);
-    }
+    }*/
 
 
     @PostMapping("/add")
