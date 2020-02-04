@@ -67,6 +67,8 @@ public class RoomRepository {//extends CrudRepository<Room, Long> {
         {
             rooms.add(new Room("Suite 34", 600, 134, RoomType.SINGLE));
             rooms.get(1).setImage("roomImages/SINGLE.jpg");
+            rooms.get(1).setSmoking(true);
+            rooms.get(1).setDisabled(true);
         }
         {
             rooms.add(new Room("Suite 87", 700, 222, RoomType.SINGLE));
