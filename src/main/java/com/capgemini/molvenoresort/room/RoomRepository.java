@@ -1,11 +1,8 @@
 package com.capgemini.molvenoresort.room;
 
-import org.hibernate.transform.CacheableResultTransformer;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
-import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

@@ -20,9 +20,9 @@ public class RoomTest {
 	public void createRoomTest() {
 		// Happy Path
 		room = new Room("Suite 01", 400, 101, RoomType.SINGLE);
-		assertEquals("Suite 01", room.getId());
+		assertEquals("Suite 01", room.getName());
 		assertEquals(400, room.getPrice());
-		assertEquals(101, room.getName());
+		assertEquals(101, room.getId());
 		assertEquals(RoomType.SINGLE, room.getType());
 
 		// TODO: Unhappy Path
@@ -62,39 +62,39 @@ public class RoomTest {
 
 	@Test
 	public void roomIdTest() {
-		room.setId("Suite 99");
-		assertEquals("Suite 99", room.getId());
+		room.setName("Suite 99");
+		assertEquals("Suite 99", room.getName());
 
-		room.setId("@#$ 99");
-		assertEquals("@#$ 99", room.getId());
+		room.setName("@#$ 99");
+		assertEquals("@#$ 99", room.getName());
 
-		room.setId("-jlk12");
-		assertEquals("-jlk12", room.getId());
+		room.setName("-jlk12");
+		assertEquals("-jlk12", room.getName());
 	}
 
 	@Test
 	public void roomBedsTest() {
-		List<BedType> bedTypes = new ArrayList<>();
-		bedTypes.add(BedType.SINGLE);
+		List<Bed> beds = new ArrayList<>();
+		beds.add(new Bed(BedType.SINGLE));
 
-		room.setBedTypes(bedTypes);
-		assertEquals(bedTypes, room.getBedTypes());
-		assertEquals(1, room.getBedTypes().size());
+		room.setBeds(beds);
+		assertEquals(beds, room.getBeds());
+		assertEquals(1, room.getBeds().size());
 
-		bedTypes.add(BedType.SINGLE);
-		room.setBedTypes(bedTypes);
-		assertEquals(bedTypes, room.getBedTypes());
-		assertEquals(2, room.getBedTypes().size());
+		beds.add(new Bed(BedType.SINGLE));
+		room.setBeds(beds);
+		assertEquals(beds, room.getBeds());
+		assertEquals(2, room.getBeds().size());
 
-		bedTypes.add(BedType.DOUBLE);
-		room.setBedTypes(bedTypes);
-		assertEquals(bedTypes, room.getBedTypes());
-		assertEquals(3, room.getBedTypes().size());
+		beds.add(new Bed(BedType.DOUBLE));
+		room.setBeds(beds);
+		assertEquals(beds, room.getBeds());
+		assertEquals(3, room.getBeds().size());
 
-		bedTypes.remove(2);
-		room.setBedTypes(bedTypes);
-		assertEquals(bedTypes, room.getBedTypes());
-		assertEquals(2, room.getBedTypes().size());
+		beds.remove(2);
+		room.setBeds(beds);
+		assertEquals(beds, room.getBeds());
+		assertEquals(2, room.getBeds().size());
 	}
 
 	@Test
@@ -110,14 +110,14 @@ public class RoomTest {
 		assertEquals(0, room.getPrice());
 
 		// Number
-		room.setName(304);
-		assertEquals(304, room.getName());
+		room.setId(304);
+		assertEquals(304, room.getId());
 
-		room.setName(0);
-		assertEquals(304, room.getName());
+		room.setId(0);
+		assertEquals(304, room.getId());
 
-		room.setName(-304);
-		assertEquals(304, room.getName());
+		room.setId(-304);
+		assertEquals(304, room.getId());
 
 		// Adult
 		room.setAdult(1);

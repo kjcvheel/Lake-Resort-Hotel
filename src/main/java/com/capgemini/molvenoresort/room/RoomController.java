@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -47,7 +46,7 @@ public class RoomController {
     @PostMapping("/add")
     public String addRoom(@RequestBody Room room) {
        this.roomRepository.addRoom(room);
-       return ("Room has been added, your room ID is " + room.getId());
+       return ("Room has been added, your room ID is " + room.getName());
     }
 
 

@@ -9,6 +9,8 @@ import java.util.Objects;
 @Entity
 public class Room {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -25,7 +27,7 @@ public class Room {
     @ManyToMany
     private List<Bed> beds;
 
-    @ManyToMany
+
     private List<Facilities> facilities;
 
     @ManyToMany
@@ -47,7 +49,9 @@ public class Room {
     }
 
     public void setId(long id) {
-        this.id = id;
+        if (id > 0) {
+            this.id = id;
+        }
     }
 
     public int getPrice() {
@@ -78,7 +82,7 @@ public class Room {
         return beds;
     }
 
-    public void setBedTypes(List<Bed> beds) {
+    public void setBeds(List<Bed> beds) {
         this.beds = beds;
     }
 
@@ -142,6 +146,13 @@ public class Room {
         this.image = image;
     }
 
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
 
     @Override
     public boolean equals(Object o) {
