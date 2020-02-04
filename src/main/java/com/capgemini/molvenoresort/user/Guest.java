@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -12,13 +13,13 @@ public class Guest extends User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long guestId;
 
+	@NotNull
 	private int creditcard;
 
 	public Guest(){}
 
 	public Guest(String password) {
 		super(password);
-		//this.guestId = guestId;
 	}
 
 	public Guest(long guestId,  String password, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, int creditcard, String email) {
