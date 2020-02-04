@@ -11,11 +11,11 @@ import java.util.Objects;
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
     @NotNull
-    private int guestID;
+    private long guestID;
     @NotNull
-    private int invoiceID;
+    private long invoiceID;
     @OneToMany
     private List<Integer> roomNumbers;
     @OneToOne
@@ -32,7 +32,7 @@ public class Booking {
         this.status = BookingStatus.RESERVED;
     }
 
-    public Booking(int id, int guestID, LocalDate startDate, LocalDate endDate){
+    public Booking(long id, long guestID, LocalDate startDate, LocalDate endDate){
         this.id = id;
         this.guestID = guestID;
         this.startDate = startDate;
@@ -40,21 +40,21 @@ public class Booking {
         this.status = BookingStatus.RESERVED;
     }
 
-    public int getId() { return id; }
+    public long getId() { return id; }
 
-    public void setId(int id) {
+    public void setId(long id) {
         if(id > 0)
             this.id = id;
     }
 
-    public int getGuestID() {return guestID;}
+    public long getGuestID() {return guestID;}
 
     public void setGuestID(int guestID) {
         if(guestID >0)
             this.guestID = guestID;
     }
 
-    public int getInvoiceID() {return invoiceID;}
+    public long getInvoiceID() {return invoiceID;}
 
     public void setInvoiceID(int invoiceID) {
         if(invoiceID > 0)
