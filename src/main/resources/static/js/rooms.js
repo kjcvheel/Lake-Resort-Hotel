@@ -67,7 +67,7 @@ function makeCard(index, value) {
         console.log("Filling in details of room: " + value.id);
         card.find(".card").attr('name', value.id);
         card.find("#price").html("<span>&#165;</span> " + value.price + "");
-        card.find("#type").html(value.type.toLowerCase() + " room");
+
         card.find("#people").html(value.adult + ' <i class="fas fa-male fa-2x"></i> ' + value.children + ' <i class="fas fa-baby fa-2x"></i> ')
         if(value.disabled){
             card.find("#disabled").html('<i class="fas fa-wheelchair fa-2x" ></i>');
@@ -75,14 +75,19 @@ function makeCard(index, value) {
         if(value.smoking){
             card.find("#smoking").attr("class", "fas fa-smoking fa-2x");
         }
+
         if (!"SINGLE".localeCompare(value.type)) {
             card.find("#image").attr("src", "roomImages/SINGLE.jpg");
+            card.find("#type").html(value.type + " ROOM");
         } else if (!"DOUBLE".localeCompare(value.type)) {
             card.find("#image").attr("src", "roomImages/DOUBLE.jpg");
+            card.find("#type").html(value.type + " ROOM");
         } else if (!"DOUBLEX_2".localeCompare(value.type)) {
             card.find("#image").attr("src", "roomImages/DOUBLEX2.jpg");
+            card.find("#type").html("DOUBLE-DOUBLE ROOM");
         } else {
             card.find("#image").attr("src", "roomImages/PENTHOUSE.jpg");
+            card.find("#type").html(value.type);
         }
         card.find(".card-title").html(value.id);
     });
