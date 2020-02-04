@@ -1,11 +1,20 @@
 package com.capgemini.molvenoresort.user;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 public  abstract class User {
+
+	@NotNull
 	private String firstName;
+
+	@NotNull
 	private String lastName;
+
+	@NotNull
 	private String email;
+
+	@NotNull
 	private Date birthday;
 	private String country;
 	private String city;

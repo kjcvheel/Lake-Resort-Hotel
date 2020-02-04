@@ -1,22 +1,31 @@
 package com.capgemini.molvenoresort.user;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 import java.util.Objects;
 
+@Entity
 public class Employee extends User {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long employeeId; // or int
+
 	private String photo;
-	private String employeeId; // or int
 	private EmployeeRole role;
 
 	public Employee(){}
 
-	public Employee(String employeeId, String password, EmployeeRole role) {
+	public Employee(long employeeId, String password, EmployeeRole role) {
 		super(password);
 		this.employeeId = employeeId;
 		this.role = role;
 	}
 
-	public Employee(String employeeId, String password, EmployeeRole role, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, String photo, String email) {
+	public Employee(long employeeId, String password, EmployeeRole role, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, String photo, String email) {
 		super(firstName, lastName, birthday, country, city, address, zipcode, phoneNumber, mobileNumber, password, email);
 		this.photo = photo;
 		this.employeeId = employeeId;
@@ -31,11 +40,11 @@ public class Employee extends User {
 		this.photo = photo;
 	}
 
-	public String getEmployeeId() {
+	public long getEmployeeId() {
 		return employeeId;
 	}
 
-	public void setEmployeeId(String employeeId) {
+	public void setEmployeeId(long employeeId) {
 		this.employeeId = employeeId;
 	}
 
@@ -52,7 +61,7 @@ public class Employee extends User {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		Employee employee = (Employee) o;
-		return employeeId.equals(employee.employeeId);
+		return employeeId == employee.employeeId;
 	}
 
 	@Override

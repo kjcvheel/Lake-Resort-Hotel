@@ -21,7 +21,7 @@ public class EmployeeTest {
 
 	@Before
 	public void createEmployee() {
-		employee = new Employee("E004", testPW, EmployeeRole.RECEPTIONIST, "Jeff", "Bouwmeester",  new GregorianCalendar(1980, Calendar.JULY, 12).getTime(), "Netherlands", "Zeewolde", "Villawal 1", "1234 ab", "030-123-5498", "+316-14325768", "", "");
+		employee = new Employee(4, testPW, EmployeeRole.RECEPTIONIST, "Jeff", "Bouwmeester",  new GregorianCalendar(1980, Calendar.JULY, 12).getTime(), "Netherlands", "Zeewolde", "Villawal 1", "1234 ab", "030-123-5498", "+316-14325768", "", "");
 	}
 
 	@Test
@@ -37,13 +37,13 @@ public class EmployeeTest {
 
 	@Test
 	public void employeeIdTest() {
-		assertEquals("E004", employee.getEmployeeId());
+		assertEquals(4, employee.getEmployeeId());
 
-		employee.setEmployeeId("E008");
-		assertEquals("E008", employee.getEmployeeId());
+		employee.setEmployeeId(8);
+		assertEquals(8, employee.getEmployeeId());
 
-		employee.setEmployeeId("jk23mnss");
-		assertEquals("jk23mnss", employee.getEmployeeId());
+		employee.setEmployeeId(-9999);
+		assertEquals(-9999, employee.getEmployeeId());
 	}
 
 	@Test
@@ -61,9 +61,9 @@ public class EmployeeTest {
 
 	@Test
 	public void smallConstructorTest() {
-		Employee employee2 = new Employee("E005", testPW, EmployeeRole.GENERAL_MANAGER);
+		Employee employee2 = new Employee(5, testPW, EmployeeRole.GENERAL_MANAGER);
 
-		assertEquals("E005", employee2.getEmployeeId());
+		assertEquals(5, employee2.getEmployeeId());
 		assertEquals(testPW, employee2.getPassword());
 		assertEquals(EmployeeRole.GENERAL_MANAGER, employee2.getRole());
 	}

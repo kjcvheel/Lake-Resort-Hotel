@@ -17,7 +17,7 @@ public class EmployeeController {
 
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Employee> getEmployeeById(@PathVariable String id) {
+	public ResponseEntity<Employee> getEmployeeById(@PathVariable long id) {
 		return MockEmployeeDB.getInstance().getEmployeeById(id);
 	}
 

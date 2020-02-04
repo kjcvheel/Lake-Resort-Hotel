@@ -1,16 +1,24 @@
 package com.capgemini.molvenoresort.user;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public class Guest extends User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long guestId;
+
 	private int creditcard;
-	private long guestId; // Could also be an int.
 
 	public Guest(){}
 
-	public Guest(long guestId, String password) {
+	public Guest(String password) {
 		super(password);
-		this.guestId = guestId;
+		//this.guestId = guestId;
 	}
 
 	public Guest(long guestId,  String password, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, int creditcard, String email) {

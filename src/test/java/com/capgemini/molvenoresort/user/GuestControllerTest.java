@@ -39,10 +39,10 @@ public class GuestControllerTest {
 	@Test
 	public void addGuestTest() {
 		int beforeSize = guestController.getGuests().size();
-		Guest guest = new Guest(71,"Test234");
+		Guest guest = new Guest("Test234");
 		guestController.addGuest(guest);
 		List<Guest> guests = guestController.getGuests();
 		assertEquals(beforeSize+1, guests.size());
-		assertEquals(71, guests.get(beforeSize).getGuestId());
+		assertEquals(5, guests.get(beforeSize).getGuestId());
 	}
 }

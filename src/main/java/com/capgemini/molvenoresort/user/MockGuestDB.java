@@ -8,7 +8,7 @@ import java.util.List;
 public class MockGuestDB {
 	private static MockGuestDB guestDB = null;
 	private static List<Guest> guests = new ArrayList<>();
-	private static int counter = 4;
+	private static int counter = 0;
 
 	private MockGuestDB() {
 		fillRoomTable();
@@ -23,10 +23,10 @@ public class MockGuestDB {
 	}
 
 	private void fillRoomTable() {
-		guests.add(new Guest(1, "pw2"));
-		guests.add(new Guest(2, "aser12"));
-		guests.add(new Guest(3, "qwerty"));
-		guests.add(new Guest(4, "12345678"));
+		addGuest(new Guest("pw2"));
+		addGuest(new Guest("aser12"));
+		addGuest(new Guest( "qwerty"));
+		addGuest(new Guest("12345678"));
 	}
 
 	public List<Guest> getGuests() {

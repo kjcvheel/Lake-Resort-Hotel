@@ -47,8 +47,7 @@ public class GuestTest {
 
 	@Test
 	public void smallConstructorTest() {
-		Guest guest2 = new Guest(5, testPW);
-		assertEquals(5, guest2.getGuestId());
+		Guest guest2 = new Guest( testPW);
 		assertEquals(testPW, guest2.getPassword());
 	}
 }
