@@ -1,3 +1,4 @@
+/*
 package com.capgemini.molvenoresort.user;
 
 import com.capgemini.molvenoresort.user.Employee;
@@ -46,3 +47,4 @@ public class EmployeeControllerTest {
 		assertEquals(5, employees.get(beforeSize).getEmployeeId());
 	}
 }
+*/

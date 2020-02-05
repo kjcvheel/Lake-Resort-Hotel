@@ -23,16 +23,16 @@ public class GuestTest {
 		guest = new Guest(4, testPW, "Jeff", "Bouwmeester",  new GregorianCalendar(1980, Calendar.JULY, 12).getTime(), "Netherlands", "Zeewolde", "Villawal 1", "1234 ab", "030-123-5498", "+316-14325768", 12093487, "");
 	}
 
-	@Test
-	public void guestIdTest() {
-		assertEquals(4, guest.getGuestId());
-
-		guest.setGuestId(71);
-		assertEquals(71, guest.getGuestId());
-
-		guest.setGuestId(-100);
-		assertEquals(-100, guest.getGuestId());
-	}
+//	@Test
+//	public void guestIdTest() {
+//		assertEquals(4, guest.getGuestId());
+//
+//		guest.setGuestId(71);
+//		assertEquals(71, guest.getGuestId());
+//
+//		guest.setGuestId(-100);
+//		assertEquals(-100, guest.getGuestId());
+//	}
 
 	@Test
 	public void creditcardTest() {

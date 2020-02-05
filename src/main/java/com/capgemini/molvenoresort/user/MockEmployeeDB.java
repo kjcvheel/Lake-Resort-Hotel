@@ -9,9 +9,9 @@ public class MockEmployeeDB {
 	private static MockEmployeeDB employeeDB = null;
 	private static List<Employee> employees = new ArrayList<>();
 
-	private MockEmployeeDB() {
-		fillRoomTable();
-	}
+//	private MockEmployeeDB() {
+//		fillRoomTable();
+//	}
 
 	public static MockEmployeeDB getInstance() {
 		if (employeeDB == null) {
@@ -21,12 +21,12 @@ public class MockEmployeeDB {
 		return employeeDB;
 	}
 
-	private void fillRoomTable() {
+/*	private void fillRoomTable() {
 		employees.add(new Employee(1, "pw2", EmployeeRole.RECEPTIONIST));
 		employees.add(new Employee(2, "aser12", EmployeeRole.RECEPTIONIST));
 		employees.add(new Employee(3, "qwerty", EmployeeRole.CHEF));
 		employees.add(new Employee(4, "12345678", EmployeeRole.GENERAL_MANAGER));
-	}
+	}*/
 
 	public List<Employee> getEmployees() {
 		return employees;
