@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    $("#TOP").load("header.html");
     getRooms();
 
 
@@ -23,6 +22,9 @@ $(document).ready(function() {
 
 });
 
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
 
 
 
@@ -30,6 +32,8 @@ $(document).on('click', "#booknow", function() {
     console.log($(this).parents().eq(2).attr('name'));
 
     sessionStorage.setItem('bookedRoom', $(this).parents().eq(2).attr('name'));
+    sessionStorage.setItem('dateFrom', $("#checkin").val());
+    sessionStorage.setItem('dateTo', $("#checkout").val());
     console.log(sessionStorage.getItem("bookedRoom"));
     window.location.href = "http://localhost:8080/BookingGuestForm";
 
@@ -135,3 +139,6 @@ $(document).on('click', "#checkout", function() {
     $("#checkout").datepicker('setStartDate', $("#checkin").val());
 });
 
+$(document).on('click', '#roomFilter', function(){
+getRoomsUnder();
+})
