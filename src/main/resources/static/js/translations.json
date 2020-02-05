@@ -6,18 +6,20 @@
         "zh": "This is the chinese version.",
         "zh-Hant": "This is the chinese traditional version.",
         "zh-CN": "This is the chinese version for firefox."
-
     },
-    "I exist only in English and Italian": {
-        "it": "Io esisto solo in Inglese e Italiano"
+    "Book now": {
+        "zh-CN": "现在预订"
     },
-    "Me only in English": {},
-    "I have only 1 single number": {
-        "es": "Tengo solo 1 numero",
-        "it": "Ho 1 solo numero"
+    "Restaurant": {
+        "zh-CN": "餐厅"
     },
-    "I have %n numbers": {
-        "es": "Tengo %n numeros",
-        "it": "Ho %n numeri"
+    "Login": {
+        "zh-CN": "登录"
+    },
+    "Contact": {
+        "zh-CN": "联系"
+    },
+    "FAQ": {
+        "zh-CN": "常问问题"
     }
 }
