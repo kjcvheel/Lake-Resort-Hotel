@@ -11,9 +11,6 @@ import java.util.Objects;
 @Entity
 public class Employee extends User {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long employeeId;
 
 	@NotNull
 	private EmployeeRole role;
@@ -23,16 +20,14 @@ public class Employee extends User {
 
 	public Employee(){}
 
-	public Employee(long employeeId, String password, EmployeeRole role) {
+	public Employee(String password, EmployeeRole role) {
 		super(password);
-		this.employeeId = employeeId;
 		this.role = role;
 	}
 
 	public Employee(long employeeId, String password, EmployeeRole role, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, String photo, String email) {
-		super(firstName, lastName, birthday, country, city, address, zipcode, phoneNumber, mobileNumber, password, email);
+		super(employeeId, firstName, lastName, birthday, country, city, address, zipcode, phoneNumber, mobileNumber, password, email);
 		this.photo = photo;
-		this.employeeId = employeeId;
 		this.role = role;
 	}
 
@@ -45,11 +40,11 @@ public class Employee extends User {
 	}
 
 	public long getEmployeeId() {
-		return employeeId;
+		return id;
 	}
 
 	public void setEmployeeId(long employeeId) {
-		this.employeeId = employeeId;
+		this.id = employeeId;
 	}
 
 	public EmployeeRole getRole() {
@@ -65,11 +60,11 @@ public class Employee extends User {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		Employee employee = (Employee) o;
-		return employeeId == employee.employeeId;
+		return this.id == employee.id;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(employeeId);
+		return Objects.hash(id);
 	}
 }

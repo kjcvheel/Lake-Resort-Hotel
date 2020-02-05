@@ -10,9 +10,9 @@ public class MockGuestDB {
 	private static List<Guest> guests = new ArrayList<>();
 	private static int counter = 0;
 
-	private MockGuestDB() {
+/*	private MockGuestDB() {
 		fillRoomTable();
-	}
+	}*/
 
 	public static MockGuestDB getInstance() {
 		if (guestDB == null) {
@@ -22,12 +22,12 @@ public class MockGuestDB {
 		return guestDB;
 	}
 
-	private void fillRoomTable() {
+/*	private void fillRoomTable() {
 		addGuest(new Guest("pw2"));
 		addGuest(new Guest("aser12"));
 		addGuest(new Guest( "qwerty"));
 		addGuest(new Guest("12345678"));
-	}
+	}*/
 
 	public List<Guest> getGuests() {
 		return guests;
@@ -43,8 +43,8 @@ public class MockGuestDB {
 		return ResponseEntity.notFound().build();
 	}
 
-	public void addGuest(Guest guest) {
+/*	public void addGuest(Guest guest) {
 		guest.setGuestId(++counter);
 		guests.add(guest);
-	}
+	}*/
 }

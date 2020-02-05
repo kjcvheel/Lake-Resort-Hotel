@@ -1,29 +1,48 @@
 package com.capgemini.molvenoresort.user;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+@MappedSuperclass
 public  abstract class User {
 
+
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", updatable = false, nullable = false)
+	protected Long id;
+
+
+	@Column
 	@NotNull
 	private String firstName;
 
+	@Column
 	@NotNull
 	private String lastName;
 
-	@NotNull
+	@Column
 	private String email;
 
+	@Column
 	@NotNull
 	private String password;
 
-	@NotNull
+	@Column
 	private Date birthday;
+	@Column
 	private String country;
+	@Column
 	private String city;
+	@Column
 	private String address;
+	@Column
 	private String zipcode;
+	@Column
 	private String phoneNumber;
+	@Column
 	private String mobileNumber;
 
 
@@ -32,7 +51,8 @@ public  abstract class User {
 		this.password = password;
 	}
 
-	public User(String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, String password, String email) {
+	public User(long id, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, String password, String email) {
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.birthday = birthday;

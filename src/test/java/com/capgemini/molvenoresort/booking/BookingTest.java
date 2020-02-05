@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class BookingTest {
     Booking booking;
 
-    @Before
+/*    @Before
     public void before() {
         booking = new Booking(45, 35, LocalDate.of(2020, 5, 15), LocalDate.of(2020, 5, 20));
     }
@@ -47,5 +47,5 @@ public class BookingTest {
         // Checked out
         booking.setStatus(BookingStatus.CHECKED_OUT);
         assertEquals(BookingStatus.CHECKED_OUT, booking.getStatus());
-    }
+    }*/
 }
