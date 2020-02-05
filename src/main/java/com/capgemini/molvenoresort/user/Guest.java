@@ -1,18 +1,13 @@
 package com.capgemini.molvenoresort.user;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
 public class Guest extends User {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long guestId;
 
+	@Column
 	@NotNull
 	private int creditcard;
 
@@ -22,10 +17,9 @@ public class Guest extends User {
 		super(password);
 	}
 
-	public Guest(long guestId,  String password, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, int creditcard, String email) {
-		super(firstName, lastName, birthday, country, city, address, zipcode, phoneNumber, mobileNumber, password, email);
+	public Guest(long id,  String password, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, int creditcard, String email) {
+		super(id, firstName, lastName, birthday, country, city, address, zipcode, phoneNumber, mobileNumber, password, email);
 		this.creditcard = creditcard;
-		this.guestId = guestId;
 	}
 
 	public int getCreditcard() {
@@ -37,10 +31,7 @@ public class Guest extends User {
 	}
 
 	public long getGuestId() {
-		return guestId;
+		return id;
 	}
 
-	public void setGuestId(long guestId) {
-		this.guestId = guestId;
-	}
 }

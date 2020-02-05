@@ -1,6 +1,7 @@
 package com.capgemini.molvenoresort.booking;
 
 import com.capgemini.molvenoresort.room.Room;
+import com.capgemini.molvenoresort.user.Guest;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -13,8 +14,8 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @NotNull
-    private long guestID;
+    @OneToOne
+    private Guest guestID;
     @NotNull
     private long invoiceID;
     @ManyToMany
@@ -32,7 +33,7 @@ public class Booking {
         this.status = BookingStatus.RESERVED;
     }
 
-    public Booking(long id, long guestID, LocalDate startDate, LocalDate endDate){
+    public Booking(long id, Guest guestID, LocalDate startDate, LocalDate endDate){
         this.id = id;
         this.guestID = guestID;
         this.startDate = startDate;
@@ -47,12 +48,8 @@ public class Booking {
             this.id = id;
     }
 
-    public long getGuestID() {return guestID;}
+    public Guest getGuestID() {return guestID;}
 
-    public void setGuestID(int guestID) {
-        if(guestID >0)
-            this.guestID = guestID;
-    }
 
     public long getInvoiceID() {return invoiceID;}
 
