@@ -1,10 +1,10 @@
 {{>header}}
 
-    <!--Page specific information -->
-    <link href="css/bookingGuest.css" rel="stylesheet">
-    <title>Booking - Guest information</title>
-    <meta name="description" content="The page where a guest fils in his or her information when creating a booking.">
-    <meta name="author" content="Joey de Groot">
+<!--Page specific information -->
+<link href="css/bookingGuest.css" rel="stylesheet">
+<title>Booking - Guest information</title>
+<meta name="description" content="The page where a guest fils in his or her information when creating a booking.">
+<meta name="author" content="Joey de Groot">
 
 </head>
 
@@ -12,123 +12,124 @@
     {{>navbar}}
 
     <!-- Page Content -->
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-6 text-left my-1">
-                    <div class="border border-dark rounded bg-light px-2" id="guest-information-form">
-                        <h4 class="text-center">Your information</h4>
-                        <p class="text-center">Please fill in your personal information to complete your booking.</p>
-                        <form class="needs-validation" id="guest-information-form" novalidate>
-                            <div class="form-row">
-                                <div class="col-7">
-                                    <label for="adults">Adults (including you):</label>
-                                    <input type="number" class="form-control form-control-sm" id="adults" name="adults" min="1" pattern="^[1-9]/d*$" value="1" required>
-                                </div>
-                                <div class="col-5">
-                                    <label for="children">Children:</label>
-                                    <input type="number" class="form-control form-control-sm" id="children" name="children" min="0" pattern="^\d*$" value="0" required>
-                                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-6 text-left my-1">
+                <div class="border border-dark rounded bg-light px-2" id="guest-information-form">
+                    <h4 class="text-center" data-translate="Your information">Your information</h4>
+                    <p class="text-center" data-translate="Please fill in your personal information to complete your booking.">Please fill in your personal information to complete your booking.</p>
+                    <form class="needs-validation" id="guest-information-form" novalidate>
+                        <div class="form-row">
+                            <div class="col-7">
+                                <label for="adults" data-translate="Adults (including you):">Adults (including you):</label>
+                                <input type="number" class="form-control form-control-sm" id="adults" name="adults" min="1" pattern="^[1-9]/d*$" value="1" required>
                             </div>
-                            <div class="form-row">
-                                <div class="col-5">
-                                    <label for="fname">First name:</label>
-                                    <input type="text" class="form-control form-control-sm " id="fname" name="firstName" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
-                                </div>
-                                <div class="col-7">
-                                    <label for="lname">Last name:</label>
-                                    <input type="text" class="form-control form-control-sm" id="lname" name="lastName" pattern="^[a-zA-Z]+(([' -][a-zA-Z ])?[a-zA-Z]*)*$" required>
-                                </div>
+                            <div class="col-5">
+                                <label for="children" data-translate="Children:">Children:</label>
+                                <input type="number" class="form-control form-control-sm" id="children" name="children" min="0" pattern="^\d*$" value="0" required>
                             </div>
-                            <div class="form-row">
-                                <div class="col-12">
-                                    <label for="bdate">Date of birth:</label>
-                                </div>
-                                <div class="col-4" id="bdate">
-                                    <label for="bDay">Day: </label>
-                                    <select id="bDay" class="daySelect w-50"></select>
-                                </div>
-                                <div class="col-4">
-                                    <label>Month:</label>
-                                    <select id="bMonth" class="monthSelect w-50"></select>
-                                </div>
-                                <div class="col-4">
-                                    <label>Year:</label>
-                                    <select id="bYear" class="yearSelect w-50"></select>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-12">
-                                    <label for="email">Email address:</label>
-                                    <input type="email" class="form-control form-control-sm" id="email" name="email" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-6">
-                                    <label for="phonenumber">Phone number:</label>
-                                    <input type="number" class="form-control form-control-sm" id="phonenumber" name="phonenumber" pattern="^((\+|0{2})\d{1,3}[- ]?)?\d{8,10}$" required>
-                                    <div class="invalid-feedback">
-                                        Please fill in a valid phone number.
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <label for="mobilenumber">Mobile number:</label>
-                                    <input type="text" class="form-control form-control-sm" id="mobilenumber" name="mobilenumber" pattern="^((\+|0{2})\d{1,3}[- ]?)?\d{8,10}$" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-9">
-                                    <label for="streetname">Street name:</label>
-                                    <input type="text" class="form-control form-control-sm" id="streetname" name="streetname" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
-                                </div>
-                                <div class="col-3">
-                                    <label for="streetnumber">Number:</label>
-                                    <input type="text" class="form-control form-control-sm" id="streetnumber" name="streetnumber" pattern="^\d+[A-Za-z]*$" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-9">
-                                    <label for="city">City:</label>
-                                    <input type="text" class="form-control form-control-sm" id="city" name="city" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
-                                </div>
-                                <div class="col-3">
-                                    <label for="zipcode">Zipcode:</label>
-                                    <input type="text" class="form-control form-control-sm" id="zipcode" name="zipcode" pattern="^([1-9][0-9]{3} ?[A-Za-z]{2}|\d{5,6}|(\d{5}( |-)\d{4}))$" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-12">
-                                    <label for="country">Country:</label>
-                                    <input type="text" class="form-control form-control-sm" id="country" name="country" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-12">
-                                    <label for="creditcard">Creditcard:</label>
-                                    <input type="text" class="form-control form-control-sm" id="creditcard" name="creditcard" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-12 text-right">
-                                    <button id="submitButton" type="submit" class="btn btn-primary mt-1 mb-1">Finish booking</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="row m-0 my-1">
-                        <div class="col-12 bg-light border border-dark">
-                            <h5>Your booking summary: </h5>
-                            <p id="dateFrom"><b>From:</b> </p>
-                            <p id="dateTo"><b>To:</b> </p>
-                            <div id="rooms-container" class="my-1"></div>
                         </div>
+                        <div class="form-row">
+                            <div class="col-5">
+                                <label for="fname" data-translate="First name:">First name:</label>
+                                <input type="text" class="form-control form-control-sm " id="fname" name="firstName" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
+                            </div>
+                            <div class="col-7">
+                                <label for="lname" data-translate="Last name:">Last name:</label>
+                                <input type="text" class="form-control form-control-sm" id="lname" name="lastName" pattern="^[a-zA-Z]+(([' -][a-zA-Z ])?[a-zA-Z]*)*$" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-12">
+                                <label for="bdate" data-translate="Date of birth:">Date of birth:</label>
+                            </div>
+                            <div class="col-4" id="bdate">
+                                <label for="bDay" data-translate="Day:">Day:</label>
+                                <select id="bDay" class="daySelect w-50"></select>
+                            </div>
+                            <div class="col-4">
+                                <label data-translate="Month:">Month:</label>
+                                <select id="bMonth" class="monthSelect w-50"></select>
+                            </div>
+                            <div class="col-4">
+                                <label data-translate="Year:">Year:</label>
+                                <select id="bYear" class="yearSelect w-50"></select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-12">
+                                <label for="email" data-translate="Email address:">Email address:</label>
+                                <input type="email" class="form-control form-control-sm" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-6">
+                                <label for="phonenumber" data-translate="Phone number:">Phone number:</label>
+                                <input type="number" class="form-control form-control-sm" id="phonenumber" name="phonenumber" pattern="^((\+|0{2})\d{1,3}[- ]?)?\d{8,10}$" required>
+                                <div class="invalid-feedback">
+                                    Please fill in a valid phone number.
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label for="mobilenumber" data-translate="Mobile number:">Mobile number:</label>
+                                <input type="text" class="form-control form-control-sm" id="mobilenumber" name="mobilenumber" pattern="^((\+|0{2})\d{1,3}[- ]?)?\d{8,10}$" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-9">
+                                <label for="streetname" data-translate="Street name:">Street name:</label>
+                                <input type="text" class="form-control form-control-sm" id="streetname" name="streetname" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
+                            </div>
+                            <div class="col-3">
+                                <label for="streetnumber" data-translate="Number:">Number:</label>
+                                <input type="text" class="form-control form-control-sm" id="streetnumber" name="streetnumber" pattern="^\d+[A-Za-z]*$" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-9">
+                                <label for="city" data-translate="City:">City:</label>
+                                <input type="text" class="form-control form-control-sm" id="city" name="city" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
+                            </div>
+                            <div class="col-3">
+                                <label for="zipcode" data-translate="Zipcode:">Zipcode:</label>
+                                <input type="text" class="form-control form-control-sm" id="zipcode" name="zipcode" pattern="^([1-9][0-9]{3} ?[A-Za-z]{2}|\d{5,6}|(\d{5}( |-)\d{4}))$" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-12">
+                                <label for="country" data-translate="Country:">Country:</label>
+                                <input type="text" class="form-control form-control-sm" id="country" name="country" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-12">
+                                <label for="creditcard" data-translate="Creditcard:">Creditcard:</label>
+                                <input type="text" class="form-control form-control-sm" id="creditcard" name="creditcard" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-12 text-right">
+                                <button id="submitButton" type="submit" class="btn btn-primary mt-1 mb-1" data-translate="Finish booking">Finish booking</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="row m-0 my-1">
+                    <div class="col-12 bg-light border border-dark">
+                        <h5>Your booking summary: </h5>
+                        <p id="dateFrom"><b>From:</b> </p>
+                        <p id="dateTo"><b>To:</b> </p>
+                        <div id="rooms-container" class="my-1"></div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     {{>footer}}
     <script src="js/bookingGuest.js"></script>
 </body>
+
 </html>
