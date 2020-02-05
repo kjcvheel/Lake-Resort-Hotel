@@ -2,7 +2,6 @@ package com.capgemini.molvenoresort.booking;
 
 import com.capgemini.molvenoresort.room.Room;
 import com.capgemini.molvenoresort.user.Guest;
-import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -20,7 +19,7 @@ public class Booking {
     @Column
     private long invoiceID;
     @ManyToMany
-    private List<Room> roomNumbers;
+    private List<Room> rooms;
     @Column
     private LocalDate startDate;
     @Column
@@ -63,9 +62,9 @@ public class Booking {
             this.invoiceID = invoiceID;
     }
 
-    public List<Room> getRoomNumbers() {return roomNumbers;}
+    public List<Room> getRoomNumbers() {return rooms;}
 
-    public void setRoomNumbers(List<Room> roomNumbers) {this.roomNumbers = roomNumbers;}
+    public void setRoomNumbers(List<Room> roomNumbers) {this.rooms = roomNumbers;}
 
     public LocalDate getStartDate() {return startDate;}
 

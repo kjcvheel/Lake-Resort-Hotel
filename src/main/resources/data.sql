@@ -9,5 +9,4 @@ INSERT INTO GUEST(first_name, last_name, email, password, creditcard) VALUES ('n
 
 
 INSERT INTO BOOKING(adults, userid) VALUES (2, 2);
-
-
+INSERT INTO BOOKING_ROOMS(bookings_id, rooms_id) values (1,2);  

@@ -42,7 +42,7 @@ public class Room {
 
     //private List<Facilities> facilities;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "rooms")
     private List<Booking> bookings;
 
     public Room(){}
