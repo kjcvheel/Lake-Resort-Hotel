@@ -12,14 +12,17 @@
     <!-- Navigation -->
     {{>navbar}}
     <div class="container">
-        <h1 class="mt-5" style="text-align: center">Find an available room</h1>
         <div class="rooms">
-            <p> Here come the filters for the rooms
-                <form>
-                Maximum price: <input type="number" name="max"><br />
-                </form>
-                <button onclick="getRoomsUnder()">Filter</button>
-            </p>
+            <div class="row">
+                <div class="col-md-4">
+                    <form>
+                        Maximum price: <input type="number" name="max"><br />
+                    </form>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-end">
+                <button onclick="getRoomsUnder()" class="btn btn-secondary">Filter</button>
+            </div>
         </div>
 
         <div class="rooms">

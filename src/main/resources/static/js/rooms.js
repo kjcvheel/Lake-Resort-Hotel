@@ -79,15 +79,19 @@ function makeCard(index, value) {
         if (!"SINGLE".localeCompare(value.type)) {
             card.find("#image").attr("src", "roomImages/SINGLE.jpg");
             card.find("#type").html(value.type + " ROOM");
+            card.find("#specificInfo").html("A beautiful room with a single bed.")
         } else if (!"DOUBLE".localeCompare(value.type)) {
             card.find("#image").attr("src", "roomImages/DOUBLE.jpg");
             card.find("#type").html(value.type + " ROOM");
+            card.find("#specificInfo").html("A beautiful room with a large double bed.")
         } else if (!"DOUBLEX_2".localeCompare(value.type)) {
             card.find("#image").attr("src", "roomImages/DOUBLEX2.jpg");
             card.find("#type").html("DOUBLE-DOUBLE ROOM");
+            card.find("#specificInfo").html("A beautiful room with two double beds. Perfect for families.")
         } else {
             card.find("#image").attr("src", "roomImages/PENTHOUSE.jpg");
             card.find("#type").html(value.type);
+            card.find("#specificInfo").html("Luxurious penthouse on the top floors of the hotel.")
         }
         card.find(".card-title").html(value.id);
     });
