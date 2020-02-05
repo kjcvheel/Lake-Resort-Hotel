@@ -10,13 +10,6 @@ $(document).ready(function() {
     getData();
 });
 
-$("#submitButton").click(function() {
-    //if (checkIfFieldsValid()) {
-    //} else {
-    //alert("Please fill in all required fields.");
-    //}
-});
-
 $(document).on("click", '.collapse-trigger', function() {
     console.log("Trigger collapse");
     $(this).next().collapse('toggle');
@@ -139,20 +132,10 @@ function fillBirthdayDropdowns() {
 }
 
 function getFormData() {
-    let dayString = $("#bDay").val();
-    if (dayString.length < 2) {
-        dayString = '0' + dayString;
-    }
-
-    let monthString = $("#bMonth").val();
-    if (monthString.length < 2) {
-        monthString = '0' + monthString;
-    }
-
     let guestObj = {
         firstName: $("#fname").val(),
         lastName: $("#lname").val(),
-        birthday: $("#bYear").val() + "-" + monthString + "-" + dayString,
+        birthday: $("#bdate").val().split('-').reverse().join('-'),
         country: $("#country").val(),
         address: $("#streetname").val() + " " + $("#streetnumber").val(),
         city: $("#city").val(),
@@ -196,6 +179,7 @@ function formatDate(date) {
         day = '' + d.getDate(),
         year = d.getFullYear();
 
+    console.log(d);
     if (month.length < 2)
         month = '0' + month;
     if (day.length < 2)
