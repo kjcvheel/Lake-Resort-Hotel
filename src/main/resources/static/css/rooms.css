@@ -1,12 +1,15 @@
 .rooms {
     text-align: center;
+
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
+
     width: 75%;
     border: 10px solid #dae3f3;
     background-color: #99d9ea;
     padding: 50px;
+
 }
 
 .buttonColor {
@@ -19,9 +22,12 @@ div.single_room {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
+
+
+
 }
 
-img {
+.rooms img {
     width: 100%
 }
 
@@ -29,18 +35,15 @@ p {
     font-size: small;
 }
 
-h1,
-h2,
-p {
+h1, h2, p {
     font-family: Verdana, serif;
 }
 
 #page-container {
-    position: relative;
-    min-height: 100vh;
+  position: relative;
+  min-height: 100vh;
 }
 
 #content-wrap {
-    padding-bottom: 2.5rem;
-    /* Footer height */
+  padding-bottom: 2.5rem;    /* Footer height */
 }
