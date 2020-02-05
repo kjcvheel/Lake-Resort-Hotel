@@ -3,7 +3,28 @@ $(document).ready(function() {
     getRooms();
 
 
+    var date_input=$('input[name="checkin"]'); //our date input has the name "date"
+    var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+    date_input.datepicker({
+       		format: 'mm/dd/yyyy',
+        	container: container,
+        	todayHighlight: true,
+          	autoclose: true,
+          	startDate: new Date()
+    });
+    var date_input2=$('input[name="checkout"]'); //our date input has the name "date"
+        var container2=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input2.datepicker({
+           		format: 'mm/dd/yyyy',
+            	container: container2,
+            	todayHighlight: true,
+              	autoclose: true,
+        });
+
 });
+
+
+
 
 $(document).on('click', "#booknow", function() {
     console.log($(this).parents().eq(2).attr('name'));
@@ -42,7 +63,7 @@ function getRooms() {
 }
 
 function getRoomsUnder() {
-    let price = $("input[type=number][name=max]").val();
+    let price = $("input[type=range][name=price]").val();
 
     $.ajax({
         url: "http://localhost:8080/api/rooms/under" + price,
@@ -99,3 +120,18 @@ function makeCard(index, value) {
 
 
 }
+
+
+var slider = document.getElementById("price");
+var output = document.getElementById("priceselect");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+console.log("moving");
+  output.innerHTML = this.value;
+}
+
+$(document).on('click', "#checkout", function() {
+    $("#checkout").datepicker('setStartDate', $("#checkin").val());
+});
+
