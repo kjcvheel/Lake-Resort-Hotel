@@ -12,21 +12,26 @@ import java.util.Objects;
 @Entity
 public class Booking {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "userID", nullable = false)
     private Guest guestID;
-    @NotNull
+    @Column
     private long invoiceID;
     @ManyToMany
     private List<Room> roomNumbers;
-
+    @Column
     private LocalDate startDate;
-
+    @Column
     private LocalDate endDate;
+    @Column
     private int adults;
+    @Column
     private int children;
+    @Column
     private boolean paymentStatus;
+    @Enumerated(EnumType.STRING)
     private BookingStatus status;
 
     public Booking(){
