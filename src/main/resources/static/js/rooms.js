@@ -140,5 +140,5 @@ $(document).on('click', "#checkout", function() {
 });
 
 $(document).on('click', '#roomFilter', function(){
-getRoomsUnder();
-})
+    getRoomsUnder();
+});
