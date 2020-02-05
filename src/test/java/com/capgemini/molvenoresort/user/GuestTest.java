@@ -20,18 +20,18 @@ public class GuestTest {
 
 	@Before
 	public void createGuest() {
-		guest = new Guest("G004", testPW, "Jeff", "Bouwmeester",  new GregorianCalendar(1980, Calendar.JULY, 12).getTime(), "Netherlands", "Zeewolde", "Villawal 1", "1234 ab", "030-123-5498", "+316-14325768", 12093487, "");
+		guest = new Guest(4, testPW, "Jeff", "Bouwmeester",  new GregorianCalendar(1980, Calendar.JULY, 12).getTime(), "Netherlands", "Zeewolde", "Villawal 1", "1234 ab", "030-123-5498", "+316-14325768", 12093487, "");
 	}
 
 	@Test
 	public void guestIdTest() {
-		assertEquals("G004", guest.getGuestId());
+		assertEquals(4, guest.getGuestId());
 
-		guest.setGuestId("G071");
-		assertEquals("G071", guest.getGuestId());
+		guest.setGuestId(71);
+		assertEquals(71, guest.getGuestId());
 
-		guest.setGuestId("kl@90");
-		assertEquals("kl@90", guest.getGuestId());
+		guest.setGuestId(-100);
+		assertEquals(-100, guest.getGuestId());
 	}
 
 	@Test
@@ -47,8 +47,7 @@ public class GuestTest {
 
 	@Test
 	public void smallConstructorTest() {
-		Guest guest2 = new Guest("G005", testPW);
-		assertEquals("G005", guest2.getGuestId());
+		Guest guest2 = new Guest( testPW);
 		assertEquals(testPW, guest2.getPassword());
 	}
 }

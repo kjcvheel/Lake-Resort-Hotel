@@ -1,40 +1,52 @@
 .rooms {
     text-align: center;
-
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-
     width: 75%;
-    border: 15px solid #dae3f3;
-    background-color: #dae3f2;
+    border: 10px solid #dae3f3;
+    background-color: #99d9ea;
     padding: 50px;
-
 }
 
-.buttonColor{
+.buttonColor {
     background-color: #2f5597;
 }
 
 div.single_room {
-    background-color: #4472c4;
+    background-color: #7092BE;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
-
-    border: 15px solid #dae3f3;
-
-
 }
-img{
+
+img {
     width: 100%
 }
 
-
-p{
+p {
     font-size: small;
 }
-h1, h2, p {
+
+h1,
+h2,
+p {
     font-family: Verdana, serif;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem;
+    /* Footer height */
+}
+
+.bottomdiv{
+  position:absolute;
+  left:5;
+  bottom:0;
 }

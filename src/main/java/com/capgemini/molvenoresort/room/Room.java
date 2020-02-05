@@ -1,39 +1,69 @@
 package com.capgemini.molvenoresort.room;
 
+import com.capgemini.molvenoresort.booking.Booking;
+
+import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Room {
-    private String id;
+
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column
     private int price;
-    private int number;
-    private RoomType type;
-    private List<Bed> beds;
-    private List<Facilities> facilities;
+    @Column
+    private String name;
+    @Column
     private int adult;
+    @Column
     private int children;
+    @Column
     private boolean disabled;
+    @Column
     private boolean smoking;
-    private RoomStatus status;
+
+    @Column
     private String image;
+
+
+    @Enumerated(EnumType.STRING)
+    private RoomStatus status;
+    @Enumerated(EnumType.STRING)
+    private RoomType type;
+
+    @ManyToMany
+    private List<Bed> beds;
+
+
+    //private List<Facilities> facilities;
+
+    @ManyToMany
+    private List<Booking> bookings;
 
     public Room(){}
 
-    public Room(String id, int price, int number, RoomType type) {
+    public Room(String name, int price, long id, RoomType type) {
         this.id = id;
         this.price = price;
-        this.number = number;
+        this.name = name;
         this.type = type;
         this.status = RoomStatus.AVAILABLE;
         this.image = "roomImages/SINGLE.jpg";
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(long id) {
+        if (id > 0) {
+            this.id = id;
+        }
     }
 
     public int getPrice() {
@@ -46,14 +76,11 @@ public class Room {
         this.price = price;
     }
 
-    public int getNumber() {
-        return number;
+    public String getName() {
+        return name;
     }
 
-    public void setNumber(int number) {
-        if (number > 0)
-            this.number = number;
-    }
+    public void setName(String name) {this.name = name;}
 
     public RoomType getType() {
         return type;
@@ -71,13 +98,13 @@ public class Room {
         this.beds = beds;
     }
 
-    public List<Facilities> getFacilities() {
-        return facilities;
-    }
+ //   public List<Facilities> getFacilities() {
+ //       return facilities;
+ //   }
 
-    public void setFacilities(List<Facilities> facilities) {
-        this.facilities = facilities;
-    }
+  //  public void setFacilities(List<Facilities> facilities) {
+  //      this.facilities = facilities;
+   // }
 
     public int getAdult() {
         return adult;
@@ -131,13 +158,20 @@ public class Room {
         this.image = image;
     }
 
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Room room = (Room) o;
-        return id.equals(room.id);
+        return id == room.id;
     }
 
     @Override

@@ -1,19 +1,26 @@
 <div class="card single_room d-flex flex-column">
-    <div class="row">
-        <div class="col-md-4">
+    <div class="card-body collapse-trigger row">
+        <div class="col-md-4 m-0 p-0">
             <img src="roomImages/?.jpg" alt="room" class="w-100" id="image">
         </div>
-        <div class="col-md-5 py-3">
-            <p class="text-white text-left">
-                <span id="price">Price per night: ?<br/></span>
-                <span id="type">Room type: ?<br></span>
-                <span id="disabled">Suitable with disabilities: ?</span>
-            </p>
+        <div class="col-md-5 py-3 ">
+            <h4 class="text-white text-center" id="type">Room</h4>
+            <p class="text-white text-left">Click to see more room details</p>
+            <div class="text-white text-left bottomdiv" style="vertical-align:bottom">
+                <span id="people" >? <i class="fas fa-male fa-2x" ></i> ? <i
+                        class="fas fa-baby fa-2x" ></i></span>
+                <span id="disabled"></span>
+                <i class="fas fa-smoking-ban fa-2x" id="smoking"></i>
+            </div>
 
         </div>
         <div class="col-md-3 align-self-center">
-            <a href="#" class="btn btn-secondary">Book room</a>
+            <h4 id="price">?</h4>
+            <a href="#" class="btn btn-secondary" id="booknow">Book room</a>
         </div>
+    </div>
+    <div class="collapse border-top border-secondary bg-white text-black text-left" id="extra">
+        Available facilities: <br/> Minibar, Airco, TV, Netflix, Sonos(bluetooth), Safe, WiFi, Phone
     </div>
 
 </div>
