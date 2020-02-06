@@ -18,6 +18,9 @@ $(document).ready(function() {
 function initDataTable(api) {
     // how simple it is to create a datatable :-)
     let table = $('#dataTable').DataTable({
+        responsive: {
+            details: false
+        },
         "order": [
             [0, "asc"]
         ],
@@ -27,6 +30,8 @@ function initDataTable(api) {
         },
         "columns": columns
     });
+
+    new $.fn.dataTable.FixedHeader(table);
 
     $('#dataTable tbody').on('click', 'tr', function() {
         if ($(this).hasClass('selected')) {
