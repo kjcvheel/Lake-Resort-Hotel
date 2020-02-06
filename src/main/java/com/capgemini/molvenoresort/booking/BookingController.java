@@ -1,17 +1,11 @@
 package com.capgemini.molvenoresort.booking;
 
-import com.capgemini.molvenoresort.room.MockRoomDB;
-import com.capgemini.molvenoresort.room.Room;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collector;
+import java.util.*;
 
 @RestController
 @RequestMapping(value = {"/bookings", "/Bookings"})
@@ -42,9 +36,14 @@ public class BookingController {
 
 
     @PostMapping("/add")
-    public ResponseEntity<Booking> addBooking(@RequestBody Booking booking) {
-
-        return ResponseEntity.ok(repository.save(booking));
+    public ResponseEntity<?> addBooking(@RequestBody Booking booking) {
+        if (checkAge(booking))
+        {
+            return ResponseEntity.ok(repository.save(booking));
+        }
+        else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("To young");
+        }
 
     }
 
@@ -79,5 +78,11 @@ public class BookingController {
     }
 */
 
+    public boolean checkAge(Booking booking) {
+        Calendar calender = GregorianCalendar.getInstance();
+        calender.set(Calendar.YEAR, calender.get(Calendar.YEAR)-18);
+//        Date temp = booking.getGuestID().getBirthday();
+        return calender.getTime().after(booking.getMainBooker().getBirthday());
+    }
 }
 
