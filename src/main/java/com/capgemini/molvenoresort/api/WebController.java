@@ -20,4 +20,14 @@ public class WebController {
     public String loadGuestFormPage() {
         return "BookingGuestForm";
     }
+
+    @GetMapping("employeePortalRooms")
+    public String loadEmployeePortalRooms() {
+        return "employeePortalRooms";
+    }
+
+    @GetMapping("employeePortalGuests")
+    public String loadEmployeePortalGuests() {
+        return "employeePortalGuests";
+    }
 }

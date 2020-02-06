@@ -35,7 +35,7 @@ public class RoomControllerTest {
 
     }
 
-    @Test
+    /*@Test
     public void roomsUnderTest() {
         Iterable<Room> rooms;
         int[] amountsToTest = new int[] {580, 300, 99999, -500};
@@ -62,5 +62,5 @@ public class RoomControllerTest {
                 assertTrue(room.getPrice() <= amountsToTest[i]);
             }
         }
-    }
+    }*/
 }

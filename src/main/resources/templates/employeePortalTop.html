@@ -1,0 +1,28 @@
+{{>header}}
+
+<!-- Custom styles for this template -->
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Molveno Lake Resort - Employee Portal</title>
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    {{>navbar}}
+    <div class="container">
+        <div class="row bg-white border rounded border-light my-3">
+            <div class="col-12">
+                <table id="dataTable" class="display">
+                </table>
+
+                <button id="addBtn" class="btn btn-primary">Add new</button>
+                <button id="refreshBtn" class="btn">Refresh</button>
+
+                <!-- MODAL-->
+                <div class="modal fade" id="postDetail" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">

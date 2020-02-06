@@ -1,5 +1,6 @@
 package com.capgemini.molvenoresort.room;
 
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -8,8 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class RoomRepository {//extends CrudRepository<Room, Long> {
-    private List<Room> rooms = new ArrayList<>();
+public interface RoomRepository extends CrudRepository<Room, Long> {
+   /* private List<Room> rooms = new ArrayList<>();
 
     public Iterable<Room> getRooms(){
         return rooms;
@@ -83,5 +84,5 @@ public class RoomRepository {//extends CrudRepository<Room, Long> {
             rooms.get(4).setImage("roomImages/PENTHOUSE.jpg");
         }
 
-    }
+    }*/
 }
