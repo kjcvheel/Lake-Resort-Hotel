@@ -21,8 +21,13 @@ public class WebController {
         return "BookingGuestForm";
     }
 
-    @GetMapping("employeePortal")
-    public String loadEmployeePortal() {
-        return "employeePortal";
+    @GetMapping("employeePortalRooms")
+    public String loadEmployeePortalRooms() {
+        return "employeePortalRooms";
+    }
+
+    @GetMapping("employeePortalGuests")
+    public String loadEmployeePortalGuests() {
+        return "employeePortalGuests";
     }
 }
