@@ -61,11 +61,11 @@ public class RoomController {
     }
 
     //FILTERS
-    /*@GetMapping("/under{id}")
+    @GetMapping("/under{id}")
     public Iterable<Room> roomsUnder(@PathVariable int id) {
-        return this.roomRepository.getRoomsUnder(id);
+        return this.roomRepository.findByPriceLessThanEqual(id);
     }
-
+/*
     @GetMapping("/under{id}/Single")
     public Iterable<Room> singleRoomsUnder(@PathVariable int id) {
         return this.roomRepository.getSingleRoomsUnder(id);
