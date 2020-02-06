@@ -16,10 +16,11 @@ public class Guest extends User {
 	private int creditcard;
 
 	@Column
-	@OneToMany(mappedBy = "guestID")
+	@OneToMany(mappedBy = "mainBooker")
 	private List<Booking> bookings;
 
 	public Guest() {
+		setPassword("default");
 		bookings = new ArrayList<Booking>();
 	}
 
