@@ -10,13 +10,6 @@ $(document).ready(function() {
     getData();
 });
 
-$("#submitButton").click(function() {
-    //if (checkIfFieldsValid()) {
-    //} else {
-    //alert("Please fill in all required fields.");
-    //}
-});
-
 $(document).on("click", '.collapse-trigger', function() {
     console.log("Trigger collapse");
     $(this).next().collapse('toggle');
@@ -26,8 +19,8 @@ function getData() {
     console.log("getting data...");
     var dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
     // Get Start and To date
-    sessionStorage.setItem("dateFrom", new Date('March 2 2020'));
-    sessionStorage.setItem("dateTo", new Date('March 7 2020'));
+//    sessionStorage.setItem("dateFrom", new Date('March 2 2020'));
+//    sessionStorage.setItem("dateTo", new Date('March 7 2020'));
 
     let dateFrom = new Date(sessionStorage.getItem("dateFrom")).toLocaleDateString("en-US", dateOptions);
     let dateTo = new Date(sessionStorage.getItem("dateTo")).toLocaleDateString("en-US", dateOptions);
@@ -139,20 +132,10 @@ function fillBirthdayDropdowns() {
 }
 
 function getFormData() {
-    let dayString = $("#bDay").val();
-    if (dayString.length < 2) {
-        dayString = '0' + dayString;
-    }
-
-    let monthString = $("#bMonth").val();
-    if (monthString.length < 2) {
-        monthString = '0' + monthString;
-    }
-
     let guestObj = {
         firstName: $("#fname").val(),
         lastName: $("#lname").val(),
-        birthday: $("#bYear").val() + "-" + monthString + "-" + dayString,
+        birthday: $("#bdate").val().split('-').reverse().join('-'),
         country: $("#country").val(),
         address: $("#streetname").val() + " " + $("#streetnumber").val(),
         city: $("#city").val(),
@@ -196,6 +179,7 @@ function formatDate(date) {
         day = '' + d.getDate(),
         year = d.getFullYear();
 
+    console.log(d);
     if (month.length < 2)
         month = '0' + month;
     if (day.length < 2)

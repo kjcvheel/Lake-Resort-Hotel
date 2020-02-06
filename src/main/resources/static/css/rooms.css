@@ -21,7 +21,7 @@ div.single_room {
     margin-top: 10px;
 }
 
-img {
+.rooms img {
     width: 100%
 }
 
@@ -49,4 +49,8 @@ p {
   position:absolute;
   left:5;
   bottom:0;
+}
+
+.filterLabel{
+  font-weight: bold;
 }
