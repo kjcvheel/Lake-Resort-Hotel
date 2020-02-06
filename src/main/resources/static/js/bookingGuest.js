@@ -66,18 +66,18 @@ function postData() {
         contentType: "application/json",
         success: function(result) {
             console.log("This was posted " + result.firstName + " " + result.guestId);
-            postBooking(result.guestId)
+            postBooking(result)
         }
     });
 }
 
-function postBooking(guestId) {
+function postBooking(mainBooker) {
     console.log("Creating booking...");
     // Get data for booking
     let dateFrom = formatDate(sessionStorage.getItem("dateFrom"));
     let dateTo = formatDate(sessionStorage.getItem("dateTo"))
     let bookingObj = {
-        guestID: guestId,
+        mainBooker: mainBooker,
         startDate: dateFrom,
         endDate: dateTo,
         adults: $("#adults").val(),
@@ -93,6 +93,9 @@ function postBooking(guestId) {
         contentType: "application/json",
         success: function(result) {
             console.log("This was posted " + result.id);
+        },
+        error: function(result) {
+            console.log("This user is too young")
         }
     });
 

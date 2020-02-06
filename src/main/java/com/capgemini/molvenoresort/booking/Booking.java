@@ -13,9 +13,9 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @ManyToOne
-    @JoinColumn(name = "userID", nullable = false)
-    private Guest guestID;
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "userID")
+    private Guest mainBooker;
     @Column
     private long invoiceID;
     @ManyToMany
@@ -37,9 +37,9 @@ public class Booking {
         this.status = BookingStatus.RESERVED;
     }
 
-    public Booking(long id, Guest guestID, LocalDate startDate, LocalDate endDate){
+    public Booking(long id, Guest mainBooker, LocalDate startDate, LocalDate endDate){
         this.id = id;
-        this.guestID = guestID;
+        this.mainBooker = mainBooker;
         this.startDate = startDate;
         this.endDate = endDate;
         this.status = BookingStatus.RESERVED;
@@ -52,7 +52,7 @@ public class Booking {
             this.id = id;
     }
 
-    public Guest getGuestID() {return guestID;}
+    public Guest getMainBooker() {return mainBooker;}
 
 
     public long getInvoiceID() {return invoiceID;}
