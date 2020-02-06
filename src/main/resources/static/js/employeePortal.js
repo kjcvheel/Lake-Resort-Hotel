@@ -1,5 +1,3 @@
-let api = 'http://localhost:8080/api/rooms';
-
 $(document).ready(function() {
     initDataTable(api);
 
@@ -8,22 +6,16 @@ $(document).ready(function() {
     $("#deleteButton").click();
 
     $("#addBtn").on('click', function() {
-        document.getElementById("modal-title").innerHTML = "Create a room";
+        document.getElementById("modal-title").innerHTML = createTitle;
         document.getElementById("modalForm").reset();
         $("#btnsubmit").attr('onclick', 'submitNew("' + api + '");');
         $('#postDetail').modal('toggle');
-
+        $('.form-check-input').attr('checked', false);
+        $('#modalForm').removeClass("was-validated");
     });
 });
 
 function initDataTable(api) {
-
-    columns = [
-        { "data": "id", "title": "id" },
-        { "data": "name", "title": "name" },
-        { "data": "price", "title": "price" },
-    ];
-
     // how simple it is to create a datatable :-)
     let table = $('#dataTable').DataTable({
         "order": [
@@ -116,6 +108,8 @@ function deselect() {
 function fillUpdateDiv(record, api) {
 
     $("#btnsubmit").attr('onclick', 'submitEdit(' + record.id + ', "' + api + '");');
+    $("#deleteButton").attr('onclick', 'confirmDelete(' + record.id + ', "' + api + '");');
+
 
     document.getElementById("modal-title").innerHTML = "Edit a table";
 
@@ -124,54 +118,25 @@ function fillUpdateDiv(record, api) {
 
 }
 
-//  show the usage of the popover here!
-function fillModal(record) {
-
-    // fill the modal
-    $("#id").val(record.id);
-    $("#name").val(record.name);
-    $("#price").val(record.price);
-
-
-    // set inline block to respect the margins if applicable
-    $("#deleteButton").css('display', 'inline-block');
-
-    // create the buttons for the confirmation
-    // first the cancel button which just does nothing
-    let confirmationButtons = '<button class="btn btn-secondary">Cancel</button>&nbsp;';
-
-    // than the confirmbutton which just invokes submitDelete(...)
-    confirmationButtons += `<button type="button" class="btn btn-danger" onclick="submitDelete('${record.id}', '${api}');">Confirm delete</button>`;
-
-    // set the deleteButton to be a popover
-    // first dispose / distroy the popover on the deleteButton to be sure there is no active on!
-    $('#deleteButton').popover('dispose');
-    // the enable the popover
-    $('#deleteButton').popover({
-        animation: true,
-        content: confirmationButtons, // just use the above created confirmButtons for confirmation
-        html: true,
-        container: postDetail
-    });
-}
-
 function submitEdit(id, api) {
 
     // shortcut for filling the formData as a JavaScript object with the fields in the form
-    var formData = $("#modalForm").serializeArray().reduce(function(result, object) { result[object.name] = object.value; return result }, {});
+    /*var formData = $("#modalForm").serializeArray().reduce(function(result, object) { result[object.name] = object.value; return result }, {});
     console.log("Formdata =>");
     console.log(formData);
     for (var key in formData) {
         if (formData[key] == "" || formData == null) delete formData[key];
-    }
+    }*/
+    let formData = getFormData();
 
     console.log("Updating row with id:" + id)
+    console.log(api + "/" + id);
     $.ajax({
         url: api + "/" + id,
         type: "put",
         data: JSON.stringify(formData),
         contentType: "application/json",
-        success: getData(),
+        success: getData,
         error: function(error) {
             console.log(error);
         }
@@ -181,14 +146,21 @@ function submitEdit(id, api) {
     $('#postDetail').modal('toggle');
 }
 
+function confirmDelete(id, api) {
+    let r = confirm("Are you sure you want to delete this record?");
+    if (r == true) {
+        submitDelete(id, api);
+    }
+}
+
 function submitDelete(id, api) {
 
     console.log(`Deleting row with id: ${id}`);
     $.ajax({
         url: api + "/" + id,
         type: "delete",
-        dataType: 'json',
-        success: getData(api),
+        dataType: 'application/json',
+        success: getData,
     });
 
     $('#postDetail').modal('toggle');
