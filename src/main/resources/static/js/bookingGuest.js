@@ -19,8 +19,8 @@ function getData() {
     console.log("getting data...");
     var dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
     // Get Start and To date
-    sessionStorage.setItem("dateFrom", new Date('March 2 2020'));
-    sessionStorage.setItem("dateTo", new Date('March 7 2020'));
+//    sessionStorage.setItem("dateFrom", new Date('March 2 2020'));
+//    sessionStorage.setItem("dateTo", new Date('March 7 2020'));
 
     let dateFrom = new Date(sessionStorage.getItem("dateFrom")).toLocaleDateString("en-US", dateOptions);
     let dateTo = new Date(sessionStorage.getItem("dateTo")).toLocaleDateString("en-US", dateOptions);

@@ -50,3 +50,7 @@ p {
   left:5;
   bottom:0;
 }
+
+.filterLabel{
+  font-weight: bold;
+}

@@ -1,36 +1,94 @@
 {{>header}}
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="css/rooms.css"/>
+<!-- Custom styles for this template -->
+<link rel="stylesheet" href="css/rooms.css"/>
 
-    <meta name="description" content="">
-    <meta name="author" content="">
+<meta name="description" content="">
+<meta name="author" content="">
 
-    <title>Available Rooms</title>
+<title>Available Rooms</title>
 
 </head>
 <body>
-    <!-- Navigation -->
-    {{>navbar}}
-    <div class="container">
-        <h1 class="mt-5" style="text-align: center">Find an available room</h1>
-        <div class="rooms">
-            <p> Here come the filters for the rooms
-                <form>
-                Maximum price: <input type="number" name="max"><br />
-                </form>
-                <button onclick="getRoomsUnder()">Filter</button>
-            </p>
+<!-- Navigation -->
+{{>navbar}}
+<div class="container">
+   <div class="rooms">
+        <div class="row">
+            <form class="w-100">
+                <div class="form-row text-left">
+                    <div class="col-md-4">
+                        <label class="filterLabel">Guests:</label>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control form-control-sm" name="adults" id="adults" min="1"
+                                       value="1">
+                            </div>
+                            <label class="col-sm-8 col-form-label">Adults</label>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <input type="number" class="form-control form-control-sm" name="children" id="children" min="0"
+                                       value="0">
+                            </div>
+                            <label class="col-sm-8 col-form-label">Children</label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="checkin" class="filterLabel">Check-in date:</label>
+                        <input class="form-control" id="checkin" name="checkin" placeholder="MM/DD/YYYY"
+                               type="text" />
+                    </div>
+                    <div class="col-md-4">
+
+                        <label for="checkout" class="filterLabel">Check-out date:</label>
+
+                        <input class="form-control" id="checkout" name="checkout" placeholder="MM/DD/YYYY"
+                               type="text"/>
+
+
+                    </div>
+                </div>
+                <div class="form-row pt-3">
+                    <div class="col-md-5 text-left">
+                        <label for="price" class="filterLabel">Maximum price:</label>
+                        <input class="form-control-range custom-range w-75" type="range" min="0" max="6000" step="50"
+                               name="price" id="price" value="1000">
+                        <span id="priceselect"></span>
+
+                    </div>
+                    <div class="col-md-4 text-left">
+                        <label class="filterLabel">Amenities:</label><br/>
+                        <input type="checkbox" class="form-check-input" name="disabled"> Wheelchair access <br/>
+                        <input type="checkbox" class="form-check-input" name="smoking"> Smoking allowed <br/>
+                        <input type="checkbox" class="form-check-input" name="twinbed"> Twin beds
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-secondary" id="roomFilter">Filter</button>
+                    </div>
+
+                </div>
+
+            </form>
         </div>
 
-        <div class="rooms">
-            <h2> Available rooms</h2>
-            <div class="container d-flex flex-column " id="roomlist">
-            </div>
+    </div>
+
+    <div class="rooms">
+        <h2> Available rooms</h2>
+        <div class="container d-flex flex-column " id="roomlist">
         </div>
     </div>
-    {{>footer}}
+</div>
+{{>footer}}
 
-    <!-- ADD CUSTOM JS FILES HERE -->
-    <script src="js/rooms.js"></script>
+<!-- ADD CUSTOM JS FILES HERE -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<script src="js/rooms.js"></script>
+
+
 </body>
 </html>
