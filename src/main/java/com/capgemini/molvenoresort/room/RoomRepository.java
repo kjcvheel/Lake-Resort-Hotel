@@ -10,6 +10,8 @@ import java.util.Optional;
 
 @Repository
 public interface RoomRepository extends CrudRepository<Room, Long> {
+    Iterable<Room> findByPriceLessThanEqual(int price);
+
    /* private List<Room> rooms = new ArrayList<>();
 
     public Iterable<Room> getRooms(){
