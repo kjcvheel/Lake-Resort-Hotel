@@ -30,4 +30,14 @@ public class WebController {
     public String loadEmployeePortalGuests() {
         return "employeePortalGuests";
     }
+
+    @GetMapping("restaurant")
+    public String loadRestaurant() {
+        return "restaurant";
+    }
+
+    @GetMapping("login")
+    public String loadLogin() {
+        return "login";
+    }
 }
