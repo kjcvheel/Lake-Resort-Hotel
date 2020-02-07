@@ -92,10 +92,12 @@ function postBooking(mainBooker) {
         data: jsonObj,
         contentType: "application/json",
         success: function(result) {
+            alert("The booking has been posted under the name " + result.mainBooker.firstName);
             console.log("This was posted " + result.id);
         },
         error: function(result) {
-            console.log("This user is too young")
+            alert("This user is too young");
+            console.log("This user is too young");
         }
     });
 
@@ -109,7 +111,7 @@ function setRoomsInfo(room, index) {
         console.log("Filling in details of room: " + room.id);
         card.find("#price").html("Price: " + room.price);
         card.find("#size").html("Adults: " + room.adult + ", Children: " + room.children);
-        card.find(".card-title").html(room.id);
+        card.find(".card-title").html(room.name);
         card.find("#room-image").attr('src', room.image);
     });
     //$(".roomname").html("hello" + index);
