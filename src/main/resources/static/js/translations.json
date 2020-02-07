@@ -1,0 +1,98 @@
+{
+    "Hi this is a test.": {
+        "es": "Soy un texto que existe en Ingles, Italiano y Español",
+        "it": "Sono un testo che esiste in Inglese, Italiano e Spagnolo",
+        "zh-Hans": "This is the chinese simplified version.",
+        "zh": "This is the chinese version.",
+        "zh-Hant": "This is the chinese traditional version.",
+        "zh-CN": "This is the chinese version for firefox."
+    },
+    "Book now": {
+        "zh-CN": "现在预订"
+    },
+    "Restaurant": {
+        "zh-CN": "餐厅"
+    },
+    "Login": {
+        "zh-CN": "登录"
+    },
+    "Contact": {
+        "zh-CN": "联系"
+    },
+    "FAQ": {
+        "zh-CN": "常问问题"
+    },
+    "Your information": {
+        "zh-CN": "你的资料"
+    },
+    "Please fill in your personal information to complete your booking.": {
+        "zh-CN": "请填写您的个​​人信息以完成预订。"
+    },
+    "Adults (including you):": {
+        "zh-CN": "成人（包括您）："
+    },
+    "Children:": {
+        "zh-CN": "儿童："
+    },
+    "First name:": {
+        "zh-CN": "字："
+    },
+    "Last name:": {
+        "zh-CN": "姓："
+    },
+    "Date of birth:": {
+        "zh-CN": "出生日期："
+    },
+    "Day:": {
+        "zh-CN": "天："
+    },
+    "Month:": {
+        "zh-CN": "月："
+    },
+    "Year:": {
+        "zh-CN": "年："
+    },
+    "Email address:": {
+        "zh-CN": "电子邮件地址："
+    },
+    "Phone number:": {
+        "zh-CN": "电话号码："
+    },
+    "Mobile number:": {
+        "zh-CN": "手机号码："
+    },
+    "Street name:": {
+        "zh-CN": "街道名称："
+    },
+    "Number:": {
+        "zh-CN": "数："
+    },
+    "City:": {
+        "zh-CN": "市："
+    },
+    "Zipcode:": {
+        "zh-CN": "邮政编码："
+    },
+    "Country:": {
+        "zh-CN": "国家："
+    },
+    "Creditcard:": {
+        "zh-CN": "信用卡："
+    },
+    "Finish booking": {
+        "zh-CN": "完成预订"
+    },
+    "Home": {
+        "zh-CN": "家"
+    },
+    "Your booking summary:" : {
+        "zh-CN": "完成预订"
+    },
+    "From:": {
+        "zh-CN": "家"
+    },
+    "To:": {
+        "zh-CN": "家"
+    }
+
+}
