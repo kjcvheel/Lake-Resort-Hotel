@@ -66,6 +66,43 @@ function getRooms() {
 
 }
 
+function getFilterData(){
+    let filterObj = {
+        adult: $("#adults").val(),
+        children: $("#children").val(),
+        maxPrice: $("#price").val(),
+        smoking: $("#smoking").is(":checked"),
+        disabled: $("#disabled").is(":checked"),
+
+    };
+    return filterObj;
+}
+
+function filter(){
+    let filterObj = getFilterData();
+    console.log(filterObj);
+    let jsonObj = JSON.stringify(filterObj);
+
+        $.ajax({
+            url: "http://localhost:8080/api/rooms/filter",
+            type: "post",
+            data: jsonObj,
+            contentType: "application/json",
+            success: function(result) {
+                console.log("This is the data: " + result);
+                $("#roomlist").html("");
+
+                $.each(result, function(index, value) {
+                   console.log(value.type + " " + value.price + " " + value.disabled);
+                   makeCard(index, value);
+
+                });
+            }
+        });
+
+
+}
+
 function getRoomsUnder() {
     let price = $("input[type=range][name=price]").val();
 
@@ -140,5 +177,5 @@ $(document).on('click', "#checkout", function() {
 });
 
 $(document).on('click', '#roomFilter', function(){
-    getRoomsUnder();
+    filter();
 });
