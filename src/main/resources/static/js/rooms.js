@@ -1,7 +1,7 @@
 $(document).ready(function() {
     getRooms();
 
-
+    let holidays = ['01/24/2020', '01/25/2020','01/26/2020','01/24/2020','01/27/2020','01/28/2020','01/29/2020','04/30/2020', '05/01/2020', '06/25/2020'];
     var date_input=$('input[name="checkin"]'); //our date input has the name "date"
 
     date_input.datepicker({
@@ -12,6 +12,17 @@ $(document).ready(function() {
           	autoclose: true,
           	startDate: new Date(),
           	weekStart: 1,
+          	beforeShowDay: function (date) {
+
+                calender_date = ('0'+(date.getMonth()+1)) + '/' + ('0'+date.getDate()).slice(-2) + '/' +date.getFullYear();
+                var search_index = $.inArray(calender_date, holidays);
+
+
+                if (search_index > -1) {
+                   return {classes: 'highlight', tooltip: 'Holiday'};
+                }
+
+            }
 
     });
 
