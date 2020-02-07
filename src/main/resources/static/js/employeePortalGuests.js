@@ -2,6 +2,7 @@ var api = 'http://localhost:8080/api/guests';
 var columns = [
     { "data": "id", "title": "ID" },
     { "data": "firstName", "title": "first name" },
+    { "data": "infix", "title": "infix" },
     { "data": "lastName", "title": "last name" },
     { "data": "country", "title": "country" },
     { "data": "city", "title": "city" },
@@ -19,6 +20,7 @@ function fillModal(record) {
     // fill the modal
     $("#id").val(record.id);
     $("#firstname").val(record.firstName);
+    $("#infix").val(record.infix);
     $("#lastname").val(record.lastName);
     $("#country").val(record.country);
     $("#city").val(record.city);
@@ -32,6 +34,7 @@ function getFormData() {
     let formObj = {
         id: $("#id").val(),
         firstName: $("#firstname").val(),
+        infix: $("#infix").val(),
         lastName: $("#lastname").val(),
         country: $("#country").val(),
         city: $("#city").val(),
