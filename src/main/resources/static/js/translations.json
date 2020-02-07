@@ -84,5 +84,15 @@
     },
     "Home": {
         "zh-CN": "家"
+    },
+    "Your booking summary:" : {
+        "zh-CN": "完成预订"
+    },
+    "From:": {
+        "zh-CN": "家"
+    },
+    "To:": {
+        "zh-CN": "家"
     }
+
 }
