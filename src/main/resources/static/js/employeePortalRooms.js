@@ -10,7 +10,7 @@ var columns = [
     { "data": "status", "title": "Status" },
     { "data": "type", "title": "Type" },
     { "data": "beds", "title": "Beds" },
-    { "data": "image", "title": "Image" },
+    //{ "data": "image", "title": "Image" },
 ];
 var createTitle = "Add a new room";
 
@@ -24,7 +24,7 @@ function fillModal(record) {
     $("#children").val(record.children);
     $("#status").val(record.status);
     $("#type").val(record.type);
-    $("#image").val(record.image);
+    //$("#image").val(record.image);
     $("#smoking").attr('checked', record.smoking);
     $("#disabled").attr('checked', record.disabled);
 }
@@ -38,7 +38,7 @@ function getFormData() {
         children: $("#children").val(),
         status: $("#status").val(),
         type: $("#type").val(),
-        image: $("#image").val(),
+        //image: $("#image").val(),
         smoking: $("#smoking").is(":checked"),
         disabled: $("#disabled").is(":checked"),
     };

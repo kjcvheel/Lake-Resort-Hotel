@@ -77,10 +77,7 @@ function getSingleRecord(id, api) {
 function submitNew(api) {
     console.log("Add new room");
 
-    var formData = $("#modalForm").serializeArray().reduce(function(result, object) { result[object.name] = object.value; return result }, {});
-    for (var key in formData) {
-        if (formData[key] == "" || formData == null) delete formData[key];
-    }
+    let formData = getFormData();
 
     console.log(JSON.stringify(formData));
 
