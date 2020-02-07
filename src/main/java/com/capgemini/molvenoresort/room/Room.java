@@ -42,8 +42,8 @@ public class Room {
 
     //private List<Facilities> facilities;
 
-    @ManyToMany(mappedBy = "rooms")
-    private List<Booking> bookings;
+    //@ManyToMany(mappedBy = "rooms")
+    //private List<Booking> bookings;
 
     public Room(){}
 
@@ -158,13 +158,13 @@ public class Room {
         this.image = image;
     }
 
-    public List<Booking> getBookings() {
+    /*public List<Booking> getBookings() {
         return bookings;
     }
 
     public void setBookings(List<Booking> bookings) {
         this.bookings = bookings;
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {
