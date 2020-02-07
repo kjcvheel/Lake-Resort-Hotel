@@ -73,6 +73,7 @@ function postData() {
 
 function postBooking(mainBooker) {
     console.log("Creating booking...");
+    console.log(roomNumbers);
     // Get data for booking
     let dateFrom = formatDate(sessionStorage.getItem("dateFrom"));
     let dateTo = formatDate(sessionStorage.getItem("dateTo"))
@@ -92,7 +93,7 @@ function postBooking(mainBooker) {
         data: jsonObj,
         contentType: "application/json",
         success: function(result) {
-            alert("The booking has been posted under the name " + result.mainBooker.firstName);
+            alert("The booking has been posted under the name " + result.mainBooker.firstName + " " + result.mainBooker.lastName);
             console.log("This was posted " + result.id);
         },
         error: function(result) {
@@ -104,7 +105,7 @@ function postBooking(mainBooker) {
 }
 
 function setRoomsInfo(room, index) {
-    roomNumbers.push(room.number);
+    roomNumbers.push(room);
     $("#rooms-container").append("<div id='room" + index + "'></div>");
     $("#room" + index).load("cards/smallRoomCard.html", function() {
         let card = $("#room" + index);
