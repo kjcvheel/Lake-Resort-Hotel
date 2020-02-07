@@ -1,10 +1,13 @@
 package com.capgemini.molvenoresort.room;
 
 
+import com.capgemini.molvenoresort.filter.Filter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -65,11 +68,68 @@ public class RoomController {
     public Iterable<Room> roomsUnder(@PathVariable int id) {
         return this.roomRepository.findByPriceLessThanEqual(id);
     }
-/*
-    @GetMapping("/under{id}/Single")
-    public Iterable<Room> singleRoomsUnder(@PathVariable int id) {
-        return this.roomRepository.getSingleRoomsUnder(id);
-    }*/
+
+    @PostMapping("/filter")
+    public Iterable<Room> filteredRooms(@RequestBody Filter filter){
+        List<Room> suitable;
+        Iterable<Room> iterable = this.roomRepository.findAll();
+        List<Room> rooms = new ArrayList<>();
+        iterable.forEach(rooms::add);
+
+        List<Room> temp;
+
+        if(filter.isDisabled()){
+            suitable = this.roomRepository.findByDisabledTrue();
+            temp = new ArrayList<>();
+            for(Room room : suitable){
+                if(rooms.contains(room)){
+                    temp.add(room);
+                }
+            }
+            rooms = temp;
+        }
+        if(filter.isSmoking()){
+            suitable = this.roomRepository.findBySmokingTrue();
+            temp = new ArrayList<>();
+            for( Room room: suitable){
+                if(rooms.contains(room)){
+                    temp.add(room);
+                }
+            }
+            rooms = temp;
+
+        }
+
+        suitable = this.roomRepository.findByPriceLessThanEqual(filter.getMaxPrice());
+        temp = new ArrayList<>();
+        for (Room room : suitable) {
+            if (rooms.contains(room)) {
+                temp.add(room);
+            }
+        }
+        rooms = temp;
+
+        suitable = this.roomRepository.findByAdultGreaterThanEqual(filter.getAdult());
+        temp = new ArrayList<>();
+        for (Room room : suitable) {
+            if (rooms.contains(room)) {
+                temp.add(room);
+            }
+        }
+        rooms = temp;
+
+        suitable = this.roomRepository.findByChildrenGreaterThanEqual(filter.getChildren());
+        temp = new ArrayList<>();
+        for (Room room : suitable) {
+            if (rooms.contains(room)) {
+                temp.add(room);
+            }
+        }
+        rooms = temp;
+
+        return rooms;
+    }
+
 
 }
 
