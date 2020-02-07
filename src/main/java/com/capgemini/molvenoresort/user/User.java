@@ -7,8 +7,6 @@ import java.util.Date;
 @MappedSuperclass
 public  abstract class User {
 
-
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false, nullable = false)
@@ -64,6 +62,10 @@ public  abstract class User {
 		this.mobileNumber = mobileNumber;
 		this.password = password;
 		this.email = email;
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	public String getFirstName() {

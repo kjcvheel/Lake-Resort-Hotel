@@ -8,7 +8,7 @@ $(document).ready(function() {
     $("#addBtn").on('click', function() {
         document.getElementById("modal-title").innerHTML = createTitle;
         document.getElementById("modalForm").reset();
-        $("#btnsubmit").attr('onclick', 'submitNew("' + api + '");');
+        $("#btnsubmit").attr('onclick', 'validateSubmitNew("' + api + '");');
         $('#postDetail').modal('toggle');
         $('.form-check-input').attr('checked', false);
         $('#modalForm').removeClass("was-validated");
@@ -21,6 +21,7 @@ function initDataTable(api) {
         responsive: {
             details: false
         },
+        dom: '<"col-6" l><"col-6" f><i>rt<p><"clear">',
         "order": [
             [0, "asc"]
         ],
@@ -57,6 +58,8 @@ function clear() {
 function getData() {
     $("#dataTable").dataTable().api().ajax.reload();
     let data = $("#dataTable").dataTable().api().column(0).data();
+    console.log("getData");
+    console.log(data);
     let sum = 0;
     for (let i = 0; i < data.length; i++) {
         sum += +data[i];
@@ -68,6 +71,7 @@ function getSingleRecord(id, api) {
     apiPath = String(api + "/" + id);
     $.get(apiPath, function(data) {
         if (data) {
+            console.log(data);
             fillUpdateDiv(data, api);
         }
     });
@@ -109,7 +113,7 @@ function deselect() {
 
 function fillUpdateDiv(record, api) {
 
-    $("#btnsubmit").attr('onclick', 'submitEdit(' + record.id + ', "' + api + '");');
+    $("#btnsubmit").attr('onclick', 'validateSubmitEdit(' + record.id + ', "' + api + '");');
     $("#deleteButton").attr('onclick', 'confirmDelete(' + record.id + ', "' + api + '");');
 
 
@@ -166,4 +170,55 @@ function submitDelete(id, api) {
     });
 
     $('#postDetail').modal('toggle');
+}
+
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    event.preventDefault();
+                    postData();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+
+function validateSubmitNew(api) {
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        } else {
+            event.preventDefault();
+            submitNew(api);
+        }
+        form.classList.add('was-validated');
+    });
+}
+
+function validateSubmitEdit(id, api) {
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        } else {
+            event.preventDefault();
+            submitEdit(id, api);
+        }
+        form.classList.add('was-validated');
+    });
 }
