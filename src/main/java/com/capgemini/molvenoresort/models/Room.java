@@ -41,11 +41,6 @@ public class Room {
     private List<Bed> beds;
 
 
-    //private List<Facilities> facilities;
-
-    //@ManyToMany(mappedBy = "rooms")
-    //private List<Booking> bookings;
-
     public Room(){}
 
     public Room(String name, int price, long id, RoomType type) {
@@ -99,14 +94,6 @@ public class Room {
         this.beds = beds;
     }
 
- //   public List<Facilities> getFacilities() {
- //       return facilities;
- //   }
-
-  //  public void setFacilities(List<Facilities> facilities) {
-  //      this.facilities = facilities;
-   // }
-
     public int getAdult() {
         return adult;
     }
@@ -158,14 +145,6 @@ public class Room {
     public void setImage(String image) {
         this.image = image;
     }
-
-    /*public List<Booking> getBookings() {
-        return bookings;
-    }
-
-    public void setBookings(List<Booking> bookings) {
-        this.bookings = bookings;
-    }*/
 
     @Override
     public boolean equals(Object o) {

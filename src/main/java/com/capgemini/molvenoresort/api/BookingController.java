@@ -29,14 +29,6 @@ public class BookingController {
         return temp.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-
-/*    @GetMapping("/guest{id}")
-    public ResponseEntity<Iterable<Booking>> getBookingByGuestID(@PathVariable long id) {
-        Iterable<Booking>temp = repository.findByBookingByGuestId(id);
-        return ResponseEntity.ok(temp);
-    }*/
-
-
     @PostMapping("/add")
     public ResponseEntity<?> addBooking(@RequestBody Booking booking) {
         if (checkAge(booking))
@@ -60,25 +52,6 @@ public class BookingController {
         return ResponseEntity.ok(repository.findById(id).isPresent());
     }
 
-/*    private void addRoomsToBooking(Booking booking){
-
-        List<Integer> rooms = new ArrayList<>();
-        if(doesRoomExist(102))
-            rooms.add(102);
-        if(doesRoomExist(200))
-            rooms.add(200);
-        booking.setRoomNumbers(rooms);
-    }
-
-    private boolean doesRoomExist(long roomId){
-        for (Room room: MockRoomDB.getInstance().getRooms()) {
-            if (room.getId() == roomId )
-                return true;
-        }
-        return false;
-
-    }
-*/
 
     public boolean checkAge(Booking booking) {
         Calendar calender = GregorianCalendar.getInstance();
