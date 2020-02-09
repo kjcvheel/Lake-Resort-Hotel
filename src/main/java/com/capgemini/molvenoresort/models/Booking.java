@@ -1,7 +1,6 @@
-package com.capgemini.molvenoresort.booking;
+package com.capgemini.molvenoresort.models;
 
-import com.capgemini.molvenoresort.room.Room;
-import com.capgemini.molvenoresort.user.Guest;
+import com.capgemini.molvenoresort.enums.BookingStatus;
 
 import javax.persistence.*;
 import java.time.LocalDate;

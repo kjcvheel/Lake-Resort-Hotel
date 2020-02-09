@@ -1,4 +1,4 @@
-package com.capgemini.molvenoresort.booking;
+package com.capgemini.molvenoresort.enums;
 
 public enum BookingStatus {
     RESERVED, BOOKED, CHECKED_IN, CHECKED_OUT

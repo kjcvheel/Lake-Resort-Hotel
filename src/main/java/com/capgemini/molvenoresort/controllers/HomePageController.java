@@ -1,4 +1,4 @@
-package com.capgemini.molvenoresort.homepage;
+package com.capgemini.molvenoresort.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,7 +1,7 @@
 //package com.capgemini.molvenoresort.booking;
 //
-//import com.capgemini.molvenoresort.booking.Booking;
-//import com.capgemini.molvenoresort.booking.BookingController;
+//import com.capgemini.molvenoresort.models.Booking;
+//import com.capgemini.molvenoresort.controllers.BookingController;
 //import com.capgemini.molvenoresort.booking.MockBookingDB;
 //import org.junit.Before;
 //import org.junit.Rule;

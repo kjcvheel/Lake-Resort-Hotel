@@ -1,7 +1,7 @@
 /*
 package com.capgemini.molvenoresort.user;
 
-import com.capgemini.molvenoresort.user.Employee;
+import com.capgemini.molvenoresort.models.Employee;
 import com.capgemini.molvenoresort.user.EmployeeController;
 import com.capgemini.molvenoresort.user.MockEmployeeDB;
 import org.junit.Before;

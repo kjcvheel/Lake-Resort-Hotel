@@ -1,5 +1,7 @@
-package com.capgemini.molvenoresort.booking;
+package com.capgemini.molvenoresort.controllers;
 
+import com.capgemini.molvenoresort.models.Booking;
+import com.capgemini.molvenoresort.repositories.bookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

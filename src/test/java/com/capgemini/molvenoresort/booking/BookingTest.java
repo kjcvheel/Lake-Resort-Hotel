@@ -1,12 +1,7 @@
 package com.capgemini.molvenoresort.booking;
 
 
-import com.capgemini.molvenoresort.booking.Booking;
-import com.capgemini.molvenoresort.booking.BookingStatus;
-import org.junit.Before;
-import org.junit.Test;
-
-import java.time.LocalDate;
+import com.capgemini.molvenoresort.models.Booking;
 
 import static org.junit.Assert.assertEquals;
 

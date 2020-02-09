@@ -1,7 +1,9 @@
-package com.capgemini.molvenoresort.room;
+package com.capgemini.molvenoresort.controllers;
 
 
 import com.capgemini.molvenoresort.filter.Filter;
+import com.capgemini.molvenoresort.models.Room;
+import com.capgemini.molvenoresort.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

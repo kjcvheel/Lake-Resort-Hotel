@@ -1,4 +1,4 @@
-package com.capgemini.molvenoresort.room;
+package com.capgemini.molvenoresort.enums;
 
 public enum Facilities {
 	MINIBAR, AIRCO, WIFI

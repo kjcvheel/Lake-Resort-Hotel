@@ -1,6 +1,4 @@
-package com.capgemini.molvenoresort.user;
-
-import com.capgemini.molvenoresort.booking.Booking;
+package com.capgemini.molvenoresort.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

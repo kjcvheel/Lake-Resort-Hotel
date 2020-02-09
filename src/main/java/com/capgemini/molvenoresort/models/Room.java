@@ -1,6 +1,7 @@
-package com.capgemini.molvenoresort.room;
+package com.capgemini.molvenoresort.models;
 
-import com.capgemini.molvenoresort.booking.Booking;
+import com.capgemini.molvenoresort.enums.RoomStatus;
+import com.capgemini.molvenoresort.enums.RoomType;
 
 import javax.persistence.*;
 import java.util.List;

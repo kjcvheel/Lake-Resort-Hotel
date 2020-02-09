@@ -1,4 +1,4 @@
-package com.capgemini.molvenoresort.user;
+package com.capgemini.molvenoresort.enums;
 
 public enum EmployeeRole {
 	CHEF, GENERAL_MANAGER, RECEPTIONIST

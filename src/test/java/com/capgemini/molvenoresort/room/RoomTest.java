@@ -1,5 +1,10 @@
 package com.capgemini.molvenoresort.room;
 
+import com.capgemini.molvenoresort.enums.BedType;
+import com.capgemini.molvenoresort.enums.RoomStatus;
+import com.capgemini.molvenoresort.enums.RoomType;
+import com.capgemini.molvenoresort.models.Bed;
+import com.capgemini.molvenoresort.models.Room;
 import org.junit.Before;
 import org.junit.Test;
 
