@@ -2,6 +2,7 @@ package com.capgemini.molvenoresort.api;
 
 import com.capgemini.molvenoresort.models.Booking;
 import com.capgemini.molvenoresort.repositories.bookingRepository;
+import com.capgemini.molvenoresort.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,51 +14,36 @@ import java.util.*;
 @RequestMapping(value = {"/bookings", "/Bookings"})
 public class BookingController {
 
+
     @Autowired
-    private bookingRepository repository;
+    private BookingService bookingService;
 
 
     @GetMapping
     public Iterable<Booking>getAllBookings() {
-        return this.repository.findAll();
+        return this.bookingService.findAll();
     }
 
     @GetMapping("/booking{id}")
     public ResponseEntity<Booking> findById(@PathVariable long id) {
-        Optional<Booking>temp = repository.findById(id);
-
-        return temp.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        return bookingService.findById(id);
     }
 
     @PostMapping("/add")
     public ResponseEntity<?> addBooking(@RequestBody Booking booking) {
-        if (checkAge(booking))
-        {
-            return ResponseEntity.ok(repository.save(booking));
-        }
-        else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("To young");
-        }
-
+        return bookingService.addBooking(booking);
     }
 
     @DeleteMapping("delete/{id}")
     public ResponseEntity deleteById(@PathVariable long id) {
-        repository.deleteById(id);
-        return ResponseEntity.noContent().build();
-
+        return bookingService.deleteById(id);
     }
 
     private ResponseEntity doesBookingExist(long id){
-        return ResponseEntity.ok(repository.findById(id).isPresent());
+        return bookingService.doesBookingExist(id);
     }
 
 
-    public boolean checkAge(Booking booking) {
-        Calendar calender = GregorianCalendar.getInstance();
-        calender.set(Calendar.YEAR, calender.get(Calendar.YEAR)-18);
-//        Date temp = booking.getGuestID().getBirthday();
-        return calender.getTime().after(booking.getMainBooker().getBirthday());
-    }
+
 }
 
