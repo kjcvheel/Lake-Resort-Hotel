@@ -1,6 +1,6 @@
 package com.capgemini.molvenoresort.room;
 
-import com.capgemini.molvenoresort.controllers.RoomController;
+import com.capgemini.molvenoresort.api.RoomController;
 import com.capgemini.molvenoresort.enums.RoomType;
 import com.capgemini.molvenoresort.models.Room;
 import org.junit.Before;

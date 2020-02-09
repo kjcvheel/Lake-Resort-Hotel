@@ -1,6 +1,6 @@
 package com.capgemini.molvenoresort.user;
 
-import com.capgemini.molvenoresort.controllers.GuestController;
+import com.capgemini.molvenoresort.api.GuestController;
 import com.capgemini.molvenoresort.models.Guest;
 import org.junit.Before;
 import org.junit.Test;

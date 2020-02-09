@@ -1,4 +1,4 @@
-package com.capgemini.molvenoresort.controllers;
+package com.capgemini.molvenoresort.api;
 
 import com.capgemini.molvenoresort.models.Employee;
 import com.capgemini.molvenoresort.repositories.EmployeeRepository;
