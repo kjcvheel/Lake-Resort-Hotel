@@ -54,3 +54,8 @@ p {
 .filterLabel{
   font-weight: bold;
 }
+
+.highlight{
+     background-color: #7092BE;
+     border: 1px solid red !important;
+ }

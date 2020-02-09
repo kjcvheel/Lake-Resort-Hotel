@@ -1,24 +1,43 @@
 $(document).ready(function() {
     getRooms();
 
-
+    let holidays = ['01/24/2020', '01/25/2020','01/26/2020','01/24/2020','01/27/2020','01/28/2020','01/29/2020','04/30/2020', '05/01/2020', '06/25/2020'];
     var date_input=$('input[name="checkin"]'); //our date input has the name "date"
-    var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+
     date_input.datepicker({
        		format: 'mm/dd/yyyy',
-        	container: container,
+
+        	daysOfWeekHighlighted: '0,6',
         	todayHighlight: true,
           	autoclose: true,
-          	startDate: new Date()
+          	startDate: new Date(),
+          	weekStart: 1,
+          	beforeShowDay: function (date) {
+
+                calender_date = ('0'+(date.getMonth()+1)) + '/' + ('0'+date.getDate()).slice(-2) + '/' +date.getFullYear();
+                var search_index = $.inArray(calender_date, holidays);
+
+
+                if (search_index > -1) {
+                   return {classes: 'highlight', tooltip: 'Holiday'};
+                }
+
+            }
+
     });
+
     var date_input2=$('input[name="checkout"]'); //our date input has the name "date"
-        var container2=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+
         date_input2.datepicker({
            		format: 'mm/dd/yyyy',
-            	container: container2,
+
+                daysOfWeekHighlighted: "0,6",
             	todayHighlight: true,
               	autoclose: true,
+              	weekStart: 1
+
         });
+
 
 });
 
@@ -173,7 +192,9 @@ console.log("moving");
 }
 
 $(document).on('click', "#checkout", function() {
-    $("#checkout").datepicker('setStartDate', $("#checkin").val());
+    let date = new Date($("#checkin").val());
+    date.setDate(date.getDate()+1);
+    $("#checkout").datepicker('setStartDate', date);
 });
 
 $(document).on('click', '#roomFilter', function(){
