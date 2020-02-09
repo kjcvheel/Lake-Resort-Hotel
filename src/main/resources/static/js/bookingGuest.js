@@ -140,6 +140,7 @@ function fillBirthdayDropdowns() {
 function getFormData() {
     let guestObj = {
         firstName: $("#fname").val(),
+        infix: $("#infix").val(),
         lastName: $("#lname").val(),
         birthday: $("#bdate").val().split('-').reverse().join('-'),
         country: $("#country").val(),

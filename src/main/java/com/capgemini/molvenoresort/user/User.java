@@ -1,13 +1,13 @@
 package com.capgemini.molvenoresort.user;
 
+import org.springframework.stereotype.Controller;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @MappedSuperclass
 public  abstract class User {
-
-
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +18,9 @@ public  abstract class User {
 	@Column
 	@NotNull
 	private String firstName;
+
+	@Column
+	private String infix;
 
 	@Column
 	@NotNull
@@ -66,6 +69,10 @@ public  abstract class User {
 		this.email = email;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -77,6 +84,14 @@ public  abstract class User {
 		else {
 			throw new IllegalArgumentException();
 		}
+	}
+
+	public String getInfix() {
+		return infix;
+	}
+
+	public void setInfix(String infix) {
+		this.infix = infix;
 	}
 
 	public String getLastName() {

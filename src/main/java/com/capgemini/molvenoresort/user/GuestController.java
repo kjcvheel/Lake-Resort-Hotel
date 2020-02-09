@@ -1,5 +1,6 @@
 package com.capgemini.molvenoresort.user;
 
+import com.capgemini.molvenoresort.room.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,14 +20,25 @@ public class GuestController {
 		return (ArrayList)guestRepository.findAll();
 	}
 
+	@GetMapping("/{id}")
+	public ResponseEntity<Guest> getGuestById(@PathVariable Long id) {
+		Optional<Guest> result = guestRepository.findById(id);
+		return result.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+	}
+
 	@PostMapping("/add")
 	public ResponseEntity<Guest> addGuest(@RequestBody Guest guest) {
 		return ResponseEntity.ok(guestRepository.save(guest));
 	}
 
-	@GetMapping("/{id}")
-	public ResponseEntity<Guest> getGuestById(@PathVariable Long id) {
-		Optional<Guest> result = guestRepository.findById(id);
-		return result.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+	@PutMapping("/{id}")
+	public ResponseEntity<Guest> updateGuest(@RequestBody Guest guest) {
+		return ResponseEntity.ok(this.guestRepository.save(guest));
+	}
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Guest> deleteGuest(@PathVariable long id) {
+		this.guestRepository.deleteById(id);
+		return ResponseEntity.noContent().build();
 	}
 }
