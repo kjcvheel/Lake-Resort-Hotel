@@ -9,8 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = {"api/rooms", "api/Rooms"})
@@ -28,7 +30,6 @@ public class RoomController {
         Iterable<Room> rooms = this.roomRepository.findAll();
         System.out.println(rooms);
         return this.roomRepository.findAll();
-        //return this.roomRepository.getRooms();
     }
 
 
@@ -44,24 +45,17 @@ public class RoomController {
     @PostMapping("/add")
     public ResponseEntity<Room> addRoom(@RequestBody Room room) {
        return ResponseEntity.ok(this.roomRepository.save(room));
-       //return ("Room has been added, your room ID is " + room.getName());
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Room> updateRoom(@RequestBody Room room) {
         System.out.println("Updateing room");
         return ResponseEntity.ok(this.roomRepository.save(room));
-        //return ("Room has been added, your room ID is " + room.getName());
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Room> deleteById(@PathVariable long id) {
         this.roomRepository.deleteById(id);
-        /*Optional<Long> deletedID = this.roomRepository.deleteById(id);
-        if(deletedID.isPresent()){
-                return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.notFound().build();*/
         return ResponseEntity.noContent().build();
     }
 
@@ -77,8 +71,13 @@ public class RoomController {
         Iterable<Room> iterable = this.roomRepository.findAll();
         List<Room> rooms = new ArrayList<>();
         iterable.forEach(rooms::add);
-
         List<Room> temp;
+
+/*        Collection<Room> tempRooms = (Collection<Room>) this.roomRepository.findAll();
+
+        if (filter.isDisabled()){
+            suitable = roomRepository.findByDisabledTrue().stream().filter(s -> tempRooms.contains(s)).collect(Collectors.toList());
+        }*/
 
         if(filter.isDisabled()){
             suitable = this.roomRepository.findByDisabledTrue();
