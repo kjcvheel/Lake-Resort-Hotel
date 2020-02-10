@@ -27,8 +27,6 @@ public class RoomController {
 
     @GetMapping
     public Iterable<Room> getRooms() {
-        Iterable<Room> rooms = this.roomRepository.findAll();
-        System.out.println(rooms);
         return this.roomRepository.findAll();
     }
 
@@ -101,25 +99,7 @@ public class RoomController {
 
         }
 
-        suitable = this.roomRepository.findByPriceLessThanEqual(filter.getMaxPrice());
-        temp = new ArrayList<>();
-        for (Room room : suitable) {
-            if (rooms.contains(room)) {
-                temp.add(room);
-            }
-        }
-        rooms = temp;
-
-        suitable = this.roomRepository.findByAdultGreaterThanEqual(filter.getAdult());
-        temp = new ArrayList<>();
-        for (Room room : suitable) {
-            if (rooms.contains(room)) {
-                temp.add(room);
-            }
-        }
-        rooms = temp;
-
-        suitable = this.roomRepository.findByChildrenGreaterThanEqual(filter.getChildren());
+        suitable = this.roomRepository.findByPriceLessThanEqualAndAdultGreaterThanEqualAndChildrenGreaterThanEqual(filter.getMaxPrice(), filter.getAdult(), filter.getChildren());
         temp = new ArrayList<>();
         for (Room room : suitable) {
             if (rooms.contains(room)) {
