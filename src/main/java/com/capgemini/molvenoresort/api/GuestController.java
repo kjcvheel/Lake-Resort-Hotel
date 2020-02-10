@@ -1,6 +1,7 @@
-package com.capgemini.molvenoresort.user;
+package com.capgemini.molvenoresort.api;
 
-import com.capgemini.molvenoresort.room.Room;
+import com.capgemini.molvenoresort.models.Guest;
+import com.capgemini.molvenoresort.repositories.GuestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,7 @@ import java.util.Optional;
 @RequestMapping("api/guests")
 public class GuestController {
 	@Autowired
-	GuestRepository guestRepository;
+    GuestRepository guestRepository;
 
 	@GetMapping
 	public List<Guest> getGuests() {

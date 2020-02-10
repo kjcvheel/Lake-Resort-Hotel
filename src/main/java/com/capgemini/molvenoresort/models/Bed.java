@@ -1,4 +1,6 @@
-package com.capgemini.molvenoresort.room;
+package com.capgemini.molvenoresort.models;
+
+import com.capgemini.molvenoresort.enums.BedType;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

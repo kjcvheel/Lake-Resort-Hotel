@@ -1,6 +1,4 @@
-package com.capgemini.molvenoresort.user;
-
-import com.capgemini.molvenoresort.booking.Booking;
+package com.capgemini.molvenoresort.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -27,6 +25,11 @@ public class Guest extends User {
 	public Guest(String password) {
 		super(password);
 		bookings = new ArrayList<Booking>();
+	}
+
+	public Guest(long id) {
+		setPassword("default");
+		this.id = id;
 	}
 
 	public Guest(long id,  String password, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, int creditcard, String email) {

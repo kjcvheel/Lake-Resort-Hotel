@@ -1,7 +1,6 @@
-package com.capgemini.molvenoresort.booking;
+package com.capgemini.molvenoresort.models;
 
-import com.capgemini.molvenoresort.room.Room;
-import com.capgemini.molvenoresort.user.Guest;
+import com.capgemini.molvenoresort.enums.BookingStatus;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -13,7 +12,7 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(cascade=CascadeType.MERGE)
     @JoinColumn(name = "userID")
     private Guest mainBooker;
     @Column
@@ -54,7 +53,9 @@ public class Booking {
 
     public Guest getMainBooker() {return mainBooker;}
 
-
+    public void setMainBooker(Guest temp) {
+        this.mainBooker = temp;     
+    }
     public long getInvoiceID() {return invoiceID;}
 
     public void setInvoiceID(int invoiceID) {

@@ -1,12 +1,10 @@
-package com.capgemini.molvenoresort.room;
+package com.capgemini.molvenoresort.repositories;
 
+import com.capgemini.molvenoresort.models.Room;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface RoomRepository extends CrudRepository<Room, Long> {

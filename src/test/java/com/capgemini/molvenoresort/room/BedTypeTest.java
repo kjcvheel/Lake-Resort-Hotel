@@ -1,5 +1,6 @@
 package com.capgemini.molvenoresort.room;
 
+import com.capgemini.molvenoresort.enums.BedType;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 

@@ -1,7 +1,7 @@
 package com.capgemini.molvenoresort.user;
 
-import com.capgemini.molvenoresort.user.Employee;
-import com.capgemini.molvenoresort.user.EmployeeRole;
+import com.capgemini.molvenoresort.enums.EmployeeRole;
+import com.capgemini.molvenoresort.models.Employee;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

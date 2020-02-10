@@ -1,4 +1,4 @@
-package com.capgemini.molvenoresort.user;
+package com.capgemini.molvenoresort.models;
 
 import org.springframework.stereotype.Controller;
 

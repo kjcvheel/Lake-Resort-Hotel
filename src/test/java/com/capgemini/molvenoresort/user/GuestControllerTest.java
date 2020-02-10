@@ -1,8 +1,7 @@
 package com.capgemini.molvenoresort.user;
 
-import com.capgemini.molvenoresort.user.Guest;
-import com.capgemini.molvenoresort.user.GuestController;
-import com.capgemini.molvenoresort.user.MockGuestDB;
+import com.capgemini.molvenoresort.api.GuestController;
+import com.capgemini.molvenoresort.models.Guest;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,13 +13,6 @@ import static org.junit.Assert.assertNull;
 public class GuestControllerTest {
 	GuestController guestController;
 	int guestDBRows = 0;
-
-	@Before
-	public void before() {
-		guestController = new GuestController();
-		guestDBRows = MockGuestDB.getInstance().getGuests().size();
-	}
-
 	@Test
 	public void getGuestsTest() {
 		List<Guest> guest = guestController.getGuests();

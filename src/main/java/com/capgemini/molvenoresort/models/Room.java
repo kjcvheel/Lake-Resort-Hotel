@@ -1,6 +1,7 @@
-package com.capgemini.molvenoresort.room;
+package com.capgemini.molvenoresort.models;
 
-import com.capgemini.molvenoresort.booking.Booking;
+import com.capgemini.molvenoresort.enums.RoomStatus;
+import com.capgemini.molvenoresort.enums.RoomType;
 
 import javax.persistence.*;
 import java.util.List;
@@ -39,11 +40,6 @@ public class Room {
     @ManyToMany
     private List<Bed> beds;
 
-
-    //private List<Facilities> facilities;
-
-    //@ManyToMany(mappedBy = "rooms")
-    //private List<Booking> bookings;
 
     public Room(){}
 
@@ -98,14 +94,6 @@ public class Room {
         this.beds = beds;
     }
 
- //   public List<Facilities> getFacilities() {
- //       return facilities;
- //   }
-
-  //  public void setFacilities(List<Facilities> facilities) {
-  //      this.facilities = facilities;
-   // }
-
     public int getAdult() {
         return adult;
     }
@@ -157,14 +145,6 @@ public class Room {
     public void setImage(String image) {
         this.image = image;
     }
-
-    /*public List<Booking> getBookings() {
-        return bookings;
-    }
-
-    public void setBookings(List<Booking> bookings) {
-        this.bookings = bookings;
-    }*/
 
     @Override
     public boolean equals(Object o) {
