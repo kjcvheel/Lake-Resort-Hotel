@@ -13,13 +13,6 @@ import static org.junit.Assert.assertNull;
 public class GuestControllerTest {
 	GuestController guestController;
 	int guestDBRows = 0;
-
-	@Before
-	public void before() {
-		guestController = new GuestController();
-		guestDBRows = MockGuestDB.getInstance().getGuests().size();
-	}
-
 	@Test
 	public void getGuestsTest() {
 		List<Guest> guest = guestController.getGuests();

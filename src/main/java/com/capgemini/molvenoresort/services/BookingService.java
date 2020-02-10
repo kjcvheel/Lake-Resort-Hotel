@@ -1,12 +1,11 @@
 package com.capgemini.molvenoresort.services;
 
 import com.capgemini.molvenoresort.models.Booking;
-import com.capgemini.molvenoresort.repositories.bookingRepository;
+import com.capgemini.molvenoresort.repositories.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -16,8 +15,7 @@ import java.util.Optional;
 public class BookingService {
 
     @Autowired
-    private bookingRepository repository;
-
+    private BookingRepository repository;
 
     public Iterable<Booking>findAll() {
         return this.repository.findAll();
@@ -41,6 +39,7 @@ public class BookingService {
     public ResponseEntity<?> addBooking(Booking booking) {
         if (checkAge(booking))
         {
+            System.out.println("TESTING FROM SERVICE");
             return ResponseEntity.ok(repository.save(booking));
         }
         else {
@@ -52,6 +51,7 @@ public class BookingService {
     public boolean checkAge(Booking booking) {
         Calendar calender = GregorianCalendar.getInstance();
         calender.set(Calendar.YEAR, calender.get(Calendar.YEAR)-18);
+        System.out.println("Checking");
 //        Date temp = booking.getGuestID().getBirthday();
         return calender.getTime().after(booking.getMainBooker().getBirthday());
     }
