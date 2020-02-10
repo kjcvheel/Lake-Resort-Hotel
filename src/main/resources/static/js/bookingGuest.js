@@ -30,7 +30,10 @@ function getData() {
     console.log(dateTo);
 
     // Get Selected Rooms
-    let rooms = [sessionStorage.getItem("bookedRoom")];
+     var retrievedObject = sessionStorage.getItem('bookedRooms');
+     let rooms = JSON.parse(retrievedObject);
+        console.log('retrievedObject: ', JSON.parse(retrievedObject));
+   // let rooms = [sessionStorage.getItem("bookedRoom")];
     console.log(rooms);
     rooms.forEach(function(item, index) {
         $.ajax({
@@ -97,8 +100,7 @@ function postBooking(mainBooker) {
             console.log("This was posted " + result.id);
         },
         error: function(result) {
-            alert("This user is too young");
-            console.log("This user is too young");
+            console.log(result.responseText);
         }
     });
 

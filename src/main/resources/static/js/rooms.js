@@ -1,7 +1,9 @@
 $(document).ready(function() {
     getRooms();
 
-    let holidays = ['01/24/2020', '01/25/2020','01/26/2020','01/24/2020','01/27/2020','01/28/2020','01/29/2020','04/30/2020', '05/01/2020', '06/25/2020'];
+    let holidays = ['01/01/2020','01/24/2020', '01/25/2020','01/26/2020','01/24/2020','01/27/2020','01/28/2020',
+    '01/29/2020','01/30/2020', '04/04/2020', '05/01/2020', '06/25/2020', '09/27/2020', '10/01/2020','10/02/2020',
+    '10/03/2020','10/04/2020','10/05/2020','10/06/2020', '10/07/2020'];
     var date_input=$('input[name="checkin"]'); //our date input has the name "date"
 
     date_input.datepicker({
@@ -41,26 +43,52 @@ $(document).ready(function() {
 
 });
 
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
-
-
-
-$(document).on('click', "#booknow", function() {
-    console.log($(this).parents().eq(2).attr('name'));
-
-    sessionStorage.setItem('bookedRoom', $(this).parents().eq(2).attr('name'));
-    sessionStorage.setItem('dateFrom', $("#checkin").val());
-    sessionStorage.setItem('dateTo', $("#checkout").val());
-    console.log(sessionStorage.getItem("bookedRoom"));
-    window.location.href = "http://localhost:8080/BookingGuestForm";
-
-});
-
 $(document).on("click", '.collapse-trigger', function() {
     console.log("Trigger collapse");
     $(this).next().collapse('toggle');
+});
+
+
+$(document).on('click', "#selectnow", function() {
+     let index = $(this).parents().eq(2).attr('name');
+     console.log(index)
+        $.ajax({
+                    url: "http://localhost:8080/api/rooms/" + index,
+                    type: "get",
+                    success: function(result) {
+                        $("#selectedRooms").append("<div id='selectedroom" + index + "'></div>");
+                            $("#selectedroom" + index).load("cards/smallRoomCard.html", function() {
+                                let card = $("#selectedroom" + index);
+                                console.log("Filling in details of room: " + result.id);
+                                card.find("#price").html("Price: " + result.price);
+                                card.find("#size").html("Adults: " + result.adult + ", Children: " + result.children);
+                                card.find(".card-title").html(result.name);
+                                card.find("#room-image").attr('src', result.image);
+                                selectedRooms.push(result.id);
+                            });
+                    }
+                });
+});
+
+let selectedRooms = [];
+
+$(document).on('click', "#booknow", function() {
+    sessionStorage.setItem('dateFrom', $("#checkin").val());
+    sessionStorage.setItem('dateTo', $("#checkout").val());
+
+    console.log(selectedRooms);
+
+
+
+    sessionStorage.setItem('bookedRooms', JSON.stringify(selectedRooms));
+
+//    console.log(JSON.parse(sessionStorage.getItem(bookedRooms)));
+
+//    sessionStorage.setItem('bookedRoom', $(this).parents().eq(2).attr('name'));
+
+//    console.log(sessionStorage.getItem("bookedRoom"));
+    window.location.href = "http://localhost:8080/BookingGuestForm";
+
 });
 
 
@@ -177,6 +205,11 @@ function makeCard(index, value) {
         card.find(".card-title").html(value.id);
     });
 
+
+
+}
+
+function selectRoom(){
 
 
 }

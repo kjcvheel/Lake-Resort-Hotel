@@ -17,7 +17,7 @@ public class GuestControllerTest {
 	@Before
 	public void before() {
 		guestController = new GuestController();
-		//guestDBRows = MockGuestDB.getInstance().getGuests().size();
+		guestDBRows = MockGuestDB.getInstance().getGuests().size();
 	}
 
 	@Test

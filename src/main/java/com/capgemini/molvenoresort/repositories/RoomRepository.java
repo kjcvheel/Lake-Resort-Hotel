@@ -18,6 +18,10 @@ public interface RoomRepository extends CrudRepository<Room, Long> {
 
     List<Room> findByChildrenGreaterThanEqual(int children);
 
+    List<Room> findByAdultGreaterThanEqualAndChildrenGreaterThanEqual(int adult, int children);
+
+    List<Room> findByPriceLessThanEqualAndAdultGreaterThanEqualAndChildrenGreaterThanEqual(int price, int adult, int children);
+
    /* private List<Room> rooms = new ArrayList<>();
 
     public Iterable<Room> getRooms(){
