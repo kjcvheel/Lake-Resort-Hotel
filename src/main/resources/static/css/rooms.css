@@ -1,9 +1,8 @@
 .rooms {
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+
     margin-top: 20px;
-    width: 75%;
+    width: 100%;
     border: 10px solid #dae3f3;
     background-color: #99d9ea;
     padding: 50px;
