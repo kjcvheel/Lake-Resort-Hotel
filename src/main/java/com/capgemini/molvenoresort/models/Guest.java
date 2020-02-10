@@ -27,6 +27,11 @@ public class Guest extends User {
 		bookings = new ArrayList<Booking>();
 	}
 
+	public Guest(long id) {
+		setPassword("default");
+		this.id = id;
+	}
+
 	public Guest(long id,  String password, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, int creditcard, String email) {
 		super(id, firstName, lastName, birthday, country, city, address, zipcode, phoneNumber, mobileNumber, password, email);
 		this.creditcard = creditcard;

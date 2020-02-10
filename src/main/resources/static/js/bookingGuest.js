@@ -100,8 +100,7 @@ function postBooking(mainBooker) {
             console.log("This was posted " + result.id);
         },
         error: function(result) {
-            alert("This user is too young");
-            console.log("This user is too young");
+            console.log(result.responseText);
         }
     });
 

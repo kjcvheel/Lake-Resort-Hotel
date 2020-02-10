@@ -1,26 +1,21 @@
 package com.capgemini.molvenoresort.api;
 
 import com.capgemini.molvenoresort.models.Booking;
-import com.capgemini.molvenoresort.repositories.bookingRepository;
 import com.capgemini.molvenoresort.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
-
 @RestController
-@RequestMapping(value = {"/bookings", "/Bookings"})
+@RequestMapping(value = {"/bookings"})
 public class BookingController {
 
 
     @Autowired
     private BookingService bookingService;
 
-
-    @GetMapping
-    public Iterable<Booking>getAllBookings() {
+    @GetMapping()
+    public Iterable<Booking> getAllBookings() {
         return this.bookingService.findAll();
     }
 
@@ -31,6 +26,7 @@ public class BookingController {
 
     @PostMapping("/add")
     public ResponseEntity<?> addBooking(@RequestBody Booking booking) {
+        System.out.println("TESTINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
         return bookingService.addBooking(booking);
     }
 
