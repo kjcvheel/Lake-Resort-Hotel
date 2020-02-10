@@ -51,7 +51,8 @@ $(document).on("click", '.collapse-trigger', function() {
 
 $(document).on('click', "#selectnow", function() {
      let index = $(this).parents().eq(2).attr('name');
-     console.log(index)
+     console.log(index);
+
         $.ajax({
                     url: "http://localhost:8080/api/rooms/" + index,
                     type: "get",
@@ -64,7 +65,11 @@ $(document).on('click', "#selectnow", function() {
                                 card.find("#size").html("Adults: " + result.adult + ", Children: " + result.children);
                                 card.find(".card-title").html(result.name);
                                 card.find("#room-image").attr('src', result.image);
+                                if(selectedRooms.includes(result.id)){
+                                    return;
+                                }
                                 selectedRooms.push(result.id);
+
                             });
                     }
                 });
@@ -73,6 +78,9 @@ $(document).on('click', "#selectnow", function() {
 let selectedRooms = [];
 
 $(document).on('click', "#booknow", function() {
+    if(selectedRooms.length ==0){
+        return;
+    }
     sessionStorage.setItem('dateFrom', $("#checkin").val());
     sessionStorage.setItem('dateTo', $("#checkout").val());
 
