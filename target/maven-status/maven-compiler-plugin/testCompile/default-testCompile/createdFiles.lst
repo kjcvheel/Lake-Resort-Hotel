@@ -1,1 +1,8 @@
-com\capgemini\Room\RoomControllerTest.class
+com\capgemini\molvenoresort\room\RoomControllerTest.class
+com\capgemini\molvenoresort\room\RoomTest.class
+com\capgemini\molvenoresort\user\GuestTest.class
+com\capgemini\molvenoresort\room\BedTypeTest.class
+com\capgemini\molvenoresort\user\UserTest.class
+com\capgemini\molvenoresort\user\GuestControllerTest.class
+com\capgemini\molvenoresort\booking\BookingTest.class
+com\capgemini\molvenoresort\user\EmployeeTest.class

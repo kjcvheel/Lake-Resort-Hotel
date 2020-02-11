@@ -23,7 +23,7 @@ var columns = [
     { "data": "mobileNumber", "title": "mobile number" },
     //{ "data": "image", "title": "Image" },
 ];
-var createTitle = "Add a new guest";
+var portalType = "guest";
 
 function formName(full) {
     let fullname = "";

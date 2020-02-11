@@ -36,7 +36,7 @@ var columns = [
     { "data": "beds", "title": "Beds" },
     //{ "data": "image", "title": "Image" },
 ];
-var createTitle = "Add a new room";
+var portalType = "room";
 
 function mapBool(data) {
     if (data) {
