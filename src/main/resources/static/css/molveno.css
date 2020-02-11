@@ -5,11 +5,11 @@ html {
 
 body {
     margin-bottom: 60px;
-    background: url('../images/Background2.jpg') no-repeat center center fixed;
+/*    background: url('../images/Background2.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
-    -o-background-size: cover;
+    -o-background-size: cover;*/
 }
 
 .navbar {

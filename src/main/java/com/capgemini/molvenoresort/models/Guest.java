@@ -10,8 +10,7 @@ import java.util.List;
 public class Guest extends User {
 
 	@Column
-	@NotNull
-	private int creditcard;
+	private @NotNull String creditcard;
 
 	@Column
 	@OneToMany(mappedBy = "mainBooker")
@@ -32,17 +31,17 @@ public class Guest extends User {
 		this.id = id;
 	}
 
-	public Guest(long id,  String password, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, int creditcard, String email) {
+	public Guest(long id, String password, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, @NotNull String creditcard, String email) {
 		super(id, firstName, lastName, birthday, country, city, address, zipcode, phoneNumber, mobileNumber, password, email);
 		this.creditcard = creditcard;
 		bookings = new ArrayList<Booking>();
 	}
 
-	public int getCreditcard() {
+	public @NotNull String getCreditcard() {
 		return creditcard;
 	}
 
-	public void setCreditcard(int creditcard) {
+	public void setCreditcard(@NotNull String creditcard) {
 		this.creditcard = creditcard;
 	}
 
