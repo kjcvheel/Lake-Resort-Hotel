@@ -5,14 +5,39 @@ var columns = [
     { "data": "price", "title": "Price" },
     { "data": "adult", "title": "Adults" },
     { "data": "children", "title": "Children" },
-    { "data": "disabled", "title": "Suitable for disabled" },
-    { "data": "smoking", "title": "Smoking allowed" },
+    {
+        "data": "disabled",
+        "title": "Suitable for disabled",
+        "render": function(data) {
+            if (data) {
+                return "Yes"
+            } else {
+                return "No"
+            }
+        }
+    },
+    {
+        "data": "smoking",
+        "title": "Smoking allowed"
+    },
     { "data": "status", "title": "Status" },
     { "data": "type", "title": "Type" },
     { "data": "beds", "title": "Beds" },
     //{ "data": "image", "title": "Image" },
 ];
 var createTitle = "Add a new room";
+
+function mapBool(data) {
+    if (data) {
+        return "Yes";
+    } else {
+        return "False";
+    }
+}
+
+function mapStatus(data) {
+
+}
 
 function fillModal(record) {
     $('#modalForm').removeClass("was-validated");

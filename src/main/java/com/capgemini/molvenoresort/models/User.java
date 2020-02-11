@@ -1,7 +1,5 @@
 package com.capgemini.molvenoresort.models;
 
-import org.springframework.stereotype.Controller;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -40,7 +38,13 @@ public  abstract class User {
 	@Column
 	private String city;
 	@Column
-	private String address;
+	private String streetName1;
+	@Column
+	private String streetName2;
+	@Column
+	private String streetName3;
+	@Column
+	private String addressNumber;
 	@Column
 	private String zipcode;
 	@Column
@@ -54,14 +58,14 @@ public  abstract class User {
 		this.password = password;
 	}
 
-	public User(long id, String firstName, String lastName, Date birthday, String country, String city, String address, String zipcode, String phoneNumber, String mobileNumber, String password, String email) {
+	public User(long id, String firstName, String lastName, Date birthday, String country, String city, String streetName1, String zipcode, String phoneNumber, String mobileNumber, String password, String email) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.birthday = birthday;
 		this.country = country;
 		this.city = city;
-		this.address = address;
+		this.streetName1 = streetName1;
 		this.zipcode = zipcode;
 		this.phoneNumber = phoneNumber;
 		this.mobileNumber = mobileNumber;
@@ -139,12 +143,36 @@ public  abstract class User {
 		this.city = city;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getStreetName1() {
+		return streetName1;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setStreetName1(String streetName1) {
+		this.streetName1 = streetName1;
+	}
+
+	public String getStreetName2() {
+		return streetName2;
+	}
+
+	public void setStreetName2(String streetName2) {
+		this.streetName2 = streetName2;
+	}
+
+	public String getStreetName3() {
+		return streetName3;
+	}
+
+	public void setStreetName3(String streetName3) {
+		this.streetName3 = streetName3;
+	}
+
+	public String getAddressNumber() {
+		return addressNumber;
+	}
+
+	public void setAddressNumber(String addressNumber) {
+		this.addressNumber = addressNumber;
 	}
 
 	public String getZipcode() {
