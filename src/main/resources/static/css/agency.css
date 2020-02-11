@@ -261,7 +261,7 @@ img::-moz-selection {
   height: 100%;
   transition: all ease 0.5s;
   opacity: 0;
-  background: rgba(254, 209, 54, 0.9);
+  background: rgba(153, 217, 234, 0.9);
 }
 
 #portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {
@@ -293,7 +293,7 @@ img::-moz-selection {
   margin: 0 auto;
   padding: 25px;
   text-align: center;
-  background-color: #fff;
+
 }
 
 #portfolio .portfolio-item .portfolio-caption h4 {
