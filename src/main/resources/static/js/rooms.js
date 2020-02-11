@@ -175,6 +175,8 @@ function getRoomsUnder() {
 function getRoomsByDate() {
     let incheck = $("#checkin").val();
     let uitcheck = $("#checkout").val();
+    console.log(incheck + uitcheck);
+    console.log("http://localhost:8080/api/rooms/date/" + incheck + "/" + uitcheck);
 
 
     $.ajax({
@@ -182,13 +184,13 @@ function getRoomsByDate() {
         type: "get",
         success: function(result) {
             console.log("This is the data: " + result);
-//            $("#roomlist").html("");
-//
-//            $.each(result, function(index, value) {
-//                console.log(value.type + " " + value.price + " " + value.disabled);
-//                makeCard(index, value);
+            $("#roomlist").html("");
 
-//            });
+            $.each(result, function(index, value) {
+                console.log(value.type + " " + value.price + " " + value.disabled);
+                makeCard(index, value);
+
+            });
         }
     });
 }
@@ -233,11 +235,6 @@ function makeCard(index, value) {
 
 }
 
-function selectRoom(){
-
-
-}
-
 
 var slider = document.getElementById("price");
 var output = document.getElementById("priceselect");
@@ -255,6 +252,6 @@ $(document).on('click', "#checkout", function() {
 });
 
 $(document).on('click', '#roomFilter', function(){
-    filter();
+//    filter();
     getRoomsByDate();
 });

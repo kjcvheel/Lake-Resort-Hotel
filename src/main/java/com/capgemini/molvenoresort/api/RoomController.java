@@ -70,10 +70,14 @@ public class RoomController {
         return this.roomRepository.findByPriceLessThanEqual(id);
     }
 
-    @GetMapping("/date/{yr}/{mm}/{dd}/{yro}/{mmo}/{ddo}")
-    public Iterable<Room> roomsByDate(@PathVariable("yr") int yr, @PathVariable("mm") int mm, @PathVariable("dd") int dd,
-                                      @PathVariable("yro") int yro, @PathVariable("mmo") int mmo, @PathVariable("ddo") int ddo) {
+    @GetMapping("/date/{mm}/{dd}/{yr}/{mmo}/{ddo}/{yro}")
+    public Iterable<Room> roomsByDate(@PathVariable("mm") int mm, @PathVariable("dd") int dd, @PathVariable("yr") int yr,
+                                      @PathVariable("mmo") int mmo, @PathVariable("ddo") int ddo, @PathVariable("yro") int yro) {
         List<Room> notAvailable = new ArrayList<>();
+        Iterable<Room> iterable = this.roomRepository.findAll();
+        List<Room> allRooms = new ArrayList<>();
+        iterable.forEach(allRooms::add);
+
         LocalDate checkin = LocalDate.of(yr, mm, dd);
         LocalDate checkout = LocalDate.of(yro, mmo, ddo);
         List<Booking> bookings = this.bookingRepository.findByStartDateLessThanAndEndDateGreaterThan(checkout, checkin);
@@ -83,7 +87,8 @@ public class RoomController {
                     notAvailable.add(room);
             }
         }
-        return notAvailable;
+        allRooms.removeAll(notAvailable);
+        return allRooms;
     }
 
     @PostMapping("/filter")
