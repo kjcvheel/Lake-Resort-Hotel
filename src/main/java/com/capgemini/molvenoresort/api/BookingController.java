@@ -19,15 +19,19 @@ public class BookingController {
         return this.bookingService.findAll();
     }
 
-    @GetMapping("/booking{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Booking> findById(@PathVariable long id) {
         return bookingService.findById(id);
     }
 
     @PostMapping("/add")
     public ResponseEntity<?> addBooking(@RequestBody Booking booking) {
-        System.out.println("TESTINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
         return bookingService.addBooking(booking);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateBooking(@RequestBody Booking booking) {
+        return bookingService.updateBooking(booking);
     }
 
     @DeleteMapping("delete/{id}")

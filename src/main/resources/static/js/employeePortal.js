@@ -22,7 +22,7 @@ function initDataTable(api) {
         responsive: {
             details: false
         },
-        dom: '<"col-6" l><"col-6" f><i>rt<p><"clear">',
+        dom: '<"col-5" l><"col-7" f><"col-12" i>rt<"col-12" p><"clear">',
         "order": [
             [0, "asc"]
         ],
@@ -33,7 +33,9 @@ function initDataTable(api) {
         "columns": columns
     });
 
-    new $.fn.dataTable.FixedHeader(table);
+    new $.fn.dataTable.Responsive(table, {
+        details: false
+    });
 
     $('#dataTable tbody').on('click', 'tr', function() {
         if ($(this).hasClass('selected')) {
@@ -60,7 +62,6 @@ function getData() {
     $("#dataTable").dataTable().api().ajax.reload();
     let data = $("#dataTable").dataTable().api().column(0).data();
     console.log("getData");
-    console.log(data);
     let sum = 0;
     for (let i = 0; i < data.length; i++) {
         sum += +data[i];
@@ -72,7 +73,6 @@ function getSingleRecord(id, api) {
     apiPath = String(api + "/" + id);
     $.get(apiPath, function(data) {
         if (data) {
-            console.log(data);
             fillUpdateDiv(data, api);
         }
     });
@@ -137,7 +137,6 @@ function submitEdit(id, api) {
     let formData = getFormData();
 
     console.log("Updating row with id:" + id)
-    console.log(api + "/" + id);
     $.ajax({
         url: api + "/" + id,
         type: "put",
@@ -222,4 +221,16 @@ function validateSubmitEdit(id, api) {
         }
         form.classList.add('was-validated');
     });
+}
+
+function mapBool(data) {
+    if (data) {
+        return "Yes";
+    } else {
+        return "No";
+    }
+}
+
+function mapStatus(data) {
+    return data.toLowerCase();
 }
