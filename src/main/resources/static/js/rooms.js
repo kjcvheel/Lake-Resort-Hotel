@@ -274,6 +274,8 @@ function selectRoom(index) {
                 selectedRooms.push(result.id);
 
             });
+
+
         }
     });
 }
