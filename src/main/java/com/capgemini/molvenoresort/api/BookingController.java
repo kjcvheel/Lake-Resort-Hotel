@@ -26,7 +26,6 @@ public class BookingController {
 
     @PostMapping("/add")
     public ResponseEntity<?> addBooking(@RequestBody Booking booking) {
-        System.out.println("TESTINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
         return bookingService.addBooking(booking);
     }
 

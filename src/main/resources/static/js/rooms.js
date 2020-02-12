@@ -49,6 +49,8 @@ $(document).on("click", '.collapse-trigger', function() {
 });
 
 
+let selectedRooms = [];
+
 $(document).on('click', "#selectnow", function() {
      let index = $(this).parents().eq(2).attr('name');
      console.log(index)
@@ -70,8 +72,6 @@ $(document).on('click', "#selectnow", function() {
                 });
 });
 
-let selectedRooms = [];
-
 $(document).on('click', "#booknow", function() {
     sessionStorage.setItem('dateFrom', $("#checkin").val());
     sessionStorage.setItem('dateTo', $("#checkout").val());
@@ -82,11 +82,6 @@ $(document).on('click', "#booknow", function() {
 
     sessionStorage.setItem('bookedRooms', JSON.stringify(selectedRooms));
 
-//    console.log(JSON.parse(sessionStorage.getItem(bookedRooms)));
-
-//    sessionStorage.setItem('bookedRoom', $(this).parents().eq(2).attr('name'));
-
-//    console.log(sessionStorage.getItem("bookedRoom"));
     window.location.href = "http://localhost:8080/BookingGuestForm";
 
 });
