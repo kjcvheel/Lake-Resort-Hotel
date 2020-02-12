@@ -28,18 +28,14 @@ $(document).on('click', "#selectnow", function () {
 
 
 $(document).on('click', "#booknow", function () {
-    if (selectedRooms.length == 0) {
+    if (selectedRooms.length == 0 || $("#dateFrom").text() == "Invalid Date" || $("#dateTo").text() == "Invalid Date") {
         return;
     }
     sessionStorage.setItem('dateFrom', $("#dateFrom").text());
     sessionStorage.setItem('dateTo', $("#dateTo").text());
 
     console.log(selectedRooms);
-
-
-
     sessionStorage.setItem('bookedRooms', JSON.stringify(selectedRooms));
-
     window.location.href = "http://localhost:8080/BookingGuestForm";
 
 });
@@ -242,15 +238,11 @@ function selectRoom(index) {
         url: "http://localhost:8080/api/rooms/" + index,
         type: "get",
         success: function (result) {
-            if (!($("#checkin").val() == $("#dateFrom").text())) {
-                console.log("not the same");
-                resetSelected();
-            }
             var dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             let dateFrom = new Date($("#checkin").val()).toLocaleDateString("en-US", dateOptions);
             let dateTo = new Date($("#checkout").val()).toLocaleDateString("en-US", dateOptions);
             $("#dateFrom").html(dateFrom);
-            $("#dateTo").html($(dateTo);
+            $("#dateTo").html(dateTo);
 
             $("#selectedRooms").append("<div id='selectedroom" + index + "'></div>");
             $("#selectedroom" + index).load("cards/smallRoomCard.html", function () {
