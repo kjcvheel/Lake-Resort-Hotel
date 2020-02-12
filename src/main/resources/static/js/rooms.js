@@ -46,6 +46,9 @@ $(document).on('click', "#checkout", function () {
     $("#checkout").datepicker('setStartDate', date);
 });
 
+
+
+
 $(document).on('click', '#roomFilter', function () {
     //    filter();
     getRoomsByDate();
@@ -88,7 +91,9 @@ function setDatePicker() {
         autoclose: true,
         weekStart: 1
 
-    });
+    }).on('changeDate', function() {
+                    getRoomsByDate();
+                });
 }
 
 function getRooms() {
@@ -241,6 +246,10 @@ function selectRoom(index) {
             var dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             let dateFrom = new Date($("#checkin").val()).toLocaleDateString("en-US", dateOptions);
             let dateTo = new Date($("#checkout").val()).toLocaleDateString("en-US", dateOptions);
+            if(!(dateFrom == $("#dateFrom").text()) || !(dateTo == $("#dateTo").text())){
+                console.log("different dates");
+                resetSelected();
+            }
             $("#dateFrom").html(dateFrom);
             $("#dateTo").html(dateTo);
 
