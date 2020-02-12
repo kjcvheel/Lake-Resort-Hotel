@@ -56,7 +56,7 @@ class GuestControllerTest {
     }
 
     private Guest createDummyGuest(long id, String firstname, String lastname) {
-        Guest guest = new Guest(id, "password", firstname, lastname, null, null, null, null, null, null, null, 0, null);
+        Guest guest = new Guest(id, "password", firstname, lastname, null, null, null, null, null, null, null, "0", null);
         return guest;
     }
 

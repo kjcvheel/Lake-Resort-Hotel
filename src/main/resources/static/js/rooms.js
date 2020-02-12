@@ -51,7 +51,8 @@ $(document).on("click", '.collapse-trigger', function() {
 
 $(document).on('click', "#selectnow", function() {
      let index = $(this).parents().eq(2).attr('name');
-     console.log(index)
+     console.log(index);
+
         $.ajax({
                     url: "http://localhost:8080/api/rooms/" + index,
                     type: "get",
@@ -64,7 +65,11 @@ $(document).on('click', "#selectnow", function() {
                                 card.find("#size").html("Adults: " + result.adult + ", Children: " + result.children);
                                 card.find(".card-title").html(result.name);
                                 card.find("#room-image").attr('src', result.image);
+                                if(selectedRooms.includes(result.id)){
+                                    return;
+                                }
                                 selectedRooms.push(result.id);
+
                             });
                     }
                 });
@@ -73,6 +78,9 @@ $(document).on('click', "#selectnow", function() {
 let selectedRooms = [];
 
 $(document).on('click', "#booknow", function() {
+    if(selectedRooms.length ==0){
+        return;
+    }
     sessionStorage.setItem('dateFrom', $("#checkin").val());
     sessionStorage.setItem('dateTo', $("#checkout").val());
 
@@ -82,11 +90,6 @@ $(document).on('click', "#booknow", function() {
 
     sessionStorage.setItem('bookedRooms', JSON.stringify(selectedRooms));
 
-//    console.log(JSON.parse(sessionStorage.getItem(bookedRooms)));
-
-//    sessionStorage.setItem('bookedRoom', $(this).parents().eq(2).attr('name'));
-
-//    console.log(sessionStorage.getItem("bookedRoom"));
     window.location.href = "http://localhost:8080/BookingGuestForm";
 
 });
@@ -169,6 +172,29 @@ function getRoomsUnder() {
     });
 }
 
+function getRoomsByDate() {
+    let incheck = $("#checkin").val();
+    let uitcheck = $("#checkout").val();
+    console.log(incheck + uitcheck);
+    console.log("http://localhost:8080/api/rooms/date/" + incheck + "/" + uitcheck);
+
+
+    $.ajax({
+        url: "http://localhost:8080/api/rooms/date/" + incheck + "/" + uitcheck,
+        type: "get",
+        success: function(result) {
+            console.log("This is the data: " + result);
+            $("#roomlist").html("");
+
+            $.each(result, function(index, value) {
+                console.log(value.type + " " + value.price + " " + value.disabled);
+                makeCard(index, value);
+
+            });
+        }
+    });
+}
+
 function makeCard(index, value) {
     $("#roomlist").append("<div id='room" + index + "'></div>");
     $("#room" + index).load("cards/roomViewRoomCard.html", function() {
@@ -209,11 +235,6 @@ function makeCard(index, value) {
 
 }
 
-function selectRoom(){
-
-
-}
-
 
 var slider = document.getElementById("price");
 var output = document.getElementById("priceselect");
@@ -231,5 +252,6 @@ $(document).on('click', "#checkout", function() {
 });
 
 $(document).on('click', '#roomFilter', function(){
-    filter();
+//    filter();
+    getRoomsByDate();
 });
