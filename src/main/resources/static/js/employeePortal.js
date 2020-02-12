@@ -6,12 +6,13 @@ $(document).ready(function() {
     $("#deleteButton").click();
 
     $("#addBtn").on('click', function() {
-        document.getElementById("modal-title").innerHTML = createTitle;
+        document.getElementById("modal-title").innerHTML = "Add a new " + portalType;
         document.getElementById("modalForm").reset();
         $("#btnsubmit").attr('onclick', 'validateSubmitNew("' + api + '");');
         $('#postDetail').modal('toggle');
         $('.form-check-input').attr('checked', false);
         $('#modalForm').removeClass("was-validated");
+        $("#deleteButton").attr('onclick', '');
     });
 });
 
@@ -117,7 +118,7 @@ function fillUpdateDiv(record, api) {
     $("#deleteButton").attr('onclick', 'confirmDelete(' + record.id + ', "' + api + '");');
 
 
-    document.getElementById("modal-title").innerHTML = "Edit a table";
+    document.getElementById("modal-title").innerHTML = "Edit a " + portalType;
 
     // this function fills the modal
     fillModal(record);

@@ -17,23 +17,23 @@ $(document).on("click", '.collapse-trigger', function() {
 
 function getData() {
     console.log("getting data...");
-    var dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+    var dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     // Get Start and To date
     //    sessionStorage.setItem("dateFrom", new Date('March 2 2020'));
     //    sessionStorage.setItem("dateTo", new Date('March 7 2020'));
 
     let dateFrom = new Date(sessionStorage.getItem("dateFrom")).toLocaleDateString("en-US", dateOptions);
     let dateTo = new Date(sessionStorage.getItem("dateTo")).toLocaleDateString("en-US", dateOptions);
-    $("#dateFrom").append(dateFrom);
-    $("#dateTo").append(dateTo);
+    $("#dateFrom").html(dateFrom);
+    $("#dateTo").html(dateTo);
     console.log(dateFrom);
     console.log(dateTo);
 
     // Get Selected Rooms
-     var retrievedObject = sessionStorage.getItem('bookedRooms');
-     let rooms = JSON.parse(retrievedObject);
-        console.log('retrievedObject: ', JSON.parse(retrievedObject));
-   // let rooms = [sessionStorage.getItem("bookedRoom")];
+    var retrievedObject = sessionStorage.getItem('bookedRooms');
+    let rooms = JSON.parse(retrievedObject);
+    console.log('retrievedObject: ', JSON.parse(retrievedObject));
+    // let rooms = [sessionStorage.getItem("bookedRoom")];
     console.log(rooms);
     rooms.forEach(function(item, index) {
         $.ajax({
@@ -148,7 +148,10 @@ function getFormData() {
         lastName: $("#lname").val(),
         birthday: $("#bdate").val().split('-').reverse().join('-'),
         country: $("#country").val(),
-        address: $("#streetname").val() + " " + $("#streetnumber").val(),
+        streetName1: $("#streetname").val(),
+        streetName2: $("#streetname2").val(),
+        streetName3: $("#streetname3").val(),
+        addressNumber: $("#streetnumber").val(),
         city: $("#city").val(),
         zipcode: $("#zipcode").val(),
         phoneNumber: $("#phonenumber").val(),

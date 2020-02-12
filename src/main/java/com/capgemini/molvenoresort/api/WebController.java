@@ -31,6 +31,11 @@ public class WebController {
         return "employeePortalGuests";
     }
 
+    @GetMapping("employeePortalBookings")
+    public String loadEmployeePortalBookings() {
+        return "employeePortalBookings";
+    }
+
     @GetMapping("restaurant")
     public String loadRestaurant() {
         return "restaurant";

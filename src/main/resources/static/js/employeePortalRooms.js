@@ -5,14 +5,64 @@ var columns = [
     { "data": "price", "title": "Price" },
     { "data": "adult", "title": "Adults" },
     { "data": "children", "title": "Children" },
-    { "data": "disabled", "title": "Suitable for disabled" },
-    { "data": "smoking", "title": "Smoking allowed" },
-    { "data": "status", "title": "Status" },
-    { "data": "type", "title": "Type" },
+    {
+        "data": "disabled",
+        "title": "Suitable for disabled",
+        "render": function(data) {
+            return mapBool(data)
+        }
+    },
+    {
+        "data": "smoking",
+        "title": "Smoking allowed",
+        "render": function(data) {
+            return mapBool(data)
+        }
+    },
+    {
+        "data": "status",
+        "title": "Status",
+        "render": function(data) {
+            return mapStatus(data)
+        }
+    },
+    {
+        "data": "type",
+        "title": "Type",
+        "render": function(data) {
+            return mapType(data)
+        }
+    },
     { "data": "beds", "title": "Beds" },
     //{ "data": "image", "title": "Image" },
 ];
-var createTitle = "Add a new room";
+var portalType = "room";
+
+function mapBool(data) {
+    if (data) {
+        return "Yes";
+    } else {
+        return "No";
+    }
+}
+
+function mapStatus(data) {
+    return data.toLowerCase();
+}
+
+function mapType(data) {
+    if (data == "SINGLE") {
+        return "Single"
+    } else if (data == "PENTHOUSE") {
+        return "Penthouse"
+    } else if (data == "DOUBLE") {
+        return "Double"
+    } else if (data == "DOUBLEX_2") {
+        return "Double x 2"
+    } else {
+        return "Type undefined"
+    }
+}
 
 function fillModal(record) {
     $('#modalForm').removeClass("was-validated");

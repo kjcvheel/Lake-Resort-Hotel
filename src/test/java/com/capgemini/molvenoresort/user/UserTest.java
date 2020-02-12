@@ -81,13 +81,13 @@ public class UserTest {
 
 	@Test
 	public void addressTest() {
-		assertEquals("Villawal 1", user.getAddress());
+		assertEquals("Villawal 1", user.getStreetName1());
 
-		user.setAddress("Mookpad 1");
-		assertEquals("Mookpad 1", user.getAddress());
+		user.setStreetName1("Mookpad 1");
+		assertEquals("Mookpad 1", user.getStreetName1());
 
-		user.setAddress("@55433533");
-		assertEquals("@55433533", user.getAddress());
+		user.setStreetName1("@55433533");
+		assertEquals("@55433533", user.getStreetName1());
 	}
 
 	@Test
