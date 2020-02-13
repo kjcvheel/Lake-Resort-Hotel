@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $("#datatable-titel").html(portalType[0].toUpperCase() + portalType.slice(1) + "s");
     initDataTable(api);
 
     $("#refreshBtn").click(getData);
@@ -51,6 +52,8 @@ function initDataTable(api) {
 
         $('#postDetail').modal('toggle');
     });
+
+    $("#dataTable_filter input").val("5");
 }
 
 function clear() {
