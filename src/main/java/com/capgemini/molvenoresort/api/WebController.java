@@ -45,7 +45,18 @@ public class WebController {
     public String loadLogin() {
         return "login";
     }
-
+    
     @GetMapping("confirmation")
     public String loadConfirmation() {return "bookingConfirmation";}
+
+    @GetMapping("contact")
+    public String loadContact() {
+        return "contact";
+    }
+
+    @GetMapping("FAQ")
+    public String loadFAQ() {
+        return "FAQ";
+    }
+
 }
