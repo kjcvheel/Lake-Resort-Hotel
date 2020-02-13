@@ -57,7 +57,7 @@ function fillModal(record) {
     $("#children").val(record.children);
     $("#payed").attr('checked', record.paymentStatus);
     $("#status").val(record.status);
-
+    $("#rooms").val(formRooms(record.roomNumbers));
     thisBooking = record;
 }
 
