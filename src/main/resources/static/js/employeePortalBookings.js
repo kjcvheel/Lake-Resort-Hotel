@@ -51,27 +51,28 @@ function fillModal(record) {
     // fill the modal
     $("#id").val(record.id);
     $("#mainbooker").val(formBooker(record.mainBooker));
-    $("#checkin").val(record.startDate);
-    $("#checkout").val(record.endDate);
+    $("#checkin").val(formatDate(record.startDate));
+    $("#checkout").val(formatDate(record.endDate));
     $("#adults").val(record.adults);
     $("#children").val(record.children);
     $("#payed").attr('checked', record.paymentStatus);
     $("#status").val(record.status);
     $("#rooms").val(formRooms(record.roomNumbers));
     thisBooking = record;
+    changeDateRange();
 }
 
 function getFormData() {
     let formObj = {
         id: thisBooking.id,
         mainBooker: thisBooking.mainBooker,
-        startDate: $("#checkin").val(),
-        endDate: $("#checkout").val(),
+        startDate: formatDateForSave($("#checkin").val()),
+        endDate: formatDateForSave($("#checkout").val()),
         adults: $("#adults").val(),
         children: $("#children").val(),
         paymentStatus: $("#payed").is(":checked"),
         status: $("#status").val(),
-        rooms: thisBooking.roomNumbers
+        roomNumbers: thisBooking.roomNumbers
     };
     console.log(formObj);
     return formObj;
@@ -104,6 +105,10 @@ function setDate(dateInput) {
 
 
 $('#checkin').change(function() {
+    changeDateRange();
+});
+
+function changeDateRange() {
     let date = new Date($("#checkin").val());
     date.setDate(date.getDate() + 1);
     $("#checkout").datepicker('setStartDate', date);
@@ -111,7 +116,7 @@ $('#checkin').change(function() {
     if (dateOut.getTime() < date.getTime()) {
         $('#checkout').datepicker('update', date);
     }
-});
+}
 
 function formBooker(full) {
     let fullname = "";
@@ -134,4 +139,32 @@ function formRooms(full) {
         rooms += room['name'] + ", ";
     });
     return rooms;
+}
+
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2)
+        month = '0' + month;
+    if (day.length < 2)
+        day = '0' + day;
+
+    return [month, day, year].join('/');
+}
+
+function formatDateForSave(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2)
+        month = '0' + month;
+    if (day.length < 2)
+        day = '0' + day;
+
+    return [year, month, day].join('-');
 }
