@@ -45,7 +45,7 @@ public class WebController {
     public String loadLogin() {
         return "login";
     }
-    
+
     @GetMapping("confirmation")
     public String loadConfirmation() {return "bookingConfirmation";}
 

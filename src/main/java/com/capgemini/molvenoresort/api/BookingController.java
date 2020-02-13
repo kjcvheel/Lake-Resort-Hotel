@@ -36,11 +36,10 @@ public class BookingController {
 
     @PostMapping("/add")
     public ResponseEntity<?> addBooking(@RequestBody Booking booking) {
-        ResponseEntity temp = bookingService.addBooking(booking);
-        String[] email = new String[5];
-        email[0] = "Kevinvanheel94@hotmail.com";
+        ResponseEntity<?> temp = bookingService.addBooking(booking);
+        String[] to = { "cornelius.broekhuis@capgemini.com"};
         try {
-            notificationService.sendFromGMail(email, "Test", "Test");
+            notificationService.sendFromGMail(to, "Test", "Test");
         }
         catch (MessagingException e) {
             System.out.println("error in sending mail" + e.getMessage());

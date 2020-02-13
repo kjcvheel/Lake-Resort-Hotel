@@ -19,13 +19,7 @@ public class NotificationService {
     private static String PASSWORD = "Toetsenbord123"; // GMail password
 
 
-    public static void main(String[] args) throws MessagingException {
-        // Controller
-        String[] to = { "cornelius.broekhuis@capgemini.com" }; // list of recipient email addresses
-        NotificationService notificationService = new NotificationService();
-        notificationService.sendFromGMail(to, "Subject", "This is the actual email message");
 
-    }
 
     public void sendFromGMail( String[] to, String subject, String body) throws MessagingException {
         Properties props = System.getProperties();
