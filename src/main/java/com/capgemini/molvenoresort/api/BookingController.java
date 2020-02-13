@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.mail.MailException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import javax.management.Notification;
 
 @RestController
@@ -36,10 +37,12 @@ public class BookingController {
     @PostMapping("/add")
     public ResponseEntity<?> addBooking(@RequestBody Booking booking) {
         ResponseEntity temp = bookingService.addBooking(booking);
+        String[] email = new String[5];
+        email[0] = "Kevinvanheel94@hotmail.com";
         try {
-            notificationService.sendNotification(booking.getMainBooker());
+            notificationService.sendFromGMail(email, "Test", "Test");
         }
-        catch (MailException e) {
+        catch (MessagingException e) {
             System.out.println("error in sending mail" + e.getMessage());
         }
         return temp;

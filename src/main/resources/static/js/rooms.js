@@ -47,42 +47,6 @@ $(document).on('click', "#checkout", function () {
 });
 
 
-<<<<<<< HEAD
-let selectedRooms = [];
-
-$(document).on('click', "#selectnow", function() {
-     let index = $(this).parents().eq(2).attr('name');
-     console.log(index);
-
-        $.ajax({
-                    url: "http://localhost:8080/api/rooms/" + index,
-                    type: "get",
-                    success: function(result) {
-                        $("#selectedRooms").append("<div id='selectedroom" + index + "'></div>");
-                            $("#selectedroom" + index).load("cards/smallRoomCard.html", function() {
-                                let card = $("#selectedroom" + index);
-                                console.log("Filling in details of room: " + result.id);
-                                card.find("#price").html("Price: " + result.price);
-                                card.find("#size").html("Adults: " + result.adult + ", Children: " + result.children);
-                                card.find(".card-title").html(result.name);
-                                card.find("#room-image").attr('src', result.image);
-                                if(selectedRooms.includes(result.id)){
-                                    return;
-                                }
-                                selectedRooms.push(result.id);
-
-                            });
-                    }
-                });
-});
-
-$(document).on('click', "#booknow", function() {
-    if(selectedRooms.length ==0){
-        return;
-    }
-    sessionStorage.setItem('dateFrom', $("#checkin").val());
-    sessionStorage.setItem('dateTo', $("#checkout").val());
-=======
 
 
 $(document).on('click', '#roomFilter', function () {
@@ -99,7 +63,6 @@ function setDatePicker() {
 
     date_input.datepicker({
         format: 'mm/dd/yyyy',
->>>>>>> fba39b74eab6be12b756bc681f9f9569d00d5848
 
         daysOfWeekHighlighted: '0,6',
         todayHighlight: true,
@@ -118,9 +81,9 @@ function setDatePicker() {
 
         }
     }).on('changeDate', function() {
-            let date = new Date($("#checkin").val());
-            date.setDate(date.getDate() + 1);
-            $("#checkout").datepicker('setDate', date);
+        let date = new Date($("#checkin").val());
+        date.setDate(date.getDate() + 1);
+        $("#checkout").datepicker('setDate', date);
     });
 
     var date_input2 = $('input[name="checkout"]'); //our date input has the name "date"
@@ -133,8 +96,8 @@ function setDatePicker() {
         weekStart: 1
 
     }).on('changeDate', function() {
-                    filter();
-                });
+        filter();
+    });
 }
 
 function getRooms() {
@@ -320,5 +283,3 @@ function resetSelected() {
     $("#selectedRooms").html("");
     selectedRooms = [];
 }
-
-
