@@ -15,7 +15,45 @@
         </div>
         <div class="form-group">
             <label for="mainbooker">Main booker:</label>
-            <input type='text' class="form-control form-control-sm" name='mainbooker' id="mainbooker" required>
+            <input type='text' class="form-control form-control-sm" name='mainbooker' id="mainbooker" readonly>
+        </div>
+        <div class="row">
+            <div class="form-group col-6">
+                <label for="checkin">Check in:</label>
+                <input type='text' class="form-control form-control-sm datepicker" name='checkin' id="checkin" placeholder="MM/DD/YYYY" required>
+            </div>
+            <div class="form-group col-6">
+                <label for="checkout">Check out:</label>
+                <input type='text' class="form-control form-control-sm datepicker" name='checkout' id="checkout" placeholder="MM/DD/YYYY" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-7">
+                <label for="adults" data-translate="Adults (including you):">Adults (including you):</label>
+                <input type="number" class="form-control form-control-sm" id="adults" name="adults" min="1" pattern="^[1-9]/d*$" value="1" required>
+            </div>
+            <div class="col-5">
+                <label for="children" data-translate="Children:">Children:</label>
+                <input type="number" class="form-control form-control-sm" id="children" name="children" min="0" pattern="^\d*$" value="0" required>
+            </div>
+        </div>
+        <div class="form-check">
+            <input class='form-check-input' type="checkbox" value="" name='payed' id="payed">
+            <label class="form-check-label" for="payed">is payed.</label>
+        </div>
+        <div class="form-group">
+            <!--DROPDOWN-->
+            <label for="status">Status:</label>
+            <select class="form-control form-control-sm" name='status' id='status'>
+                <option value="RESERVED">Reserved</option>
+                <option value="BOOKED">Booked</option>
+                <option value="CHECKED_IN">Checked in</option>
+                <option value="CHECKED_OUT">Checked out</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="rooms">Rooms:</label>
+            <input type='text' class="form-control form-control-sm" name='rooms' id="rooms" readonly>
         </div>
     </form>
 

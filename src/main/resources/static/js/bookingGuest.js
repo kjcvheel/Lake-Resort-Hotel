@@ -81,7 +81,7 @@ function postBooking(mainBooker) {
     console.log(roomNumbers);
     // Get data for booking
     let dateFrom = formatDate(sessionStorage.getItem("dateFrom"));
-    let dateTo = formatDate(sessionStorage.getItem("dateTo"))
+    let dateTo = formatDate(sessionStorage.getItem("dateTo"));
     let bookingObj = {
         mainBooker: mainBooker,
         startDate: dateFrom,

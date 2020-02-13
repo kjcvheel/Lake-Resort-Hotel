@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -136,7 +138,29 @@ public class RoomController {
         }
         rooms = temp;
 
-        return rooms;
+        if(filter.getStartDate().equals("") || filter.getStartDate().equals("")){
+            return rooms;
+        }
+        else {
+
+            List<Room> notAvailable = new ArrayList<>();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+
+            //convert String to LocalDate
+            LocalDate startDate = LocalDate.parse(filter.getStartDate(), formatter);
+            LocalDate endDate = LocalDate.parse(filter.getEndDate(), formatter);
+
+            List<Booking> bookings = this.bookingRepository.findByStartDateLessThanAndEndDateGreaterThan(endDate, startDate);
+            for (Booking booking : bookings) {
+                for (Room bookedRoom : booking.getRoomNumbers()) {
+                    if (!notAvailable.contains(bookedRoom))
+                        notAvailable.add(bookedRoom);
+                }
+            }
+            rooms.removeAll(notAvailable);
+
+            return rooms;
+        }
     }
 
 

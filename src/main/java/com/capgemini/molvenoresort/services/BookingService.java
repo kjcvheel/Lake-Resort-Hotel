@@ -48,6 +48,11 @@ public class BookingService {
 
     }
 
+    public ResponseEntity<Booking> updateBooking(Booking booking) {
+        System.out.println(booking.getRoomNumbers());
+        return ResponseEntity.ok(repository.save(booking));
+    }
+
     public boolean checkAge(Booking booking) {
         Calendar calender = GregorianCalendar.getInstance();
         calender.set(Calendar.YEAR, calender.get(Calendar.YEAR)-18);

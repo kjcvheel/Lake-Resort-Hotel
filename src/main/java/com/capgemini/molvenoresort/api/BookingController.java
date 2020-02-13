@@ -28,7 +28,7 @@ public class BookingController {
         return this.bookingService.findAll();
     }
 
-    @GetMapping("/booking{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Booking> findById(@PathVariable long id) {
         return bookingService.findById(id);
     }
@@ -43,6 +43,11 @@ public class BookingController {
             System.out.println("error in sending mail" + e.getMessage());
         }
         return temp;
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateBooking(@RequestBody Booking booking) {
+        return bookingService.updateBooking(booking);
     }
 
     @DeleteMapping("delete/{id}")

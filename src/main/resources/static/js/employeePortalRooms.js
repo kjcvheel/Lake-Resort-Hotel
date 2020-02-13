@@ -38,18 +38,6 @@ var columns = [
 ];
 var portalType = "room";
 
-function mapBool(data) {
-    if (data) {
-        return "Yes";
-    } else {
-        return "No";
-    }
-}
-
-function mapStatus(data) {
-    return data.toLowerCase();
-}
-
 function mapType(data) {
     if (data == "SINGLE") {
         return "Single"

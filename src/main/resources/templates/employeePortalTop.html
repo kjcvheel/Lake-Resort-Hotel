@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.bootstrap.min.css" />
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css" />
 <link rel="stylesheet" href="http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
 
 <meta name="description" content="">
 <meta name="author" content="">
@@ -15,9 +16,10 @@
 
 <body>
     <!-- Navigation -->
-    {{>navbar}}
+    {{>navbarPortal}}
     <div class="container">
         <div class="row bg-white border rounded border-light my-3">
+            <h2 id="datatable-titel"></h2>
             <div class="col-12">
                 <table id="dataTable" class="display">
                 </table>
