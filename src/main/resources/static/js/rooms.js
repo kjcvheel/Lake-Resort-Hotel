@@ -81,9 +81,9 @@ function setDatePicker() {
 
         }
     }).on('changeDate', function() {
-            let date = new Date($("#checkin").val());
-            date.setDate(date.getDate() + 1);
-            $("#checkout").datepicker('setDate', date);
+        let date = new Date($("#checkin").val());
+        date.setDate(date.getDate() + 1);
+        $("#checkout").datepicker('setDate', date);
     });
 
     var date_input2 = $('input[name="checkout"]'); //our date input has the name "date"
@@ -96,8 +96,8 @@ function setDatePicker() {
         weekStart: 1
 
     }).on('changeDate', function() {
-                    filter();
-                });
+        filter();
+    });
 }
 
 function getRooms() {
@@ -283,5 +283,3 @@ function resetSelected() {
     $("#selectedRooms").html("");
     selectedRooms = [];
 }
-
-

@@ -1,0 +1,53 @@
+{{>header}}
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./css/bookingConfirmation.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<!--<script src="vendor/jquery/jquery.slim.min.js "></script>-->
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+<script src="js/bookingConfirmation.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Thank you for booking at Molveno</h5>
+                    <form class="form-signin">
+                        <div class="form-label-group">
+                            <h6 class ="text-center" id="guestName"> Dear </h6> </h6>
+                            <p>Thank you for making a reservation with Molveno. Below you will find a small overview of your booking details. For any question feel free to contact our staff. Details listed below</p>
+                        </div>
+
+                        <div class="form-label-group">
+                            <p id="booking_id"> Your booking id-number is: </p>
+                            <p id="check_in"> Check in date:  </p>
+                            <p id="check_out"> Check out date:  </p>
+                            <p id="total_nights">The amount of total nights are: </p>
+                            <p id="price">Total price of the rooms: </p>
+                        </div>
+                        <div>
+                            <p>We have send an email to the following email-address as confirmation <p id="email-address"> </p> </p>
+                        </div>
+
+                        <div class="custom-control custom-checkbox mb-3">
+                            <p></p>
+                        </div>
+                        <hr class="my-4">
+                        <p>Template holder for the contact information of Molveno Lake Resort</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+</html>

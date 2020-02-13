@@ -71,7 +71,9 @@ function postData() {
             console.log("This was posted " + result.firstName + " " + result.guestId);
             postBooking(result)
         }
+
     });
+
 }
 
 function postBooking(mainBooker) {
@@ -98,6 +100,9 @@ function postBooking(mainBooker) {
         success: function(result) {
             alert("The booking has been posted under the name " + result.mainBooker.firstName + " " + result.mainBooker.lastName);
             console.log("This was posted " + result.id);
+            sessionStorage.setItem("bookingConfirmation", result.id)
+            console.log("In the storage" + sessionStorage.getItem("bookingConfirmation"))
+            window.location.href = "http://localhost:8080/confirmation"
         },
         error: function(result) {
             console.log(result.responseText);
@@ -117,10 +122,7 @@ function setRoomsInfo(room, index) {
         card.find(".card-title").html(room.name);
         card.find("#room-image").attr('src', room.image);
     });
-    //$(".roomname").html("hello" + index);
-    //$("#room" + index).find(".roomname")[0].html("hello");
-    //$("#rooms-container").find(".roomname").html("<p>Hello<p>");
-    //$("#rooms-container").append("<p>" + Room.id + ": " + Room.number + "</p>");
+
 }
 
 function fillBirthdayDropdowns() {
