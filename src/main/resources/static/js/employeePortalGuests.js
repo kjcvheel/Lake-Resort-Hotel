@@ -25,6 +25,7 @@ var columns = [
 ];
 var portalType = "guest";
 
+
 function formName(full) {
     let fullname = "";
     if (full['firstName']) {
@@ -68,7 +69,6 @@ function fillModal(record) {
     $("#email").val(record.email);
     $("#country").val(record.country);
     $("#city").val(record.city);
-    $("#s").val(record.address);
     $("#streetName1").val(record.streetName1);
     $("#streetName2").val(record.streetName2);
     $("#streetName3").val(record.streetName3);
