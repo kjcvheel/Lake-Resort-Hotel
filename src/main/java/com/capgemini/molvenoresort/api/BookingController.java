@@ -37,7 +37,7 @@ public class BookingController {
     @PostMapping("/add")
     public ResponseEntity<?> addBooking(@RequestBody Booking booking) {
         ResponseEntity<?> temp = bookingService.addBooking(booking);
-        String[] to = { "cornelius.broekhuis@capgemini.com"};
+        String[] to = { "kevin.van.heel@capgemini.com"};
         try {
             notificationService.sendFromGMail(to, "Test", "Test");
         }

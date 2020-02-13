@@ -11,7 +11,7 @@ function getData() {
 
 
     $.ajax({
-        url: "http://localhost:8080/bookings/booking" + retrievedObjectID,
+        url: "http://localhost:8080/bookings/" + retrievedObjectID,
         type: "get",
         success: function(result) {
             appendData(result)
