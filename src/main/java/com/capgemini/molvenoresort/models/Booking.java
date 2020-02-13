@@ -70,7 +70,6 @@ public class Booking {
     public LocalDate getStartDate() {return startDate;}
 
     public void setStartDate(LocalDate startDate) {
-        if(startDate.isAfter(LocalDate.now()) || startDate.isEqual(LocalDate.now()))
             this.startDate = startDate;
     }
 
