@@ -82,11 +82,8 @@ function setDatePicker() {
         }
     }).on('changeDate', function() {
             let date = new Date($("#checkin").val());
-            console.log(date);
             date.setDate(date.getDate() + 1);
-            console.log(date);
             $("#checkout").datepicker('setDate', date);
-            console.log($("#checkin").val() + " and " + $("#checkout").val());
     });
 
     var date_input2 = $('input[name="checkout"]'); //our date input has the name "date"
@@ -183,8 +180,7 @@ function getRoomsUnder() {
 function getRoomsByDate() {
     let incheck = $("#checkin").val();
     let uitcheck = $("#checkout").val();
-    console.log(incheck + uitcheck);
-    console.log("http://localhost:8080/api/rooms/date/" + incheck + "/" + uitcheck);
+
 
 
     $.ajax({
