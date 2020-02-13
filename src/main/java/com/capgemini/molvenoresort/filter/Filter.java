@@ -1,11 +1,16 @@
 package com.capgemini.molvenoresort.filter;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class Filter {
     private int adult;
     private int children;
     private int maxPrice;
     private boolean disabled;
     private boolean smoking;
+    private String startDate;
+    private String endDate;
 
     public int getAdult() {
         return adult;
@@ -45,5 +50,21 @@ public class Filter {
 
     public void setSmoking(boolean smoking) {
         this.smoking = smoking;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 }

@@ -50,7 +50,7 @@ $(document).on('click', "#checkout", function () {
 
 
 $(document).on('click', '#roomFilter', function () {
-    //filter();
+    filter();
     //getRoomsByDate();
     resetSelected();
 });
@@ -99,7 +99,7 @@ function setDatePicker() {
         weekStart: 1
 
     }).on('changeDate', function() {
-                    getRoomsByDate();
+                    filter();
                 });
 }
 
@@ -130,7 +130,8 @@ function getFilterData() {
         maxPrice: $("#price").val(),
         smoking: $("#smoking").is(":checked"),
         disabled: $("#disabled").is(":checked"),
-
+        startDate: $("#checkin").val(),
+        endDate: $("#checkout").val(),
     };
     return filterObj;
 }
