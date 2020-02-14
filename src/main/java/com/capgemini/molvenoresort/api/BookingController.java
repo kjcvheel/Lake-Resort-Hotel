@@ -17,7 +17,7 @@ import javax.management.Notification;
 @RequestMapping(value = {"/bookings"})
 public class BookingController {
 
-
+    private String confirmationString = "Your booking has been processed into the system. For any questions please call our reception with the your booking id. Your booking ID is: ";
     private Logger logger = LoggerFactory.getLogger(BookingController.class);
     @Autowired
     private NotificationService notificationService;
@@ -37,9 +37,10 @@ public class BookingController {
     @PostMapping("/add")
     public ResponseEntity<?> addBooking(@RequestBody Booking booking) {
         ResponseEntity<?> temp = bookingService.addBooking(booking);
-        String[] to = { "kevin.van.heel@capgemini.com"};
+
+        String[] to = {booking.getMainBooker().getEmail()};
         try {
-            notificationService.sendFromGMail(to, "Test", "Test");
+            notificationService.sendFromGMail(to, "Booking Confirmation", this.confirmationString + " " + booking.getId());
         }
         catch (MessagingException e) {
             System.out.println("error in sending mail" + e.getMessage());
