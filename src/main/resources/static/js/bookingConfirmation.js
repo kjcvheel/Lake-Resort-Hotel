@@ -27,13 +27,13 @@ function appendData(data) {
     var difference_In_Days = difference_In_Time / (1000 * 3600 * 24);
 
     let rooms = data.roomNumbers;
-    var totalPrice = 0;
+    var price1 = 0;
     rooms.forEach((element) => {
-        totalPrice += element.price;
+        price1 += element.price;
     });
 
     console.log("Difference in time" + difference_In_Days);
-
+    var totalPrice = price1 * difference_In_Days;
     console.log(JSON.stringify(data));
     // console.log("firstname of the booker " + data.mainBooker);
     // console.log("startdate " + data.startDate)
@@ -42,7 +42,7 @@ function appendData(data) {
     $("#check_in").append(data.startDate);
     $("#check_out").append(data.endDate);
     $("#total_nights").append(difference_In_Days);
-    $("#price").append(totalPrice);
+    $("#price").append("<span>&#165;</span>" +  " " + totalPrice);
     $("#email-address").html(data.mainBooker.email);
 
 

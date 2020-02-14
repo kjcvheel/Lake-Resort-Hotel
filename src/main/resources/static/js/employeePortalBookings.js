@@ -44,6 +44,8 @@ $(document).ready(function() {
 
     let date_input2 = $('input[name="checkout"]');
     setDate(date_input2);
+
+    $('#addBtn').hide();
 });
 
 function fillModal(record) {

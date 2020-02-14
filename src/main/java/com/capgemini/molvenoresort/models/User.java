@@ -82,12 +82,7 @@ public  abstract class User {
 	}
 
 	public void setFirstName(String firstName) {
-		if (firstName.matches("[a-zA-Z' ]+")) {
-			this.firstName = firstName;
-		}
-		else {
-			throw new IllegalArgumentException();
-		}
+		this.firstName = firstName;
 	}
 
 	public String getInfix() {
@@ -103,12 +98,7 @@ public  abstract class User {
 	}
 
 	public void setLastName(String lastName) {
-		if (lastName.matches("[a-zA-Z' ]+")) {
-			this.lastName = lastName;
-		}
-		else {
-			throw new IllegalArgumentException();
-		}
+		this.lastName = lastName;
 	}
 
 	public String getEmail() {

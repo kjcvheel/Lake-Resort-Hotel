@@ -98,7 +98,6 @@ function postBooking(mainBooker) {
         data: jsonObj,
         contentType: "application/json",
         success: function(result) {
-            alert("The booking has been posted under the name " + result.mainBooker.firstName + " " + result.mainBooker.lastName);
             console.log("This was posted " + result.id);
             sessionStorage.setItem("bookingConfirmation", result.id)
             console.log("In the storage" + sessionStorage.getItem("bookingConfirmation"))
